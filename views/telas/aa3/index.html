@@ -1,0 +1,57 @@
+<script>
+        window["aa3"] = {
+            indice: "aa3",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa3").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA3 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 azul1 size22" px="110" py="220">
+                <div class="sub animated fadeInRight delay0_5">
+                    <div class="animated fadeInLeft delay0_8">
+                        Uma sexta-feira com o sentimento de dever cumprido no trabalho. 
+                        Um fim de semana com tempo de sobra para se dedicar ao seu passatempo 
+                        favorito: mergulhar no mundo das investigações. Filmes, séries, 
+                        livros. Tudo que há sobre essa temática lhe desperta um grande interesse.
+                    </div>
+                       
+                </div>
+            </div> 
+            
+        </div>
+    
+    
+    </div>

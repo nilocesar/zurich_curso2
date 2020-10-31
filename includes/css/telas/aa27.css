@@ -1,0 +1,382 @@
+/*= AA1
+----------------------------*/
+
+.containerAA27 {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: url(../../img/cenario27.png) no-repeat center;
+    background-size: contain;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+.containerAA27 .content {
+    position: absolute;
+    width: 530px;
+    line-height: normal;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-items: center; */
+    overflow: hidden;
+}
+
+.containerAA27 .content .sub {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+    margin-top: 15px;
+    /* margin-top: 25px; */
+    /* border-left: 1px solid #0D2554;
+padding-left: 25px; */
+}
+
+.containerAA27 .item {
+    position: relative;
+    width: 150px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 30px;
+    pointer-events: none;
+}
+
+.containerAA27 .item .ico {
+    position: relative;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #0D2554;
+    border-radius: 20px;
+    background: url(../../img/ico6.svg) no-repeat center;
+    background-size: 60%;
+}
+
+.containerAA27 .item .text {
+    padding: 10px;
+    color: #0D2554;
+    font-size: 30px;
+}
+
+.containerAA27 .blocos {
+    position: absolute;
+    width: 930px;
+}
+
+.containerAA27 .titulo {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.containerAA27 .titulo div {
+    width: 50%;
+}
+
+.containerAA27 .block {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.containerAA27 .block .it {
+    width: 45%;
+    padding: 10px;
+}
+
+.containerAA27 .block .seta {
+    width: 10%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+
+.containerAA27 .block .item1 {
+    border: 1px solid #0D2554;
+}
+
+.containerAA27 .info {
+    width: 100%;
+    text-align: center;
+}
+
+.containerAA27 .sInativo {
+    /* opacity: 0;
+pointer-events: none; */
+    display: none;
+}
+
+.containerAA27 .quiz {
+    position: absolute;
+    width: 553px;
+    height: 467px;
+    padding: 30px;
+    /* background-color: rgba(0, 0, 255, 0.116); */
+}
+
+.containerAA27 .quiz .ti {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.containerAA27 .quiz .balao {
+    position: relative;
+    background: #FFCC00;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.containerAA27 .quiz .balao:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #FFCC00;
+    border-bottom: 0;
+    margin-left: -10px;
+    margin-bottom: -10px;
+}
+
+.containerAA27 .quiz .al {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin-bottom: 5px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.containerAA27 .quiz .al .letra {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /* background-color: #FF5900; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+    border: 5px solid #0D2554;
+}
+
+.containerAA27 .quiz .al .letra .Linit {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #0D2554;
+    border-radius: 50%;
+    position: relative;
+}
+
+.containerAA27 .quiz .al .text {
+    position: relative;
+    width: 400px;
+    /* background-color: #fff; */
+    padding: 20px;
+    text-align: center;
+    color: #0D2554;
+    border-radius: 40px;
+    border: 1px solid #0D2554;
+    margin-left: 20px;
+}
+
+.containerAA27 .quiz .al:hover .text {
+    background-color: #0D2554;
+    color: #fff;
+}
+
+.containerAA27 .quiz .al:hover .Linit {
+    background-color: #0D2554;
+}
+
+.containerAA27 .quiz .alAtivo .text {
+    background-color: #0D2554;
+    color: #fff;
+}
+
+.containerAA27 .quiz .alAtivo .Linit {
+    background-color: #0D2554;
+}
+
+.containerAA27 .quiz .alNegativo .letra{
+    border-color: #acabab;
+}
+.containerAA27 .quiz .alNegativo .text {
+    border: 1px solid #acabab;
+    background-color: #acabab;
+    color: #fff;
+}
+
+.containerAA27 .quiz .alNegativo .Linit {
+    border: 1px solid #acabab !important;
+    background-color: #acabab;
+    color: #fff;
+}
+
+.containerAA27 .quiz .responder {
+    background-color: #0D2554;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 0;
+    width: 200px;
+    border-radius: 20px;
+    position: relative;
+    right: 0;
+    float: right;
+    margin-top: 20px;
+}
+
+.containerAA27 .quiz .responder:hover {
+    background-color: #004C9A;
+    color: #fff;
+}
+
+.containerAA27 .feed {
+    position: absolute;
+    width: 1120px;
+    height: 540px;
+    display: none;
+}
+
+.containerAA27 .feed .feedBase {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #51A3CB;
+    z-index: 999999;
+    /* padding-top: 70px; */
+    display: none;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerAA27 .feed .feedNegativo {
+    background-color: #8DB5D6;
+}
+
+.containerAA27 .feed .infX {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.containerAA27 .feed .icoPositivo {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: url(../../img/icoPositivo.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA27 .feed .icoNegativo {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: url(../../img/icoNegativo.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA27 .feed .inf {
+    position: relative;
+    width: 50%;
+    color: #fff;
+    /* background-color: #004990; */
+    margin-right: 30px;
+}
+
+.containerAA27 .feed .continuar {
+    background-color: #0D2554;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 0;
+    width: 200px;
+    border-radius: 20px;
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.containerAA27 .feed .continuar:hover {
+    background-color: #004C9A;
+    color: #fff;
+}
+
+.containerAA27 .icos {
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    margin-top: -10px;
+    display: none;
+}
+
+.containerAA27 .icos .icoNeg {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #acabab;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    display: none;
+}
+
+.containerAA27 .icos .icoPos {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0D2554;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    display: none;
+}
+
+.containerAA27 .alInativo {
+    pointer-events: none;
+}
+
+.containerAA27 .pontBloco {
+    border: 1px solid #0D2554;
+    border-radius: 10px;
+    padding: 10px;
+}

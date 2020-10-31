@@ -1,0 +1,74 @@
+<script>
+        window["aa18"] = {
+            indice: "aa18",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa18").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA18 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="200">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Fraudes<br> externas
+                    </div>
+                </div>
+                <div class="sub animated zoomIn delay0_8">
+                   
+                    <div class="cinza1">
+                        São fraudes cometidas por aqueles que contratam ou prestam serviço 
+                        a <span class="bold azul1">Zurich</span>, seja durante a contratação, 
+                        no curso de eventos previstos no contrato, ou mesmo após sua ocorrência. 
+                        Dentre as fraudes desse tipo, estão:<br><br> 
+                        • mudança suspeita do real benefíciário do seguro; <br>
+                        • falsas declarações no preenchimento da proposta; <br>
+                        • falsa indicação do condutor habitual; <br>
+                        • falso acionamento do seguros de roubo ou furto; <br>
+                        • omissões da existência de seguros anteriores com sinistros 
+                        no preenchimento da proposta de seguro.
+                    </div>
+                       
+                </div>
+            </div> 
+
+            <div class="elemento posicionar" px="730" py="121">
+                <div class="img animated zoomIn delay1_2"></div>
+            </div>
+            
+        </div>
+    
+    
+    </div>

@@ -1,0 +1,89 @@
+<script>
+        window["aa10"] = {
+            indice: "aa10",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa10").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+
+                     _containerTela.find(".btnMenuReturn").on('click', function(){
+                        course.returnMenu(1);
+                    });
+    
+                  
+                } else {
+                   
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA10 containerAABase">
+        <div class="containerGeral">
+
+             <div class="element posicionar" px="160" py="121">
+                <div class="img animated zoomIn delay1_2"></div>
+            </div>
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="730" py="200">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Impactos<br> da fraude
+                    </div>
+                </div>
+                <div class="sub animated zoomIn delay0_8">
+                    <div class="cinza1 mb20">
+                        O ato de fraudar é um crime previsto no Código Penal Brasileiro, 
+                        conforme a seguinte redação:
+                    </div>
+                    <div class="azul1 size26 bold">
+                        Artigo 171
+                    </div>
+                    <div class="cinza1">
+                        “Obter, para si ou para outrem, vantagem ilícita, em prejuízo 
+                        alheio, induzindo ou mantendo alguém em erro, mediante artifício, 
+                        ardil, ou qualquer outro meio fraudulento: 
+                        <br>
+                        <span class="bold azul1">Pena – </span>reclusão, de um a 
+                        cinco anos, e multa.”
+                    </div>
+                       
+                </div>
+            </div> 
+
+
+            <div class="btnMenuReturn posicionar size26" px="900" py="600">
+                <div class="btnIt animated zoomIn delay1_2">
+                    Menu
+                </div>
+            </div>
+
+           
+            
+        </div>
+    
+    
+    </div>

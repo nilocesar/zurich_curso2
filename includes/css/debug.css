@@ -1,0 +1,145 @@
+/*------------
+/// DEBUG
+-------------*/
+
+.debug {
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 200px;
+    background-color: #414141;
+}
+.debugItem {
+    width: 100%;
+    height: 50px;
+    background-color: #434d4d;
+    padding-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+.debugIndice {
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #eaeaea;
+    padding-top: 2px;
+}
+.debugId {
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #eaeaea;
+    padding-top: 2px;
+}
+.debugPath {
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    font-size: 10px;
+    color: #a0a0a0;
+    padding-top: 5px;
+}
+.debugParentId {
+    position: relative;
+    float: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 12px;
+    color: #a0a0a0;
+    padding-top: 5px;
+}
+.debugStatus {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #596262;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+}
+.debugIndiceCurrent {
+    position: relative;
+    float: left;
+    color: #e6a40e;
+    font-size: 10px;
+    padding: 2px;
+}
+.debugIndiceCurrent spam {
+    color: #fff;
+}
+.debugIdCurrent {
+    position: relative;
+    float: left;
+    color: #e6a40e;
+    font-size: 10px;
+    padding: 2px;
+}
+.debugIdCurrent spam {
+    color: #fff;
+}
+.debugPathCurrent {
+    position: relative;
+    float: left;
+    color: #e6a40e;
+    font-size: 10px;
+    padding: 2px;
+}
+.debugParentTitulo {
+    position: relative;
+    float: right;
+    color: #e6a40e;
+    font-size: 10px;
+    padding: 10px;
+}
+
+.enviarParaCurrent{
+    position: relative;
+    float: left;
+    color: #e6a40e;
+    font-size: 10px;
+    padding: 0px;
+    margin-left: 5px;
+}
+
+.enviarParaCurrent input{
+     font-size: 8px;
+}
+
+.cacheCurrent{
+   position: relative;
+    float: right;
+    color: #e6a40e;
+    font-size: 10px;
+    padding: 0px;
+    margin-left: 5px; 
+}
+
+.debugPathCurrent spam {
+    color: #fff;
+}
+.debugStatus .open {
+    text-align: center;
+}
+.nano-debug {
+    width: 100% !important;
+    height: 170px!important;
+    background: #bba;
+}
+.nano-content-debug {
+    width: 100% !important;
+    height: 170px!important;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.retormar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}

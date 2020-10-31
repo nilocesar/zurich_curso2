@@ -1,0 +1,156 @@
+<script>
+        window["aa5"] = {
+            indice: "aa5",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa5").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+                controle();
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+
+                    $(".item").on("click", function (event) {
+
+                        var _tela = $(this).attr('tela');
+                        var _indice = 0;
+
+                        $.each( course.config, function(indice,item){
+
+                            if( String(item.id).toUpperCase() == String(_tela).toUpperCase() ){
+                                _indice = item.indice;
+                            }
+                        });
+                        
+                        course.indice = _indice;
+                        $("body").attr("nav", "go");
+                        $("body").trigger("navegacao");
+                        
+                    });
+    
+                  
+                } else {
+    
+                }
+
+                function controle(){
+                    _containerTela.find(".item").addClass('itemInativo');
+                    _containerTela.find(".item").removeClass('zoomIn animated infinite pulse');
+
+                    var menu = 0;
+                    var i = 0;
+                    if( course.scorm_get_suspendData("controleMenu")) {
+                        menu = parseInt(course.scorm_get_suspendData("controleMenu"));
+                    }
+
+                    while ( i <= menu ) {
+                        i+=1;
+                        _containerTela.find(".item" + i ).removeClass('itemInativo');
+                        
+                    }
+
+                    
+                    _containerTela.find(".item" + (menu+1) ).addClass('animated infinite pulse');
+                        
+
+                }
+
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA5 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 azul1 size30" px="200" py="250">
+                <div class="sub">
+                    <div class="animated fadeInDown delay0_5 size36 mb20">
+                        Menu
+                    </div>
+                    <div class="animated fadeInUp delay0_6 azul2">
+                        Clique em cada um dos tópicos ao lado para explorá-los.
+                    </div>
+                       
+                </div>
+            </div> 
+
+            <div class="menu posicionar animated fadeIn delay1_0" px="680" py="120">
+                
+                <div class="item item1 animated zoomIn delay1_2" tela='AA6'>
+                    <div class="ico">
+                    
+                    </div>
+                    <div class="text">
+                        Impactos da fraude
+                    </div>
+                </div>
+
+                <div class="item item2 animated zoomIn delay1_3" tela='AA11'>
+                    <div class="ico">
+                    
+                    </div>
+                    <div class="text">
+                        Triângulo da fraude
+                    </div>
+                </div>
+
+                 <div class="item item3 animated zoomIn delay1_4" tela='AA13'>
+                    <div class="ico">
+                    </div>
+                    <div class="text">
+                        Fraudes internas
+                    </div>
+                </div>
+
+
+                  <div class="item item4 animated zoomIn delay1_5" tela='AA17'>
+                    <div class="ico">
+                    </div>
+                    <div class="text">
+                        Fraudes externas
+                    </div>
+                </div>
+
+                <div class="item item5 animated zoomIn delay1_6" tela='AA20'>
+                    <div class="ico">
+                    </div>
+                    <div class="text">
+                        Lidando com suspeitas
+                    </div>
+                </div>
+
+                 <div class="item item6 animated zoomIn delay1_7" tela='AA22'>
+                    <div class="ico">
+                    </div>
+                    <div class="text">
+                        Colocando em prática
+                    </div>
+                </div>
+                
+            </div>
+
+
+            
+        </div>
+
+
+    
+    
+    </div>

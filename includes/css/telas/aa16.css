@@ -1,0 +1,185 @@
+/*= AA1
+----------------------------*/
+
+.containerAA16 {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+.containerAA16 .content {
+    position: absolute;
+    width: 330px;
+    line-height: normal;
+}
+
+.containerAA16 .content .sub {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* border-left: 1px solid #0D2554; */
+    /* align-items: center; */
+    /* padding: 20px; */
+    overflow: hidden;
+    /* background-color: rgba(0, 158, 221, 0.85);
+    border-radius: 10px; */
+}
+
+.containerAA16 .item {
+    position: relative;
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 30px;
+    pointer-events: none;
+}
+
+.containerAA16 .item .ico {
+    position: relative;
+    background-size: 10%;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #0D2554;
+    border-radius: 20px;
+    background: url(../../img/ico3.svg) no-repeat center;
+    background-size: 30%;
+}
+
+.containerAA16 .item .text {
+    padding: 10px;
+    color: #0D2554;
+    font-size: 30px;
+}
+
+.containerAA16 .bloco {
+    position: absolute;
+    width: 450px;
+    height: 300px;
+    /* background-color: #041d37 !important; */
+    z-index: 999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 15px; */
+    border-left: 1px solid #0D2554;
+    border-right: 1px solid #0D2554;
+    /* border-radius: 20px; */
+}
+
+.containerAA16 .nav {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -30px;
+    left: -30px;
+    z-index: 999999;
+}
+
+.containerAA16 .nleft {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #D3C3A5 !important;
+    color: #0D2554;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA16 .nright {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #D3C3A5 !important;
+    color: #0D2554;
+    cursor: pointer;
+    right: -60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA16 .nleft:hover,
+.containerAA16 .nright:hover {
+    color: #004C9A;
+}
+
+.containerAA16 .step {
+    display: none;
+    overflow: hidden;
+}
+
+.containerAA16 .blocS {
+    position: relative;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.containerAA16 .blocS i {
+    font-size: 70px;
+}
+
+.containerAA16 .blocS div {
+    width: 100%;
+    height: 100px;
+}
+
+.containerAA16 .ico1 {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: url(../../img/ico1a16.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA16 .ico2 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: url(../../img/livroA16b.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA16 .ico3 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: url(../../img/notA16b.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA16 .ico4 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: url(../../img/clipA16b.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA16 .ico5 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: url(../../img/balaoa16b.svg) no-repeat center;
+    background-size: contain;
+}

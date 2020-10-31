@@ -1,0 +1,11 @@
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" width="35" height="67.2" viewBox="0 0 35 67.2">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>raio2</title>
+  <path class="cls-1" d="M100.9,110h29.7a0.9,0.9,0,0,1,.9.9h0a0.9,0.9,0,0,1-.1.4h0l-10.9,19.5h13.7a0.9,0.9,0,0,1,.9.9h0a0.8,0.8,0,0,1-.1.4h0L110,176.7a0.9,0.9,0,0,1-1.6-.4V145.9h-7.5a0.9,0.9,0,0,1-.9-0.9h0V110.9a0.9,0.9,0,0,1,.9-0.9h0Zm28.2,1.7H101.7v32.4h7.5a0.9,0.9,0,0,1,.9.9h0v28l22.6-40.5H118.6a0.9,0.9,0,0,1-.3-1.2h0Z" transform="translate(-100 -110)"/>
+</svg>

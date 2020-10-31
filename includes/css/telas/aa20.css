@@ -1,0 +1,80 @@
+/*= AA1
+----------------------------*/
+
+.containerAA20 {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    /* background: url(../../img/cenario6.jpg) no-repeat center;
+    background-size: contain; */
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+
+.containerAA20 .content{
+    position: absolute;
+    width: 430px;
+    line-height: normal;
+}
+
+.containerAA20 .content .sub{
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+
+.containerAA20 .item{
+    position: relative;
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 30px;
+    pointer-events: none;
+    
+}
+
+.containerAA20 .item .ico{
+    position: relative;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #0D2554;
+    border-radius:20px;
+    background: url(../../img/ico5.svg) no-repeat center;
+    background-size: 70%;   
+}
+
+
+.containerAA20 .item .text{
+    padding: 10px;
+    color: #0D2554;
+    font-size: 30px;
+}
+
+.containerAA20 .lupa{
+    position: absolute;
+    width: 517px;
+    height: 341px;   
+}
+
+.containerAA20 .lupa .img{
+    position: relative;
+    background: url(../../img/lupo.png) no-repeat center;
+    background-size: 100%;
+    width: 100%;
+    height:100%;
+}
+
+    

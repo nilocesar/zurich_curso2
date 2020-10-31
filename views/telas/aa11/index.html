@@ -1,0 +1,64 @@
+<script>
+        window["aa11"] = {
+            indice: "aa11",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa11").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA11 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="110" py="200">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Triângulo<br> da fraude
+                    </div>
+                </div>
+                <div class="sub animated zoomIn delay0_8">
+                    <div class="">
+                        Isso quer dizer que, além das perdas imensas 
+                        para a companhia e sociedade, o fraudador pode 
+                        ser até preso? Como alguém seria capaz de fazer 
+                        ou colaborar com isso? Sua pergunta é logo respondida 
+                        quando você se depara com o chamado Triângulo da Fraude.
+                    </div>
+                       
+                </div>
+            </div> 
+            
+        </div>
+    
+    
+    </div>

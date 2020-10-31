@@ -1,0 +1,63 @@
+<script>
+        window["aa13"] = {
+            indice: "aa13",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa13").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA13 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="910" py="150">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Fraudes<br> internas
+                    </div>
+                </div>
+                <div class="sub animated zoomIn delay0_8">
+                    <div class="">
+                        Pois é. Parece que, com a combinação certa de motivações
+                        e circunstâncias, até mesmo um colaborador de uma companhia
+                        de seguros pode cair na tentação de cometer uma fraude. 
+                        Interessado, você se debruça em materiais sobre esse tipo de fraude.
+                    </div>
+                       
+                </div>
+            </div> 
+            
+        </div>
+    
+    
+    </div>

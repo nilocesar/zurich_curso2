@@ -1,0 +1,173 @@
+<script>
+        window["aa12"] = {
+            indice: "aa12",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa12").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+                reset();
+
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+
+                    controle();
+    
+                  
+                } else {
+    
+                }
+
+                function reset(){
+                    _containerTela.find(".triagBlock").css('display', 'none');
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".icoD").removeClass('icoXAtivo');
+                    _containerTela.find(".btnMenuReturn").css('display', 'none');
+                }
+
+                function controle(){
+                   
+                    _containerTela.find(".btnMenuReturn").on('click', function(){
+                        course.returnMenu(2);
+                    });
+
+                    _containerTela.find(".icoD").on('click', function(){
+
+
+                        _containerTela.find(".icoD").removeClass('icoXAtivo');
+                        $(this).addClass('icoXAtivo');
+
+                        var _step = $(this).attr('ico');
+
+                       _containerTela.find(".triagBlock").css('display', 'block');
+
+                       _containerTela.find(".step").css('display', 'none');
+                       _containerTela.find(".step"+_step).css('display', 'block');
+
+                        $(this).attr('ativo', 1);
+
+                        var _comp = true;
+                        _containerTela.find(".icoD").each(function(indice, item){
+                            if( !$(item).attr('ativo') )
+                                _comp = false;
+                        })
+
+                        if(_comp){
+                            _containerTela.find(".btnMenuReturn").css('display', 'block');
+                        }
+                    });
+                   
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA12 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="150">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Triângulo<br> da fraude
+                        
+                    </div>
+                </div>
+                <div class="sub animated fadeInRight delay0_8">
+                    <div class="cinza1">
+                        Os três pilares que compõem a motivação para realizar 
+                        uma fraude são denominados <span class="bold">Triângulo da Fraude</span>. Clique 
+                        em cada um deles ao lado para saber mais.
+                    </div>       
+                </div>
+            </div> 
+
+            <div class="triagBlock posicionar animated fadeIn branco size22" px="512" py="326">
+                <div class="step step1">
+                    <div class="titulo mb20 bold animated fadeInDown">  
+                        <!-- <i class="fas fa-bolt mr20 size40"></i> -->
+                        <div class="raio2 mr20"></div>
+                        <span class="size30">Pressão</span>
+                    </div>
+                    <div class="animated fadeInUp">  
+                        A pressão se dá por forças financeiras ou emocionais que encorajam a fraude. 
+                        Exemplos: um familiar que precisa de dinheiro; um vício, como jogos ou 
+                        drogas; manutenção de estilo de vida caro e acúmulo de dívidas.
+                    </div>
+                </div> 
+                
+                <div class="step step2">
+                    <div class="titulo mb20 bold animated fadeInDown">  
+                        <!-- <i class="fas fa-brain mr20 size40"></i> -->
+                        <div class="celebro mr20"></div>
+                        <span class="size30">Racionalização</span>
+                    </div>
+                    <div class="animated fadeInUp">  
+                       É a justificação pessoal para ações desonestas. Veja os exemplos: “ninguém sai machucado”; “estou apenas pegando dinheiro emprestado”; “eles cobram caro”; “todos são um pouco desonestos” e “nunca sofri um sinistro”.
+                    </div>
+                </div>
+
+                <div class="step step3">
+                    <div class="titulo mb20 bold animated fadeInDown">
+                       
+                        <!-- <i class="fas fa-lightbulb mr20 size40"></i> -->
+                        <div class="luz mr20"></div>
+                        <span class="size30">Oportunidade</span>
+                    </div>
+                    <div class="animated fadeInUp">  
+                        É a habilidade para executar a fraude sem consequências. 
+                        Exemplos: alguém da empresa quer se vingar dela; falta de controles 
+                        internos eficazes; insuficiência de segregação nas funções dos 
+                        colaboradores; e deslealdade por parte de alguém da empresa.
+                    </div>
+                </div>
+            </div>
+
+            <div class="triagGrande posicionar animated fadeIn delay1_4" px="312" py="326">
+
+            </div>
+
+            <div class="icoD ico1 posicionar animated fadeIn delay1_6" px="449" py="355" ico=1>
+                <div class="icoX animated infinite pulse"></div>
+            </div>
+
+            <div class="icoD ico2 posicionar animated fadeIn delay1_8" px="340" py="540" ico=3>
+                <div class="icoX animated infinite pulse"></div>
+            </div>
+
+            <div class="icoD ico3 posicionar animated fadeIn delay2_0" px="555" py="540" ico=2>
+                <div class="icoX animated infinite pulse"></div>
+            </div>
+
+             <div class="btnMenuReturn posicionar size26" px="820" py="680">
+                <div class="btnIt animated zoomIn">
+                    Menu
+                </div>
+            </div>
+
+            
+
+            
+           
+            
+        </div>
+    
+    
+    </div>

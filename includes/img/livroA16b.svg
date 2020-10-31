@@ -1,0 +1,22 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="159.1" height="159.1" viewBox="0 0 159.1 159.1">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #464749;
+      }
+    </style>
+  </defs>
+  <title>livroA16b</title>
+  <path class="cls-1" d="M133.6,2.2a23.2,23.2,0,0,1,23.2,23.2V133.5a23.2,23.2,0,0,1-23.2,23.2H25.5A23.2,23.2,0,0,1,2.3,133.5V25.5A23.2,23.2,0,0,1,25.5,2.3H133.6m0-2.2H25.5A25.6,25.6,0,0,0,0,25.5V133.6a25.6,25.6,0,0,0,25.5,25.5H133.6a25.6,25.6,0,0,0,25.5-25.5V25.5A25.6,25.6,0,0,0,133.6,0" transform="translate(0 0)"/>
+  <g>
+    <path class="cls-1" d="M56.5,58.1a7,7,0,1,0,7,7A7,7,0,0,0,56.5,58.1Zm0,11.6a4.6,4.6,0,0,1-4.6-4.6h0a4.7,4.7,0,0,1,4.6-4.6A4.6,4.6,0,0,1,56.5,69.7Z" transform="translate(0 0)"/>
+    <rect class="cls-1" x="49.9" y="79.7" width="13.2" height="2.4"/>
+    <rect class="cls-1" x="49.9" y="74.7" width="13.2" height="2.4"/>
+    <rect class="cls-1" x="107.6" y="49.7" width="5.7" height="2.4"/>
+    <rect class="cls-1" x="107.6" y="44.7" width="5.7" height="2.4"/>
+    <rect class="cls-1" x="107.6" y="105.6" width="5.7" height="2.4"/>
+    <rect class="cls-1" x="107.6" y="100.5" width="5.7" height="2.4"/>
+    <path class="cls-1" d="M80.2,66.4l-5.8,5.7,5.8,5.7L86,72.1Zm-2.4,5.8,2.4-2.4,2.4,2.4-2.4,2.3Z" transform="translate(0 0)"/>
+    <path class="cls-1" d="M118.1,111.8V39.5H102.2V67.1H91.1V61.2H71.6V52.3H69.2v59.4H43.6V52.1H65.2V49.7h-24v62H20.5v7.9H128.2v-2.4H23v-3.1H136.2V117h2.4v-5.3H118.1ZM104.6,41.9h11.1v69.8H104.6V41.9Zm-2.4,27.7v42.2H91.1V69.6h11.1ZM71.6,63.7H88.7v48.1H71.6V63.7Z" transform="translate(0 0)"/>
+  </g>
+</svg>

@@ -1,0 +1,101 @@
+
+/*==============================================================================
+  Família Frutiger
+==============================================================================*/
+
+@font-face {
+    font-family: 'book';
+    src: url('../fonts/frutiger/frutiger-roman-webfont.eot');
+    src: url('../fonts/frutiger/frutiger-roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/frutiger/frutiger-roman-webfont.woff') format('woff'),
+         url('../fonts/frutiger/frutiger-roman-webfont.ttf') format('truetype'),
+         url('../fonts/frutiger/frutiger-roman-webfont.svg#webfontiD0t8Rg6') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'light';
+    src: url('../fonts/frutiger/frutiger-light-webfont.eot');
+    src: url('../fonts/frutiger/frutiger-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/frutiger/frutiger-light-webfont.woff') format('woff'),
+         url('../fonts/frutiger/frutiger-light-webfont.ttf') format('truetype'),
+         url('../fonts/frutiger/frutiger-light-webfont.svg#webfontZyy4cpE6') format('svg');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bold';
+    src: url('../fonts/frutiger/frutiger-bold-webfont.eot');
+    src: url('../fonts/frutiger/frutiger-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/frutiger/frutiger-bold-webfont.woff') format('woff'),
+         url('../fonts/frutiger/frutiger-bold-webfont.ttf') format('truetype'),
+         url('../fonts/frutiger/frutiger-bold-webfont.svg#webfontZyy4cpE6') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'xbold';
+    src: url('../fonts/frutiger/frutiger-black-webfont.eot');
+    src: url('../fonts/frutiger/frutiger-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/frutiger/frutiger-black-webfont.woff') format('woff'),
+         url('../fonts/frutiger/frutiger-black-webfont.ttf') format('truetype'),
+         url('../fonts/frutiger/frutiger-black-webfont.svg#webfontZyy4cpE6') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Icons */
+@font-face
+{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+
+    src: url('../fonts/slick.eot');
+    src: url('../fonts/slick.eot?#iefix') format('embedded-opentype'), 
+         url('../fonts/slick.woff') format('woff'), 
+         url('../fonts/slick.ttf') format('truetype'), 
+         url('../fonts/slick.svg#slick') format('svg');
+}
+
+
+
+/*==============================================================================
+  CUSTOM
+==============================================================================*/
+
+/*===========================
+  ESTILO
+============================*/
+.book {
+    font-family: "book" !important;
+}
+
+.light {
+    font-family: "light" !important;
+}
+
+.bold {
+    font-family: "bold" !important;
+    /* font-weight:bold !important; */
+    /* font-family: "bold" !important; */
+}
+
+.xbold {
+    font-family: "bold" !important;
+    /* font-weight: bold; */
+    /* font-family: "xbold" !important; */
+}
+
+.book_italic {
+    font-family: "book" !important;
+    font-style: italic!important;
+}
+
+.bold_italic {
+    font-family: "bold" !important;
+    font-style: italic!important;
+}

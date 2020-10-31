@@ -1,0 +1,57 @@
+<script>
+    window["aa1"] = {
+        indice: "aa1",
+        status: false
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa1").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                _containerTela.find(".btnItem").on('click', function() {
+                    
+                    $("body").attr("nav", "next");
+                    $("body").trigger("navegacao");
+
+                });
+
+            } else {
+
+            }
+        }
+    })
+</script>
+
+
+<div class="containerAA1 containerAABase">
+
+    <div class="containerGeral">
+
+
+
+        <div class="content posicionar animated fadeIn delay0_4 branco" px="510" py="300">
+            <div class="sub animated fadeInRight delay0_5">
+                <div class="animated fadeInLeft delay0_8">
+                    Prevenção <br>à Fraude
+                </div>
+                   
+            </div>
+        </div> 
+
+    </div>
+
+</div>

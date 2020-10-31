@@ -1,0 +1,436 @@
+/*= AA1
+----------------------------*/
+
+.containerAA29 {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: url(../../img/cenario29.png) no-repeat center;
+    background-size: contain;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+.containerAA29 .content {
+    position: absolute;
+    width: 700px;
+    line-height: normal;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.containerAA29 .content .sub {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+    margin-top: 25px;
+}
+
+.containerAA29 .item {
+    position: relative;
+    width: 150px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 30px;
+    pointer-events: none;
+}
+
+.containerAA29 .item .ico {
+    position: relative;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #0D2554;
+    border-radius: 20px;
+    background: url(../../img/ico6.svg) no-repeat center;
+    background-size: 60%;
+}
+
+.containerAA29 .item .text {
+    padding: 10px;
+    color: #0D2554;
+    font-size: 30px;
+}
+
+.containerAA29 .blocos {
+    position: absolute;
+    width: 930px;
+}
+
+.containerAA29 .titulo {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.containerAA29 .titulo div {
+    width: 50%;
+}
+
+.containerAA29 .block {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.containerAA29 .block .it {
+    width: 45%;
+    padding: 10px;
+}
+
+.containerAA29 .block .seta {
+    width: 10%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+
+.containerAA29 .block .item1 {
+    border: 1px solid #0D2554;
+}
+
+.containerAA29 .info {
+    width: 100%;
+    text-align: center;
+}
+
+.containerAA29 .sInativo {
+    display: none;
+}
+
+
+.containerAA29 .feed {
+    position: absolute;
+    width: 1120px;
+    height: 540px;
+    display: none;
+}
+
+.containerAA29 .feed .feedBase {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #51A3CB;
+    z-index: 999999;
+    /* padding-top: 70px; */
+    display: none;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerAA29 .feed .feedNegativo {
+    background-color: #8DB5D6;
+}
+
+.containerAA29 .feed .infX {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.containerAA29 .feed .icoPositivo {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: url(../../img/icoPositivo.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA29 .feed .icoNegativo {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: url(../../img/icoNegativo.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA29 .feed .inf {
+    position: relative;
+    width: 50%;
+    color: #fff;
+    /* background-color: #004990; */
+    margin-right: 30px;
+}
+
+.containerAA29 .feed .continuar {
+    background-color: #0D2554;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 0;
+    width: 200px;
+    border-radius: 20px;
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.containerAA29 .feed .continuar:hover {
+    background-color: #004C9A;
+    color: #fff;
+}
+
+
+.containerAA29 .relacionamento{
+  position: absolute;
+  width: 700px;
+}
+
+.containerAA29 .questao {
+    position: relative;
+    margin-bottom: 30px;
+    display:flex;
+    flex-direction: row;
+}
+.containerAA29 .item {
+    position: relative;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.containerAA29 .item span {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 30px;
+    cursor: pointer;
+}
+.containerAA29 .item span:hover {
+    border: 1px solid #0D2554;
+    background: #0D2554;
+    color: #fff;
+}
+.containerAA29 .itemActive {
+    border: 1px solid #0D2554;
+    background: #0D2554;
+    color: #fff;
+}
+.containerAA29 .texQuestion {
+    position: relative;
+    z-index: 0000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+.containerAA29 .incorreto {
+    position: absolute;
+    color: #004C9A;
+    top: -20px;
+    padding-left:10px;
+    /* left: 10px; */
+    font-size: 0.8rem;
+    background-color: rgba(0, 0, 0, 0);
+    width: 400px;
+    display: none;
+    height: 80px;
+}
+
+.containerAA29 .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+    margin-right: 20px;
+    
+}
+.containerAA29 .custom-dropdown select {
+    background-color: #004C9A;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: .3em;
+    padding-right: 2.5em;
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button;
+    /* hide default arrow in chrome OSX */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
+    font-family: "bold" !important;
+}
+
+.containerAA29 select::-ms-expand {
+  display: none;
+}
+
+.containerAA29 .custom-dropdown::before,
+.containerAA29 .custom-dropdown::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+.containerAA29 .custom-dropdown::after {
+    /*  Custom dropdown arrow */
+    content: "\25BC";
+    height: 1em;
+    font-size: .625em;
+    line-height: 1;
+    right: 1.2em;
+    top: 50%;
+    margin-top: -.5em;
+}
+.containerAA29 .custom-dropdown::before {
+    /*  Custom dropdown arrow cover */
+    width: 2em;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 0 3px 3px 0;
+}
+.containerAA29 .custom-dropdown select[disabled] {
+    color: rgba(0, 0, 0, .3);
+}
+.containerAA29 .custom-dropdown select[disabled]::after {
+    color: rgba(0, 0, 0, .1);
+}
+.containerAA29 .custom-dropdown::before {
+    background-color: #dddddd;
+}
+.containerAA29 .custom-dropdown::after {
+    color: rgba(0, 0, 0, .4);
+}
+.containerAA29 .corretoSelect select {
+    border: 1px solid #0D2554 !important;
+    background-color: #0D2554;
+    color: #fff !important;
+    text-align: center;
+    border-radius: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 0 auto;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align-last: center;
+    text-align: center;
+   -ms-text-align-last: center;
+   -moz-text-align-last: center;
+}
+
+.containerAA29 .corretoSelect::before {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+.containerAA29 .corretoSelect::after {
+    color: rgba(0, 0, 0, 0) !important;
+}
+.containerAA29 .erradoSelect select {
+    
+    border: 1px solid #acabab !important;
+    background-color: #acabab;
+    color: #fff !important;
+    text-align: center;
+    border-radius: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align-last: center;
+    text-align: center;
+   -ms-text-align-last: center;
+   -moz-text-align-last: center;
+}
+
+.containerAA29 .erradoSelect::before {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+.containerAA29 .erradoSelect::after {
+    color: rgba(0, 0, 0, 0) !important;
+}
+
+.containerAA29 .confirmar {
+    background-color: #0D2554;
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 0;
+    width: 200px;
+    border-radius: 20px;
+    position: relative;
+    right: 0;
+    float: right;
+    margin-top: 20px;
+}
+
+.containerAA29 .confirmar:hover {
+    background-color: #004C9A;
+    color: #fff;
+}
+
+.containerAA29 .icos {
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    margin-top: -10px;
+    display: none;
+}
+
+.containerAA29 .icos .icoNeg {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #acabab;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    display: none;
+}
+
+.containerAA29 .icos .icoPos {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0D2554;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    display: none;
+}

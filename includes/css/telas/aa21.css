@@ -1,0 +1,144 @@
+/*= AA1
+----------------------------*/
+
+.containerAA21 {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    /* background: url(../../img/cenario6.jpg) no-repeat center;
+    background-size: contain; */
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+
+.containerAA21 .content{
+    position: absolute;
+    width: 930px;
+    line-height: normal;
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.containerAA21 .content .sub{
+    position: relative;
+    width:100%;
+    height:100%;
+    /* margin-left: 100px;
+    margin-top: 25px; */
+}
+
+
+.containerAA21 .item{
+    position: relative;
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 30px;
+    pointer-events: none;
+    
+}
+
+.containerAA21 .item .ico{
+    position: relative;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #0D2554;
+    border-radius:20px;
+    background: url(../../img/ico5.svg) no-repeat center;
+    background-size: 70%;   
+}
+
+
+.containerAA21 .item .text{
+    padding: 10px;
+    color: #0D2554;
+    font-size: 30px;
+}
+
+
+.containerAA21 .blocos{
+    position: absolute;
+    width: 930px;
+    display: flex;
+    flex-direction: row;
+}
+
+.containerAA21 .titulo{
+    position: absolute;
+     width: 930px;
+     display: flex;
+    flex-direction: row;
+}
+
+.containerAA21 .titulo div{
+    width: 50%;
+}
+
+.containerAA21 .block{
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    margin-top: 25px;
+    width: 50%;
+}
+
+
+.containerAA21 .block .it{
+    width: 90%;
+    padding: 10px;
+    margin-top: 20px;
+    
+}
+.containerAA21 .block .seta{
+    width: 90%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    border-top: 1px solid #004C9A;
+}
+
+.containerAA21 .block .item1{
+    border: 1px solid #0D2554;
+}
+
+.containerAA21 .info{
+    width: 100%;
+    text-align: center;
+}
+
+.containerAA21 .sInativo{
+    /* opacity: 0;
+    pointer-events: none; */
+    display: none;
+}
+
+.containerAA21 .setaIn{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #D3C3A5 !important;
+  color: #0D2554;
+  cursor: pointer;
+  position:absolute;
+  top: 0px;
+}
+
+.containerAA21 .fa-chevron-up{
+  display:none;
+}

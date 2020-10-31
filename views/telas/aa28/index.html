@@ -1,0 +1,88 @@
+<script>
+        window["aa28"] = {
+            indice: "aa28",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa28").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+
+                    //controle();
+    
+                  
+                } else {
+    
+                }
+
+                function controle(){
+
+                    _containerTela.find(".item2").addClass('sInativo');
+                    _containerTela.find(".bl2").addClass('sInativo');
+
+                    _containerTela.find(".seta").on('click', function(){
+                        $(this).parent().find('.item2').removeClass('sInativo');
+                        _containerTela.find(".bl2").removeClass('sInativo');
+
+                        $(this).attr('ativo', 1);
+
+                        var _comp = true;
+                        _containerTela.find(".seta").each(function(indice, item){
+                            if( !$(item).attr('ativo') )
+                                _comp = false;
+                        })
+
+                        if(_comp){
+                            course.liberarNavegacao();
+                        }
+                    });
+                   
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA28 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size24" px="180" py="550">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Colocando<br> em prática
+                    </div>
+                </div>
+                <div class="sub animated fadeInRight delay0_8">
+                    <div class="cinza1">
+                      Pensando no quão drástica pode ser a punição para quem é pego fraudando, 
+                      você se recorda das motivações que levam uma pessoa a cometer esse tipo de 
+                      crime. Você se lembra de alguns exemplos de Pressão, Oportunidade e 
+                      Racionalização do <span class="xbold">Triângulo da Fraude</span>?
+                    </div>       
+                </div>
+            </div> 
+ 
+            
+        </div>
+    
+    
+    </div>

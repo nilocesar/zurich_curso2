@@ -1,0 +1,70 @@
+/*--------------------------*/
+/*FRAMEWORKS
+----------------------------*/
+
+@import url("reset.css");
+@import url("bootstrap-grid.min.css");
+@import url("bootstrap-reboot.min.css");
+@import url("bootstrap-slider.min.css");
+@import url("bootstrap.min.css");
+@import url("icones.css");
+@import url("fonts.css");
+@import url("animate.css");
+@import url("slick.css");
+@import url("balloon.min.css");
+
+
+@import url("colors.css");
+@import url("props.css");
+
+
+/*--------------------------*/
+/*INTERFACE
+----------------------------*/
+
+@import url("interface.css");
+@import url("custom.css");
+@import url("debug.css");
+
+/*--------------------------*/
+/*TELAS
+----------------------------*/
+
+@import url("telas/aa1.css");
+@import url("telas/aa2.css");
+@import url("telas/aa3.css");
+@import url("telas/aa4.css");
+@import url("telas/aa5.css");
+@import url("telas/aa6.css");
+@import url("telas/aa6.css");
+@import url("telas/aa7.css");
+@import url("telas/aa8.css");
+@import url("telas/aa9.css");
+@import url("telas/aa10.css");
+@import url("telas/aa11.css");
+@import url("telas/aa12.css");
+@import url("telas/aa13.css");
+@import url("telas/aa14.css");
+@import url("telas/aa15.css");
+@import url("telas/aa16.css");
+@import url("telas/aa17.css");
+@import url("telas/aa18.css");
+@import url("telas/aa19.css");
+@import url("telas/aa20.css");
+@import url("telas/aa21.css");
+@import url("telas/aa22.css");
+@import url("telas/aa23.css");
+@import url("telas/aa24.css");
+@import url("telas/aa25.css");
+@import url("telas/aa26.css");
+@import url("telas/aa27.css");
+@import url("telas/aa28.css");
+@import url("telas/aa29.css");
+@import url("telas/aa30.css");
+@import url("telas/aa31.css");
+
+/*--------------------------*/
+/*PRINT
+----------------------------*/
+
+/*@import url("telas/print.css");*/

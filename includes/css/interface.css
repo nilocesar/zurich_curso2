@@ -1,0 +1,923 @@
+
+* {
+    box-sizing: border-box;
+    /* -webkit-font-smoothing:subpixel-antialiased; */
+    /* transform: perspective(1px) scale(1.1); */
+}
+
+body,
+html {
+    width: 100%;
+    font-family: "light", Verdana, Geneva, sans-serif;
+    background-color: rgba(150, 40, 115, .0);
+    -webkit-font-smoothing: subpixel-antialiased;
+    color: #464749 !important;
+}
+
+#loading {
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+    position: fixed;
+    display: block;
+    top: 0px;
+    background-color: #fff;
+}
+
+#loading .preloader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -150px;
+    margin-left: -200px;
+    background-image: url(../img/preloader.gif);
+    height: 300px;
+    width: 400px;
+    color: antiquewhite;
+}
+
+.portrait {
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+    position: fixed;
+    display: none;
+    top: 0px;
+    background: url("../img/orientation.gif") no-repeat center center;
+    background-color: #f5f5f5;
+}
+
+
+i {
+    font-style: italic;
+}
+
+/*------------
+/// SPEED
+-------------*/
+
+.speed {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    margin-top: 50px;
+}
+
+/*------------
+/// MAIN
+-------------*/
+
+.main {
+    /*display: none;*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/*------------
+/// BASE
+-------------*/
+
+.base {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.topBase {
+    /*display: none;*/
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    height: 70px;
+    color: #fff;
+    width: 100%;
+    z-index: 99999;
+    transform: translate(0px, 0px) rotate(0rad) skewX(0rad) scale(1);
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #d4d2d4));
+    background: -moz-linear-gradient(top, #ffffff 5%, #d4d2d4 100%);
+    background: -webkit-linear-gradient(top, #ffffff 5%, #d4d2d4 100%);
+    background: -o-linear-gradient(top, #ffffff 5%, #d4d2d4 100%);
+    background: -ms-linear-gradient(top, #ffffff 5%, #d4d2d4 100%);
+    background: linear-gradient(to bottom, #ffffff 5%, #d4d2d4 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d4d2d4', GradientType=0);*/
+    background-color: #1E51A6;
+    -moz-box-shadow: 0px 10px 14px -7px #444445;
+    -webkit-box-shadow: 0px 10px 14px -7px #444445;
+    box-shadow: 0px 10px 14px -7px #444445;
+}
+
+
+.telaBase {
+    position: fixed;
+    /*top: 70px;*/
+    width: 100%;
+}
+
+.dadosBase {
+    position: absolute;
+    color: #fff;
+    left: 300px;
+    font-size: 0.7rem;
+    line-height: 0.05rem;
+    top: 20px;
+}
+
+.dadosBase hr {
+    border-bottom: 12px;
+    color: #fff;
+    background-color: #fff;
+    width: 300px;
+}
+
+.dadosBase .titulo1 {
+    font-size: 1rem;
+}
+
+
+.titulosBase {
+    float: left;
+    position: relative;
+    top: 7px;
+    margin-left: 70px;
+    font-size: 15px;
+    color: #000;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.titulo1Base {}
+
+.titulo2Base {
+    position: relative;
+}
+
+.titulo3Base {}
+
+
+
+.iconBase {
+    position: absolute;
+    left: 100%;
+    margin-left: -320px;
+    top: 15px;
+}
+
+.infoValor {
+    position: relative;
+    float: left;
+    top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.infoValor .salario {
+    position: relative;
+    float: left;
+    /*margin-right: 10px;*/
+    color: #2a2a2a;
+    font-weight: bold;
+}
+
+.infoValor .info {
+    position: relative;
+    float: left;
+    padding: 0 10px;
+    color: #0079be;
+    background-color: #fff;
+    border: 1px solid #2a2a2a;
+    border-radius: 5px;
+}
+
+.iconAjudaBase {
+    position: relative;
+    float: left;
+    background: url(../img/ajudaBtn.png);
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/*.iconSairBase {
+    display: none;
+    position: relative;
+    float: left;
+    background: url(../img/fecharBtn.png);
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    cursor: pointer;
+    margin-right: 10px;
+}*/
+
+.telaContainer {
+    position: relative;
+    display: none;
+    height: 100%;
+}
+
+.contadorBase {
+    position: fixed;
+    background-color: #cdd0d4;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    height: 60px;
+    width: 624px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -312px;
+    z-index: 999999;
+    display: none;
+    /*border: 4px solid #004d97;*/
+    border-left: 4px solid #5c1b6d;
+    border-right: 4px solid #5c1b6d;
+    border-top: 4px solid #5c1b6d;
+    /*border-bottom: 4px solid #004d97;*/
+    /*-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);*/
+}
+
+@media (max-width: 900px) {
+    .topBase {
+        /*display: none;*/
+        position: fixed;
+        height: 25px;
+        width: 110px;
+        right: 0;
+        border: 1px solid #000000;
+        /*border-left: 6px solid red;*/
+        border-radius: 5px;
+        top: 2px;
+        margin-top: 0px;
+        right: 20px;
+        /*transform: rotate(90deg);*/
+    }
+
+    .telaBase {
+        position: fixed;
+        /*top: 40px;*/
+    }
+/* 
+    .logoBase {
+        background-size: 100%;
+        width: 100px;
+        top: 0px;
+        display: none;
+    } */
+
+    .iconBase {
+        position: fixed;
+        right: 0;
+        top: 2px;
+        left: 0;
+        margin-left: 0px;
+        /*margin-left: -170px;*/
+    }
+
+    .infoValor {
+        top: 1px;
+        left: 5px;
+    }
+
+    .infoValor .salario {
+        font-size: 10px;
+        text-align: right;
+        margin-right: 0px;
+        display: none;
+    }
+
+    .infoValor .info {
+        font-size: 10px;
+        padding: 0 2px;
+        color: #0079be;
+        background-color: #fff;
+        border: 1px solid #2a2a2a;
+        border-radius: 5px;
+    }
+
+    .iconAjudaBase {
+        position: relative;
+        float: left;
+        background: url(../img/ajudaBtn.png);
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+        cursor: pointer;
+        margin-right: 0px;
+        margin-top: 0px;
+        left: 0px;
+    }
+
+    .iconSairBase {
+        position: relative;
+        float: left;
+        background: url(../img/fecharBtn.png);
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+        cursor: pointer;
+        margin-right: 0px;
+        margin-top: 0px;
+        left: 0px;
+    }
+}
+
+
+
+/*= MODAL
+	----------------------------*/
+
+#v5_lightbox {
+    width: 100%;
+    height: 100%;
+    z-index: 999999 !important;
+    position: fixed;
+    top: 0px;
+}
+
+#v5_lightbox .bcg {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+    position: absolute;
+    /*cursor: pointer;*/
+}
+
+.modalIframe {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* width: 600px;*/
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -300px;
+    background-color: #363636;
+    opacity: 1;
+}
+
+.menuContainer {
+    display: none;
+}
+
+.menuItem {
+    width: 100%;
+    height: 50px;
+    background-color: #434d4d;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.disabled {
+    background-color: #434d4d;
+    color: #fff;
+    cursor: default;
+}
+
+.active {
+    background-color: #02ccff;
+    color: #000;
+}
+
+.over {
+    background-color: #0b4d5d;
+    color: #fff;
+}
+
+.blick {
+    background-color: #003441;
+    color: #fff;
+}
+
+.ajudaContainer {
+    display: none;
+}
+
+.sairContainer {
+    display: none;
+}
+
+.textoMenu {
+    position: relative;
+    color: #fff;
+    font-family: "soletoregular" !important;
+    font-size: 18px !important;
+    line-height: 1.5;
+    margin: 40px !important;
+    margin-top: 10px !important;
+    text-align: center !important;
+}
+
+.sairModal {
+    width: 400px;
+    height: 200px;
+    margin-left: -200px;
+    margin-top: -100px;
+}
+
+.tituloSair {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    padding-top: 18px;
+    background-color: #292828;
+}
+
+.subtituloSair {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    padding-top: 18px;
+    /* border-style: solid;
+    border-width: 1px;*/
+}
+
+.btnsSair {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin-left: 40px;
+}
+
+.simSair {
+    position: relative;
+    float: left;
+    width: 40%;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.simSair:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.naoSair {
+    position: relative;
+    float: left;
+    width: 40%;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.naoSair:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.textoSair {
+    position: relative;
+    color: #fff;
+    font-family: "soletoregular" !important;
+    font-size: 18px !important;
+    line-height: 1.5;
+    margin: 40px !important;
+    margin-top: 10px !important;
+    text-align: center !important;
+}
+
+.fechar {
+    position: absolute;
+    background-image: url("../img/fecharModal.png");
+    background-color: #1a1d1d !important;
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    z-index: 9999;
+    cursor: pointer;
+    right: 0;
+    top: -60px;
+}
+
+.fechar:hover {
+    background-color: #232424 !important;
+}
+
+/*------------
+/// AJUDA
+-------------*/
+
+.ajudaTela {
+    position: relative;
+    /*    background-image: url("../img/ajuda.png");*/
+    background-repeat: no-repeat;
+    height: 392px;
+    width: 550px;
+    -webkit-box-shadow: 11px 10px 12px 0px rgba(0, 0, 0, 0.41);
+    -moz-box-shadow: 11px 10px 12px 0px rgba(0, 0, 0, 0.41);
+    box-shadow: 11px 10px 12px 0px rgba(0, 0, 0, 0.41);
+}
+
+.ajudaBcg {
+    background-color: rgb(0, 111, 111);
+}
+
+/*= PRELOADER
+	----------------------------*/
+
+.b-lazy {
+    -webkit-transition: opacity 500ms ease-in-out;
+    -moz-transition: opacity 500ms ease-in-out;
+    -o-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
+    max-width: 100%;
+    opacity: 0;
+}
+
+.b-lazy.b-loaded {
+    opacity: 1;
+}
+
+/*= SCROLL
+	----------------------------*/
+
+/** initial setup **/
+
+.nano {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.nano > .nano-content {
+    position: absolute;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.nano > .nano-content:focus {
+    outline: thin dotted;
+}
+
+.nano > .nano-content::-webkit-scrollbar {
+    display: none;
+}
+
+.has-scrollbar > .nano-content::-webkit-scrollbar {
+    display: block;
+}
+
+.nano > .nano-pane {
+    background: rgba(0, 0, 0, .25);
+    position: absolute;
+    width: 10px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    visibility: hidden\9;
+    /* Target only IE7 and IE8 with this hack */
+    opacity: .01;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.nano > .nano-pane > .nano-slider {
+    background: #444;
+    background: rgba(0, 0, 0, .5);
+    position: relative;
+    margin: 0 1px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.nano:hover > .nano-pane,
+.nano-pane.active,
+.nano-pane.flashed {
+    visibility: visible\9;
+    /* Target only IE7 and IE8 with this hack */
+    opacity: 0.99;
+}
+
+.nano {
+    width: 600px;
+    height: 300px;
+}
+
+.nano .nano-content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.nano .nano-pane {
+    background: #888;
+}
+
+.nano .nano-slider {
+    background: #111;
+}
+
+
+
+.retormar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+@-webkit-keyframes fade_in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade_in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade_in {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: fade_in;
+    animation-name: fade_in;
+}
+
+
+@-webkit-keyframes fade_out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade_out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade_out {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: fade_out;
+    animation-name: fade_out;
+}
+
+
+
+@-webkit-keyframes fade_out_down {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+@keyframes fade_out_down {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+.fade_out_down {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: fade_out_down;
+    animation-name: fade_out_down;
+}
+
+
+
+@-webkit-keyframes fade_in_down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fade_in_down {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fade_in_down {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: fade_in_down;
+    animation-name: fade_in_down;
+}
+
+
+@-webkit-keyframes fade_in_up {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fade_in_up {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+
+.fade_in_up {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: fade_in_up;
+    animation-name: fade_in_up;
+}
+
+
+@-webkit-keyframes fade_out_up {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+@keyframes fade_out_up {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+.fade_out_up {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-name: fade_out_up;
+    animation-name: fade_out_up;
+}
+
+
+
+/*
+// MODAL
+*/
+
+.modalBase {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+
+.modalBase .marcacaoModal {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.65);
+    top: 0;
+    left: 0;
+}
+
+.modalBase .fecharModal {
+    position: fixed;
+    background: url(../img/fecharModal.png) no-repeat;
+    background-size: 100%;
+    width: 60px;
+    height: 60px;
+    z-index: 9999999999;
+    top: 0;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+.modalBase .iframeModal {
+    position: fixed;
+    width: 1043px;
+    height: 615px;
+    z-index: 999999999;
+    top: 0;
+    left: 0;
+}
+

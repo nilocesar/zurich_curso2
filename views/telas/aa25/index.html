@@ -1,0 +1,396 @@
+<script>
+    window["aa25"] = {
+        indice: "aa25",
+        status: false,
+        exerc: 3
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa25").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            controleQuizScorm();
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                _containerTela.find(".posicionar").positionCSS({
+                    box: _containerTela.find('.containerGeral'),
+                    img_H: course.height,
+                    img_W: course.width
+                });
+
+                controleQuiz();
+
+
+            } else {
+
+            }
+
+            function controleQuizScorm() {
+
+                if (course.scorm_get_suspendData('exerc' + _tela.exerc)) {
+                    var _feito = JSON.parse(course.scorm_get_suspendData('exerc' + _tela.exerc));
+
+                   
+
+                    $.each(_feito, function(indice, item) {
+
+                      var _select = _containerTela.find('select').eq(indice);
+
+                      var _prev = item.split("_");
+                      _select.val( _prev[0] );
+                      
+                      if(_prev[1] == 1){
+                        _select.parent().addClass("corretoSelect");
+                        _select.parent().find(".incorreto").css("display", "block");
+                        _select.parent().find(".incorreto").css("opacity", "0");
+                        _select.parent().find(".icos").css('display', 'block');
+                        _select.parent().find(".icoPos").css('display', 'flex');
+                      }else{
+                        
+                        _select.parent().addClass("erradoSelect");
+                        _select.parent().find(".incorreto").css("display", "block");
+                        _select.parent().find(".incorreto").css("opacity", "1");
+                        _select.parent().find(".icos").css('display', 'block');
+                        _select.parent().find(".icoNeg").css('display', 'flex');
+                      }
+                        
+                    });
+
+                    
+
+                    setTimeout(function() {
+                        course.liberarNavegacao();
+                    }, 1000 * 2);
+
+                }else{
+                    var _select = _containerTela.find('select');
+                    _select.val( 0 );
+
+                    _select.parent().removeClass("corretoSelect erradoSelect");
+                    _select.parent().find(".incorreto").css("display", "none");
+                    _select.parent().find(".incorreto").css("opacity", "1");
+                    _select.parent().find(".icos").css('display', 'none');
+                    _select.parent().find(".icoPos").css('display', 'none');
+                    _select.parent().find(".icoNeg").css('display', 'none');
+                }
+            }
+
+            function controleQuiz() {
+
+                _containerTela.find('.confirmar').css("display", "none");
+
+                _containerTela.find('select').on('change', function() {
+                    var _escolhido = $(this).find("option:selected").attr("item");
+                    $(this).attr("escolhido", _escolhido);
+
+
+                    var comp = true;
+                    _containerTela.find('select').each(function(indice, item) {
+
+                        if (parseInt($(item).attr("escolhido")) == -1)
+                            comp = false;
+                    });
+
+                    if (comp) {
+                        if (comp) {
+
+                            _containerTela.find(".confirmar").css("display", "block");
+
+                            var position = _containerTela.scrollTop();
+                            var _xPosition = _containerTela.find(".confirmar");
+
+                            _containerTela.animate({
+                                scrollTop: position + _xPosition.offset().top
+                            }, 300, 'linear');
+
+                        }
+                    } else {
+                        _containerTela.find(".confirmar").css("display", "none");
+                    }
+
+                });
+
+
+                _containerTela.find('.confirmar').on('click', function() {
+
+                    _containerTela.find('.confirmar').css("display", "none");
+                    var _erro = false;
+                    var _respScorm = [];
+                    
+                    _containerTela.find('select').css('point-event', 'none');
+                    _containerTela.find('select').each(function(indice, item) {
+
+                        _respScorm.push( $(item).val() +"_"+ $(item).attr("escolhido") );
+
+                        if (parseInt($(item).attr("escolhido")) == 1) {
+                            $(item).parent().addClass("corretoSelect");
+                            $(item).parent().find(".incorreto").css("display", "block");
+                            $(item).parent().find(".incorreto").css("opacity", "0");
+
+                            $(item).parent().find(".icos").css('display', 'block');
+                            $(item).parent().find(".icoPos").css('display', 'flex');
+
+                        
+                        } else {
+                            $(item).parent().addClass("erradoSelect");
+                            $(item).parent().find(".incorreto").css("display", "block");
+
+                            $(item).parent().find(".icos").css('display', 'block');
+                            $(item).parent().find(".icoNeg").css('display', 'flex');
+
+                            _erro = true;
+                        }
+
+                    });
+
+                    course.scorm_set_suspendData('exerc' + _tela.exerc, JSON.stringify(_respScorm) )
+
+                    if(_erro){
+                        _containerTela.find(".feed").css('display', 'block');
+                        _containerTela.find(".feed2").css('display', 'flex');
+                    }else{
+                        _containerTela.find(".feed").css('display', 'block');
+                        _containerTela.find(".feed1").css('display', 'flex');
+
+                        if(course.scorm_get_suspendData('total')){
+                          var _total = parseInt(course.scorm_get_suspendData('total')) + 1;
+                          course.scorm_set_suspendData('total', _total )
+
+                        }else{
+                           course.scorm_set_suspendData('total', 1);
+                        }
+                    }
+
+
+                    if(course.scorm_get_suspendData('total')){
+                        var _total = parseInt(course.scorm_get_suspendData('total'));
+                        _containerTela.find(".pontuacao").text( _total );
+
+                    }else{
+                        _containerTela.find(".pontuacao").text( 0 );
+                    }
+
+                });
+
+                _containerTela.find(".continuar").on('click', function() {
+                    _containerTela.find(".feed").css('display', 'none');
+                    course.liberarNavegacao();
+                });
+
+            }
+        }
+
+
+    })
+</script>
+
+
+<div class="containerAA25 containerAABase">
+    <div class="containerGeral">
+
+        <div class="content posicionar animated fadeIn delay0_4 branco size24" px="140" py="140">
+            <div class="item animated fadeInRight delay0_6">
+                <div class="ico"></div>
+                <!-- <div class="text">
+                        Colocando<br> em prática
+                    </div> -->
+            </div>
+            <div class="sub animated fadeInRight delay0_8">
+                <div class="azul2">
+                    E nos casos abaixo? Qual é o canal adequado para que seja feita a denúncia? 
+                    Escolha na coluna da esquerda e clique em <span class="xbold">Confirmar</span>.
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="relacionamento posicionar animated fadeIn delay0_8" px="164" py="320">
+
+            <div class="questao q1 animated fadeInUp delay1_0 azul2">
+
+               
+                <div class="texQuestion">
+
+                    <div class="custom-dropdown">
+                        <div class="icos animated fadeInUp delay0_6">
+                            <div class="icoNeg">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="icoPos">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="incorreto bold">
+                          <span class="xbold">Resposta:</span>
+                          <span> Canal de Denúncia à Fraude Externa</span>
+                        </div>
+                        <select escolhido='-1'>
+                            <option item='-1'></option>
+                            <option value="1" class="bold" item='1'>
+                              Canal de Denúncia à Fraude Externa
+                            </option>
+                            <option value="2" class="bold" item='0'>
+                              Zurich Ethics Line (ZEL)
+                            </option>
+                           
+                        </select>
+                    </div>
+                    <div class="size24">
+                        Omissão da existência de seguros anteriores com sinistro.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="questao q1 animated fadeInUp delay1_2 azul2">
+
+                
+                <div class="texQuestion">
+
+                    <div class="custom-dropdown">
+                        <div class="icos animated fadeInUp delay0_6">
+                            <div class="icoNeg">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="icoPos">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                       <div class="incorreto bold">
+                          <span class="xbold">Resposta:</span>
+                          <span>Zurich Ethics Line (ZEL)</span>
+                       </div>
+                       
+                        <select escolhido='-1'>
+                            <option item='-1'></option>
+                            <option value="1" class="bold" item='0'>
+                              Canal de Denúncia à Fraude Externa
+                            </option>
+                            <option value="2" class="bold" item='1'>
+                              Zurich Ethics Line (ZEL)
+                            </option>
+                           
+                        </select>
+                    </div>
+                    <div class="size24">
+                        Colaborador recebe uma parte da comissão do corretor para aceitar proposta de seguro.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="questao q1 animated fadeInUp delay1_4 azul2">
+
+                
+
+                <div class="texQuestion">
+
+                    <div class="custom-dropdown">
+                        <div class="icos animated fadeInUp delay0_6">
+                            <div class="icoNeg">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="icoPos">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="incorreto bold">
+                          <span class="xbold">Resposta:</span>
+                          <span> Canal de Denúncia à Fraude Externa</span>
+                        </div>
+                        <select escolhido='-1'>
+                            <option item='-1'></option>
+                            <option value="1" class="bold" item='1'>
+                              Canal de Denúncia à Fraude Externa
+                            </option>
+                            <option value="2" class="bold" item='0'>
+                              Zurich Ethics Line (ZEL)
+                            </option>
+                           
+                        </select>
+                    </div>
+                    <div class="size24">
+                        Acionar cobertura de seguro de roubo ou furto de celular quando, na verdade, eles foram vendidos.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="confirmar center animated fadeIn">
+                Confirmar
+            </div>
+
+
+        </div>
+
+
+
+        <div class="feed posicionar animated fadeIn" px="134" py="120">
+
+            <div class="feedBase feedPositivo feed1">
+
+                <div class="infX">
+                    <div class="inf size33 animated fadeInRight delay0_6">
+                        <div class="xbold size50">Parabéns!</div>
+                        <div class="mt20">
+                            Você escolheu corretamente o canal mais adequado para denunciar cada caso.
+                        </div>
+                        <div class="mt20 xbold">
+                            Sua pontuação é:
+                            <span class="size40 pontBloco azul1">
+                                <span class="xbold azul1 pontuacao">X</span> de
+                            <span class="xbold azul1 totalEx">5</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="icoPositivo animated zoomIn delay1_0"></div>
+                </div>
+
+                <div class="continuar xbold animated fadeInUp delay1_2">
+                    Continuar
+                </div>
+
+            </div>
+
+
+            <div class="feedBase feedNegativo feed2">
+
+                <div class="infX">
+                    <div class="inf size33 animated fadeInRight delay0_6">
+                        <div class="xbold size50">Não foi<br> desta vez!</div>
+                        <div class="mt20">
+                            Você não escolheu o canal mais adequado para algum(ns) dos casos.
+                        </div>
+                        <div class="mt20 xbold">
+                            Sua pontuação é:
+                            <span class="size40 pontBloco azul1">
+                                <span class="xbold azul1 pontuacao">X</span> de
+                            <span class="xbold azul1 totalEx">5</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="icoNegativo animated zoomIn delay1_0"></div>
+                </div>
+
+                <div class="continuar xbold animated fadeInUp delay1_2">
+                    Continuar
+                </div>
+
+
+            </div>
+
+            
+
+        </div>
+
+
+    </div>
+
+
+</div>

@@ -1,0 +1,84 @@
+<script>
+    window["aa31"] = {
+        indice: "aa31",
+        status: false
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa31").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+            course.completeScorm();
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                _containerTela.find(".btnItem").on('click', function() {
+                    
+                    $("body").attr("nav", "next");
+                    $("body").trigger("navegacao");
+
+                });
+
+            } else {
+
+            }
+        }
+    })
+</script>
+
+
+<div class="containerAA31 containerAABase">
+
+    <div class="containerGeral">
+
+
+
+        <div class="content posicionar animated fadeIn delay0_4 branco" px="120" py="230">
+            <div class="sub animated fadeIn delay0_5 size26">
+                <div class="bloco blocoX">
+                  <div class="titulo size50">
+                    PARABÉNS!
+                  </div>
+                  <div>
+                    Você concluiu o curso Prevenção à Fraude! Como foi conhecer 
+                    melhor o que são, as motivações e os impactos das fraudes para 
+                    as seguradoras e para a sociedade?
+                  </div>
+                </div>
+                <div class="bloco">
+                  <span class="xbold">Não esqueça:</span>
+                  <br>Ao suspeitar ou descobrir <br>uma fraude, <span class="xbold">denuncie!</span>
+                  <br><br>
+                  <span class="xbold">Fraudes Internas</span><br>
+                  Zurich Ethics Line (ZEL):<br> 
+                  0800 891 4046
+                  <br><br>
+                  <span class="xbold">Fraudes Externas</span><br>
+                  Canal de Denúncia a Fraudes Externas:<br> 
+                  canaletica.zurich@br.zurich.com<br><br>
+                  <!-- <span class="xbold">Formulário:</span><br> 
+                  <a href="https://www.zurich.com.br/pt-br/atendimento/formulario-denuncie-uma-fraude"
+                    class="size16 branco xbold"
+                    target="_blank"
+                  >
+                    https://www.zurich.com.br/pt-br/atendimento/formulario-denuncie-uma-fraude
+                  </a> -->
+                    
+                </div>
+            </div>
+        </div> 
+
+    </div>
+
+</div>

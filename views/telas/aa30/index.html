@@ -1,0 +1,114 @@
+<script>
+        window["aa30"] = {
+            indice: "aa30",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa30").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+                controle();
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+
+                    _containerTela.find(".encerrar").on('click', function(){
+                        $("body").attr("nav", "next");
+                        $("body").trigger("navegacao");
+                    });
+
+                    _containerTela.find(".reset").on('click', function(){
+                        course.returnGame();
+                    });
+    
+                  
+                } else {
+    
+                }
+
+                function controle(){
+                    var _total = course.totalExerc;
+                    var _acertos = 0;
+                    var _porc = 0;
+                    if(course.scorm_get_suspendData('total')){
+                        _acertos = parseInt(course.scorm_get_suspendData('total'));  
+                    }
+
+                    _porc = String(parseInt(_acertos/_total * 100)) + "%";
+                    
+                    //
+                    _containerTela.find(".reset").css('display', 'none');
+                    _containerTela.find(".porcentagem").text( _porc );
+                    _containerTela.find(".progresso1").delay(1000*1).animate({width: _porc }, 1000 * 1 );
+
+                    if( _acertos >= 4 ){
+                        _containerTela.find(".titulo").text('Você foi muito bem!');
+                    }
+                    else if( _acertos >= 2 && _acertos < 4  ){
+                        _containerTela.find(".titulo").text('Você poderia ter ido melhor.');
+                        _containerTela.find(".progresso1").css('background-color', '#004C9A');
+                    }else{
+                        _containerTela.find(".titulo").text('Você não foi muito bem. Sugerimos que você tente de novo.');
+                        _containerTela.find(".reset").css('display', 'block');
+                        _containerTela.find(".progresso1").css('background-color', '#acabab');
+                    }
+
+
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA30 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="250">
+                <div class="step step1">
+                    <div class="titulo size50 azul1 bold animated fadeInUp delay0_6">
+                        Você foi muito bem!
+                    </div>
+                    <div class="fundo animated fadeInUp delay0_8">
+                        <div class="progresso1">
+                        <span class="area"></span>
+                        <span class="porcentagem">65%</span>
+                        </div>
+                    </div>
+
+                    <div class="btns">
+                        <div class="encerrar center animated fadeInUp delay1_0">
+                            Encerrar
+                        </div>
+
+                        <div class="reset center animated fadeInUp delay1_2">
+                            Jogar de novo
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="lupa posicionar" px="950" py="161">
+                <div class="img animated zoomIn delay1_2"></div>
+            </div>
+
+             
+            
+        </div>
+    
+    
+    </div>

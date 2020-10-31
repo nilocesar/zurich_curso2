@@ -1,0 +1,121 @@
+/*= AA1
+----------------------------*/
+
+.containerAA5 {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    /* background: url(../../img/cenario4.jpg) no-repeat center;
+    background-size: contain; */
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+
+.containerAA5 .content{
+    position: absolute;
+    width: 300px;
+}
+
+.containerAA5 .content .sub{
+    position: relative;
+    width:100%;
+    height:100%;
+    border-left: 1px solid #0D2554;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.containerAA5 .menu{
+    position: absolute;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.containerAA5 .menu .item{
+    position: relative;
+    width: 200px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    
+}
+
+.containerAA5 .menu .item .ico{
+    position: relative;
+    background-size: 10%;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #0D2554;
+    border-radius:20px;
+}
+
+.containerAA5 .menu .item:hover .ico{
+
+}
+
+.containerAA5 .menu .item1 .ico{
+    background: url(../../img/ico1.svg) no-repeat center;
+    background-size: 80%;   
+
+}
+
+.containerAA5 .menu .item2 .ico{
+    background: url(../../img/ico2.svg) no-repeat center;
+    background-size: 80%; 
+    
+}
+
+.containerAA5 .menu .item3 .ico{
+    background: url(../../img/ico3.svg) no-repeat center;
+    background-size: 30%; 
+    
+}
+
+.containerAA5 .menu .item4 .ico{
+    background: url(../../img/ico4.svg) no-repeat center;
+    background-size: 80%; 
+    
+}
+
+.containerAA5 .menu .item5 .ico{
+    background: url(../../img/ico5.svg) no-repeat center;
+    background-size: 70%; 
+}
+
+.containerAA5 .menu .item6 .ico{
+    background: url(../../img/ico6.svg) no-repeat center;
+    background-size: 70%; 
+}
+
+.containerAA5 .menu .item .text{
+    padding: 10px;
+    color: #0D2554;
+    font-size: 30;
+    text-align: center;
+}
+
+.containerAA5 .itemInativo {
+    pointer-events: none;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    /* IE */
+    opacity: 0.1;
+}
+
+    

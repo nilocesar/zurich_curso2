@@ -1,0 +1,75 @@
+/*= AA1
+----------------------------*/
+
+.containerAA14 {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: url(../../img/cenario14.jpg) no-repeat center;
+    background-size: cover;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+
+.containerAA14 .content{
+    position: absolute;
+    width: 330px;
+    line-height: normal;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.containerAA14 .content .sub{
+    position: relative;
+    width:100%;
+    height:100%;
+    display:flex;
+    /* border-left: 1px solid #0D2554; */
+    align-items: center;
+}
+
+
+.containerAA14 .item{
+    position: relative;
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 30px;
+    pointer-events: none;
+    
+}
+
+.containerAA14 .item .ico{
+    position: relative;
+    background-size: 10%;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #0D2554;
+    border-radius:20px;
+    background: url(../../img/ico3.svg) no-repeat center;
+    background-size: 30%;   
+}
+
+
+.containerAA14 .item .text{
+    padding: 10px;
+    color: #0D2554;
+    font-size: 30px;
+}
+
+
+    

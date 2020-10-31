@@ -1,0 +1,48 @@
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" width="249.7" height="100.8" viewBox="0 0 249.7 100.8">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #00307f;
+      }
+
+      .cls-2, .cls-3 {
+        isolation: isolate;
+        font-size: 13.3px;
+        font-family: Frutiger;
+      }
+
+      .cls-3 {
+        fill: #fdfeff;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>triangulo2</title>
+  <g>
+    <path class="cls-1" d="M58.1,85.2H-25.4L28.9-6.4,83.3,85.2H72.2v3.1H88.8L29.1-12.5l-60,100.8h89V85.2h0Z" transform="translate(30.9 12.5)"/>
+    <text class="cls-2" transform="translate(20.3 93.4) scale(1 1.1)">Oportunidade</text>
+    <g>
+      <path class="cls-1" d="M28.9,24.9a10,10,0,0,0-10,10,9.8,9.8,0,0,0,3.5,7.5v10h3.4a4.2,4.2,0,0,0,3,2.2c1.5,0,2.6-1.6,3-2.2h3.2v-3L23.5,46.9v-2l11.4,2.4V42.8A10,10,0,0,0,29,24.9H28.9ZM28.6,53.5A2.6,2.6,0,0,1,27,52.4h3.4a2.6,2.6,0,0,1-1.6,1.1H28.6Zm5.2-3.2v1.1H23.4V48.1Zm0-4L23.4,44.1V42.8H33.9v3.5Zm0.8-4.4H23.2a9,9,0,1,1,12.7-1.1l-1.1,1.1H34.7Z" transform="translate(30.9 12.5)"/>
+      <rect class="cls-1" x="42.3" y="49.1" width="4.8" height="0.98"/>
+      <rect class="cls-1" x="15.4" y="23.1" width="0.9" height="4.9" transform="translate(16.8 36.4) rotate(-55)"/>
+      <rect class="cls-1" x="72.6" y="49.1" width="4.8" height="0.98"/>
+      <rect class="cls-1" x="59" y="29.7" width="0.9" height="4.9"/>
+      <rect class="cls-1" x="39.5" y="25.6" width="4.8" height="0.98" transform="matrix(0.82, -0.57, 0.57, 0.82, 23.52, 41.28)"/>
+    </g>
+  </g>
+  <g>
+    <path class="cls-1" d="M218.8,88.3L159.1-12.5,99.1,88.3H218.8Z" transform="translate(30.9 12.5)"/>
+    <text class="cls-3" transform="translate(150.3 93.4) scale(1 1.1)">Oportunidade</text>
+    <g>
+      <path class="cls-4" d="M158.9,23.9a10,10,0,0,0-10,10,9.8,9.8,0,0,0,3.5,7.5v10h3.4a4.2,4.2,0,0,0,3,2.2c1.5,0,2.6-1.6,3-2.2h3.2v-3l-11.4-2.4v-2l11.4,2.4V41.8A10,10,0,0,0,159,23.9h-0.1Zm-0.3,28.6a2.6,2.6,0,0,1-1.6-1.1h3.4a2.6,2.6,0,0,1-1.6,1.1h-0.1Zm5.2-3.2v1.1H153.4V47.1Zm0-4-10.5-2.2V41.8h10.5v3.5Zm0.8-4.4H153.2a9,9,0,1,1,12.7-1.1l-1.1,1.1h-0.1Z" transform="translate(30.9 12.5)"/>
+      <rect class="cls-4" x="172.3" y="48.1" width="4.8" height="0.98"/>
+      <rect class="cls-4" x="145.4" y="22.1" width="0.9" height="4.9" transform="translate(73 142.4) rotate(-55)"/>
+      <rect class="cls-4" x="202.6" y="48.1" width="4.8" height="0.98"/>
+      <rect class="cls-4" x="189" y="28.7" width="0.9" height="4.9"/>
+      <rect class="cls-4" x="169.5" y="24.6" width="4.8" height="0.98" transform="translate(47.6 115.7) rotate(-35)"/>
+    </g>
+  </g>
+</svg>

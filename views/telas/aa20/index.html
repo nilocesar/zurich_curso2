@@ -1,0 +1,71 @@
+<script>
+        window["aa20"] = {
+            indice: "aa20",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa20").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA20 containerAABase">
+        <div class="containerGeral">
+
+          <div class="lupa posicionar" px="110" py="221">
+                <div class="img animated zoomIn delay1_2"></div>
+            </div>
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="700" py="200">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Lidando<br> com suspeitas
+                    </div>
+                </div>
+                <div class="sub animated zoomIn delay0_8">
+                    
+                    <div class="cinza1">
+                        Com tantos prejuízos causados pelas fraudes, estes são sinais que 
+                        valem a pena ficar de olho! Você se sente satisfeito com o estudo, 
+                        mas logo surge outra dúvida: o que fazer quando se deparar com essas 
+                        ações? Você se lembra de um colega parceiro que trabalha na parte de 
+                        Compliance, que logo responde à sua dúvida através de um e-mail.
+                    </div>
+                       
+                </div>
+            </div> 
+
+            
+            
+        </div>
+    
+    
+    </div>

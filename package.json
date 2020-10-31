@@ -1,0 +1,26 @@
+{
+  "name": "estrutura",
+  "version": "1.0.0",
+  "description": "Estrutura de EAD com controle de SCORM 1.2, criada por Nilo César 11/2016",
+  "scripts": {
+    "server":"browser-sync start --server --files 'css/*.css'",
+    "start": "npm run build:iframe && npm run build:css && npm run build:js && npm run compilador",
+    "build:iframe": "node includes/build/r.js -o includes/build/iframeJS.js",
+    "build:css": "node includes/build/r.js -o includes/build/buildCSS.js",
+    "build:js": "node includes/build/r.js -o includes/build/buildJS.js",
+    "compilador": "node includes/build/compilador.js"
+  },
+  "dependencies": {
+    "archiver": "^1.3.0",
+    "copy": "^0.3.2",
+    "delete": "^0.3.2",
+    "mkdirp": "^0.5.1",
+    "xmldom": "^0.1.27"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8"
+  },
+  "main": "index.js",
+  "author": "nilo",
+  "license": "MIT"
+}

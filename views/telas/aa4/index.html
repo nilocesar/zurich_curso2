@@ -1,0 +1,59 @@
+<script>
+        window["aa4"] = {
+            indice: "aa4",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa4").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA4 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 azul1 size22" px="250" py="150">
+                <div class="sub animated fadeInRight delay0_5">
+                    <div class="animated fadeInLeft delay0_8">
+                        A jornada deste fim de semana começa pela visita a um fórum 
+                        de investigações on-line. Nele, casos são expostos e os 
+                        integrantes se divertem solucionando-os. Desta vez, um desafio 
+                        em particular lhe desperta a atenção: trata-se de uma possível 
+                        fraude aplicada a uma seguradora. Para ajudar na resolução do caso, 
+                        você se empenha em aprender mais sobre fraudes em companhias de seguro.
+                    </div>
+                       
+                </div>
+            </div> 
+            
+        </div>
+    
+    
+    </div>

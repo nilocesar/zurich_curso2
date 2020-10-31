@@ -1,0 +1,41 @@
+/*= AA1
+----------------------------*/
+
+.containerAA3 {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: url(../../img/cenario3.jpg) no-repeat center;
+    background-size: cover;
+}
+
+/* -------------------------------- 
+
+Main Components 
+
+-------------------------------- */
+
+
+.containerAA3 .content{
+    position: absolute;
+    width: 330px;
+    line-height: normal;
+}
+
+.containerAA3 .content .sub{
+    position: relative;
+    width:100%;
+    height:100%;
+    display:flex;
+    border-left: 1px solid #0D2554;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+
+    

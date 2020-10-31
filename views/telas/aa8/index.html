@@ -1,0 +1,129 @@
+<script>
+        window["aa8"] = {
+            indice: "aa8",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa8").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+
+                    controle();
+    
+                  
+                } else {
+    
+                }
+
+                function controle(){
+
+                    _containerTela.find(".item2").addClass('sInativo');
+                    _containerTela.find(".bl2").addClass('sInativo');
+
+                    _containerTela.find(".seta").on('click', function(){
+                        $(this).parent().find('.item2').removeClass('sInativo');
+                        _containerTela.find(".bl2").removeClass('sInativo');
+
+                        $(this).attr('ativo', 1);
+
+                        var _comp = true;
+                        _containerTela.find(".seta").each(function(indice, item){
+                            if( !$(item).attr('ativo') )
+                                _comp = false;
+                        })
+
+                        if(_comp){
+                            course.liberarNavegacao();
+                        }
+                    });
+                   
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA8 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="200">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Impactos<br> da fraude
+                    </div>
+                </div>
+                <div class="sub animated fadeInRight delay0_8">
+                    <div class="cinza1">
+                            Os principais impactos da fraude para a companhia e 
+                            para a sociedade se relacionam. São eles:
+                    </div>       
+                </div>
+            </div> 
+
+            <div class="blocos posicionar animated fadeIn delay1_2 branco size22" px="210" py="400">
+                <div class="titulo bold size26 azul2">
+                    <div class="subT">
+                        Companhia
+                    </div>
+                     <div class="subT">
+                        Sociedade
+                    </div>
+                </div>
+
+                <div class="block bl1">
+                    <div class="it item1 azul1">
+                        Aumento dos custos operacionais
+                    </div>
+                    <div class="seta azul2 size50 animated infinite pulse">
+                        <i class="fas fa-caret-right"></i>
+                    </div>
+                     <div class="it item2 azul2 bg_branco animated zoomIn">
+                        Aumento dos custos operacionais
+                    </div>
+                </div>
+
+                <div class="block bl2 animated fadeInUp delay0_4">
+                    <div class="it item1 azul1">
+                        Aumento dos custos de seguro
+                    </div>
+                    <div class="seta azul2 size50 animated infinite pulse">
+                        <i class="fas fa-caret-right"></i>
+                    </div>
+                     <div class="it item2 azul2 bg_branco animated zoomIn">
+                        Inacessibilidade a novas camadas sociais.
+                    </div>
+                </div>
+
+
+                <div class="info size22 azul2 mt30">
+                    Clique nas setas.
+                </div>
+
+        
+            </div>
+
+           
+            
+        </div>
+    
+    
+    </div>

@@ -1,0 +1,70 @@
+<script>
+        window["aa7"] = {
+            indice: "aa7",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa7").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA7 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="200">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Impactos<br> da fraude
+                    </div>
+                </div>
+                <div class="sub animated zoomIn delay0_8">
+                    <div class="azul2 size26 bold">
+                        O que é fraude?
+                    </div>
+                    <div class="cinza1">
+                        No contexto do mercado de seguros, a fraude é um <span class="bold">ato</span> 
+                        ou uma <span class="bold">omissão intencional visando enganar os demais</span> 
+                        para obter um <span class="bold">benefício pessoal</span> resultando em perdas 
+                        para a <span class="bold">companhia e sociedade</span>.
+                    </div>
+                       
+                </div>
+            </div> 
+
+            <div class="lupa posicionar" px="630" py="221">
+                <div class="img animated zoomIn delay1_2"></div>
+            </div>
+            
+        </div>
+    
+    
+    </div>

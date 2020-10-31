@@ -1,0 +1,223 @@
+<script>
+    window["aa19"] = {
+        indice: "aa19",
+        status: false
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa19").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width
+            });
+
+           
+
+            reset();
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                nav();
+                
+
+            } else {
+
+            }
+
+            function nav() {
+
+                _containerTela.find(".btnMenuReturn").on('click', function(){
+                    course.returnMenu(4);
+                });
+
+                _containerTela.find(".nleft").on('click', function() {
+
+                    var _step = parseInt($(this).parent().attr('stepAtivo')) - 1;
+                    $(this).parent().attr('stepAtivo', _step);
+
+                    _containerTela.find(".nright").css('display', 'flex');
+
+                    if (_step == 1)
+                        _containerTela.find(".nleft").css('display', 'none');
+
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".step" + _step).css('display', 'block');
+
+                });
+
+                _containerTela.find(".nright").on('click', function() {
+
+                    var _step = parseInt($(this).parent().attr('stepAtivo')) + 1;
+                    var _stepAll = _containerTela.find(".step").length;
+
+                    _containerTela.find(".nleft").css('display', 'flex');
+
+                    if (_step == _stepAll){
+                        _containerTela.find(".nright").css('display', 'none');
+                        _containerTela.find(".btnMenuReturn").css('display', 'block');
+                    }
+                       
+
+
+                    $(this).parent().attr('stepAtivo', _step);
+
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".step" + _step).css('display', 'block');
+
+                });
+
+            }
+
+            function reset() {
+                _containerTela.find(".nav").attr('stepAtivo', 1);
+                _containerTela.find(".step").css('display', 'none');
+                _containerTela.find(".nX").css('display', 'none');
+
+                _containerTela.find(".nright").css('display', 'flex');
+                _containerTela.find(".step1").css('display', 'block');
+                _containerTela.find(".btnMenuReturn").css('display', 'none');
+            }
+        }
+    })
+</script>
+
+
+<div class="containerAA19 containerAABase">
+
+    <div class="containerGeral">
+
+
+        <div class="content posicionar animated fadeIn delay0_4 cinza1 size22" px="210" py="300">
+            <div class="item animated fadeInRight delay0_6">
+                <div class="ico"></div>
+                <div class="text">
+                    Fraudes<br> externas
+                </div>
+            </div>
+            <div class="sub animated zoomIn delay0_8">
+                <div class="">
+                    <span class="bold_italic">Red flags</span> de fraudes externas:
+                </div>
+                    
+            </div>
+        </div> 
+
+
+        <div class="bloco posicionar animated fadeIn delay0_8" px="643" py="262">
+
+                <div class="nav size30" stepAtivo=1>
+                    <div class="nX nleft">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </div>
+                    <div class="nX nright">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="step step1 animated fadeIn delay0_2" step=1>
+                    <div class="blocS cinza1 size22">
+                        <div class="ico animated zoomIn delay0_2">
+                          <div class="ico1"></div>
+                        </div> 
+                        <div class="center mt10 animated fadeInUp delay0_4">
+                            Dificuldade na verificação de informações da empresa, como localização, 
+                            tipo, número de funcionários, publicação de balanços etc.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step step2  animated fadeIn delay0_2" step=2>
+                    <div class="blocS cinza1 size22">
+                        <div class="ico size50 animated zoomIn delay0_2">
+                            <div class="ico2"></div>
+                        </div> 
+                        <div class="center mt10 animated fadeInUp delay0_4">
+                            Informações desconexas na documentação apresentada.
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="step step3 animated fadeIn delay0_2" step=3>
+                    <div class="blocS cinza1 size22">
+                        <div class="ico size50 animated zoomIn delay0_2">
+                            <div class="ico3"></div>
+                        </div> 
+                        <div class="center mt10 animated fadeInUp delay0_4">
+                            Dificuldades de contatar os agentes envolvidos (corretor, segurado, etc.)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step step4 animated fadeIn delay0_2" step=4>
+                    <div class="blocS cinza1 size22">
+                        <div class="ico size50 animated zoomIn delay0_2">
+                            <div class="ico4"></div>
+                        </div> 
+                        <div class="center mt10 animated fadeInUp delay0_4">
+                            Variações na grafia do nome do fornecedor aprovado.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step step5 animated fadeIn delay0_2" step=5>
+                    <div class="blocS cinza1 size22">
+                        <div class="ico size50 animated zoomIn delay0_2">
+                            <div class="ico5"></div>
+                        </div> 
+                        <div class="center mt10 animated fadeInUp delay0_4">
+                          Situações “boas demais para serem verdades”.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step step6 animated fadeIn delay0_2" step=6>
+                    <div class="blocS cinza1 size22">
+                        <div class="ico animated zoomIn delay0_2">
+                            <div class="ico6"></div>
+                        </div> 
+                        <div class="center mt10 animated fadeInUp delay0_4">
+                          Mudanças nos beneficiários dos pagamentos de indenizações ou restituições.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step step7 animated fadeIn delay0_2" step=7>
+                    <div class="blocS cinza1 size22">
+                        <div class="ico animated zoomIn delay0_2">
+                            <div class="ico7"></div>
+                        </div> 
+                        <div class="center mt10 animated fadeInUp delay0_4">
+                          Consultas ou reclamações de clientes sobre apólices não registradas
+                          no sistema (por exemplo, absent em caso de assistência).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step step8 animated fadeIn delay0_2" step=8>
+                    <div class="blocS cinza1 size22">
+                        <div class="ico animated zoomIn delay0_2">
+                            <div class="ico8"></div>
+                        </div> 
+                        <div class="center mt10 animated fadeInUp delay0_4">
+                          Pedidos de emissão de apólices extras ou ausência de documentação oficial.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btnMenuReturn posicionar size26" px="780" py="600">
+                <div class="btnIt animated zoomIn">
+                    Menu
+                </div>
+            </div>
+    </div>
+
+</div>

@@ -1,0 +1,166 @@
+.print {
+    display: none !important;
+    -webkit-print-color-adjust: exact;
+}
+
+/*@media only print {*/
+
+* {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+body {
+    font: 13pt sans-serif !important;
+    line-height: 1.3 !important;
+    background: #fff !important;
+    color: #000 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print {
+    display: block !important;
+    font: 13pt sans-serif !important;
+    line-height: 1.3 !important;
+    background: #fff !important;
+    color: #000 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    float: none !important;
+    -webkit-print-color-adjust: exact !important;
+}
+@page {
+    size: auto;
+    /* auto is the initial value */
+    margin: 0;
+    /* this affects the margin in the printer settings */
+    a[href]:after {
+        content: none !important;
+    }
+}
+a[href]:after {
+    content: none !important;
+    -webkit-print-color-adjust: exact!important;
+}
+.print1 {
+    margin: 30pt 35pt !important;
+    page-break-after: always !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print1 h1 {
+    font-size: 20pt !important;
+    font-weight: bold;
+    text-align: center !important;
+    margin-bottom: 1pt !important;
+    padding: 2pt !important;
+    /* border: 1px solid #e86515;*/
+    color: #eb1946 !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print1 h2,
+.print1 h3 {
+    margin-top: 1pt !important;
+    padding-bottom: 2pt !important;
+    border-bottom: 1pt solid #eb1946 !important;
+    text-align: justify !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print1 h4 {
+    font-size: 14pt !important;
+    margin-top: 2pt !important;
+    text-align: center !important;
+    background-color: #dddddd !important !important;
+    border-bottom: 2pt solid #eb1946 !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    padding: 2pt;
+    -webkit-print-color-adjust: exact !important;
+}
+.print1 h4 span {
+    font-size: 14pt !important;
+    color: #eb1946 !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print1 h5 {
+    font-size: 12pt !important;
+    padding: 2pt !important;
+    border: 2pt solid #eb1946 !important;
+    word-wrap: break-word !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print1 h1,
+.print1 h2,
+.print1 h3,
+.print1 h4,
+.print1 h5,
+.print1 h6 {
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+}
+
+/*
+     print 2
+    */
+
+.print2 {
+    /*page-break-after: always;*/
+    margin: 30pt 35pt !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print2 h1 {
+    font-size: 20pt !important;
+    font-weight: bold;
+    text-align: center !important;
+    margin-bottom: 1pt !important;
+    padding: 2pt !important;
+    /* border: 1px solid #e86515;*/
+    color: #e86515 !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print2 h2,
+.print2 h3 {
+    margin-top: 1pt !important;
+    padding-bottom: 2pt !important;
+    border-bottom: 1pt solid #e86515 !important;
+    text-align: justify !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print2 h4 {
+    font-size: 10pt !important;
+    margin-top: 2pt !important;
+    text-align: center !important;
+    background-color: #dddddd !important !important;
+    border-bottom: 2pt solid #e86515 !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    padding: 2pt;
+    -webkit-print-color-adjust: exact !important;
+}
+.print2 h4 span {
+    font-size: 14pt !important;
+    color: #e86515 !important;
+}
+.print2 h5 {
+    font-size: 12pt !important;
+    padding: 2pt !important;
+    border: 2pt solid #e86515 !important;
+    word-wrap: break-word !important;
+    -webkit-print-color-adjust: exact !important;
+}
+.print2 h1,
+.print2 h2,
+.print2 h3,
+.print2 h4,
+.print2 h5,
+.print2 h6 {
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+}
+
+/*}*/

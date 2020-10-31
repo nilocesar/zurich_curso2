@@ -1,0 +1,63 @@
+<script>
+        window["aa15"] = {
+            indice: "aa15",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa15").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA15 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="110" py="200">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Fraudes<br> internas
+                    </div>
+                </div>
+                <div class="sub animated zoomIn delay0_8">
+                    <div class="">
+                        Hum... Esse tipo de fraude deve ser realmente prejudicial 
+                        para a companhia. Para evitá-lo, você estuda quais 
+                        são os comportamentos que devem levantar suspeita, 
+                        as denominadas red flags.
+                    </div>
+                       
+                </div>
+            </div> 
+            
+        </div>
+    
+    
+    </div>

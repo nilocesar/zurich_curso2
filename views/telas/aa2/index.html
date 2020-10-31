@@ -1,0 +1,67 @@
+<script>
+    window["aa2"] = {
+        indice: "aa2",
+        status: false,
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa2").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+        
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                _containerTela.find(".posicionar").positionCSS({
+                    box: _containerTela.find('.containerGeral'),
+                    img_H: course.height,
+                    img_W: course.width
+                });
+
+              
+            } else {
+
+            }
+
+           
+        }
+        
+
+    })
+</script>
+
+
+<div class="containerAA2 containerAABase">
+    <div class="containerGeral">
+        
+        <div class="content posicionar animated fadeIn delay0_4 azul1 size22" px="940" py="150">
+            <div class="sub animated fadeInLeft delay0_5">
+                <div class="animated fadeInRight delay0_8">
+                    <div class="bold mb10">Introdução</div>
+                    <div>
+                        
+                        Bem-vindo ao curso <br>Prevenção à Fraude!<br><br> 
+                        O objetivo deste treinamento é construir 
+                        um entendimento sobre os malefícios da fraude, 
+                        o que motiva alguém a cometê-la, quando se 
+                        deve desconfiar de uma e o que fazer no caso de 
+                        suspeita. <br><br>
+                        Você irá incorporar um colaborador 
+                        que se diverte explorando o universo das investigações 
+                        em <br>seu tempo livre. 
+                        <br><br>Vamos começar?
+                    </div>
+                </div>
+                   
+            </div>
+        </div> 
+        
+    </div>
+
+
+</div>

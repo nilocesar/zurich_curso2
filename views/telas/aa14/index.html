@@ -1,0 +1,66 @@
+<script>
+        window["aa14"] = {
+            indice: "aa14",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa14").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+    
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+    
+                  
+                } else {
+    
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA14 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 azul1 size22" px="310" py="150">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Fraudes<br> internas
+                    </div>
+                </div>
+                <div class="sub animated zoomIn delay0_8">
+                    <div class="">
+                        São aquelas cometidas por colaboradores da companhia de seguro. 
+                        Dentre as fraudes desse tipo, estão:<br><br>
+                        • falsificação de relatórios; <br>
+                        • apropriação indevida de ativos; <br>
+                        • roubo de dados; <br>
+                        • divulgação indevida de informações para terceiros; <br>
+                        • alterar/fraudar arquivos e informações.
+                    </div>
+                       
+                </div>
+            </div> 
+            
+        </div>
+    
+    
+    </div>

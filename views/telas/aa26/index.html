@@ -1,0 +1,86 @@
+<script>
+        window["aa26"] = {
+            indice: "aa26",
+            status: false,
+        }
+    
+        $("body").on('navegacaoComplete', function() {
+    
+            if ((course.config[course.indice].id).toUpperCase() == ("aa26").toUpperCase()) {
+    
+                var _tela = window[course.config[course.indice].id];
+                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+    
+            
+                if (_tela.status == false) {
+                    _tela.status = true;
+    
+                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                    _containerTela.find(".posicionar").positionCSS({
+                        box: _containerTela.find('.containerGeral'),
+                        img_H: course.height,
+                        img_W: course.width
+                    });
+
+                    //controle();
+    
+                  
+                } else {
+    
+                }
+
+                function controle(){
+
+                    _containerTela.find(".item2").addClass('sInativo');
+                    _containerTela.find(".bl2").addClass('sInativo');
+
+                    _containerTela.find(".seta").on('click', function(){
+                        $(this).parent().find('.item2').removeClass('sInativo');
+                        _containerTela.find(".bl2").removeClass('sInativo');
+
+                        $(this).attr('ativo', 1);
+
+                        var _comp = true;
+                        _containerTela.find(".seta").each(function(indice, item){
+                            if( !$(item).attr('ativo') )
+                                _comp = false;
+                        })
+
+                        if(_comp){
+                            course.liberarNavegacao();
+                        }
+                    });
+                   
+                }
+    
+               
+            }
+            
+    
+        })
+    </script>
+    
+    
+    <div class="containerAA26 containerAABase">
+        <div class="containerGeral">
+            
+            <div class="content posicionar animated fadeIn delay0_4 branco size24" px="180" py="550">
+                <div class="item animated fadeInRight delay0_6">
+                    <div class="ico"></div>
+                    <div class="text">
+                        Colocando<br> em prática
+                    </div>
+                </div>
+                <div class="sub animated fadeInRight delay0_8">
+                    <div class="cinza1">
+                      Você acaba se lembrando de que esses casos de fraude podem 
+                      acabar indo para a Justiça Penal. Mas você recorda qual é a pena máxima?
+                    </div>       
+                </div>
+            </div> 
+ 
+            
+        </div>
+    
+    
+    </div>
