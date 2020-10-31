@@ -31,13 +31,12 @@
 
 .logoBase {
     position: absolute;
-    background: url(../img/logo2.png) no-repeat center;
+    background: url(../img/logoZurich.svg) no-repeat center;
     background-size: 100%;
-    width: 111px;
-    height: 68px;
+    width: 152px;
+    height: 93px;
     z-index: 999999999999999999999999999999999999999999999;
 }
-
 
 .logoBase .title {
     position: absolute;
@@ -48,51 +47,54 @@
     top: 20px;
 }
 
-
 .btnHelp {
     position: absolute;
-    background: url('../img/btnHelp.png') -10px -10px no-repeat;
+    background: url('../img/btnHelp.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
     cursor: pointer;
-    width: 41px;
-    height: 41px;
+    width: 51px;
+    height: 51px;
     top: 0;
     left: 0;
     z-index: 999999999999999999999999999999999999999;
 }
 
 .btnHelp:hover {
-    background-position-x: -71px;
-}
-
-.btnMenu {
-    position: fixed;
-    background: url('../img/btnMenu.png') -10px -10px no-repeat;
-    cursor: pointer;
-    width: 41px;
-    height: 41px;
-    top: 0;
-    left: 0;
-    z-index: 999999999999999999999999999999999999999;
-}
-
-.btnMenu:hover {
-    background-position-x: -71px;
+    background-position: bottom;
 }
 
 .btnClose {
     position: absolute;
-    background: url('../img/btnClose.png') -10px -10px;
+    background: url('../img/btnFechar2.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
     cursor: pointer;
-    width: 41px;
-    height: 41px;
-    z-index: 9999;
+    width: 51px;
+    height: 51px;
     top: 0;
     left: 0;
     z-index: 999999999999999999999999999999999999999;
 }
 
 .btnClose:hover {
-    background-position-x: -71px;
+    background-position: bottom;
+}
+
+.lineX {
+    position: absolute;
+    width: 1407px;
+    height: 1px;
+    border: 4px solid #0B5BAA;
+}
+
+.baseFundoX {
+    position: absolute;
+    width: 1817px;
+    height: 885px;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 14px 14px 0px 0px;
+    opacity: 1;
 }
 
 .navInit {
@@ -104,8 +106,8 @@
 .btnPrev {
     position: absolute;
     cursor: pointer;
-    width: 55px;
-    height: 79px;
+    width: 27px;
+    height: 109.5px;
     z-index: 9999;
     top: 0;
     left: 0;
@@ -114,20 +116,22 @@
 
 .btnPrev .icoSet {
     position: relative;
-    background: url('../img/btnPrev.png') -10px -10px;
-    width: 55px;
-    height: 79px;
+    background: url('../img/btnPrev.svg') no-repeat center;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-position: top;
 }
 
 .btnPrev:hover div.icoSet {
-    background-position-x: -85px;
+    background-position: bottom;
 }
 
 .btnNext {
     position: absolute;
     cursor: pointer;
-    width: 55px;
-    height: 79px;
+    width: 27px;
+    height: 109.5px;
     z-index: 9999;
     top: 0;
     left: 0;
@@ -136,20 +140,20 @@
 
 .btnNext .icoSet {
     position: relative;
-    background: url('../img/btnNext.png') -10px -10px;
-    width: 55px;
-    height: 79px;
+    background: url('../img/btnNext.svg') no-repeat center;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-position: top;
 }
 
 .btnNext:hover div.icoSet {
-    background-position-x: -85px;
+    background-position: bottom;
 }
-
 
 .setaInativa {
     display: none !important;
 }
-
 
 .menuControle {
     position: absolute;
@@ -176,7 +180,7 @@
     -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.58);
     -moz-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.58);
     box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.58);
-    left:-3px;
+    left: -3px;
 }
 
 .node-outer {
@@ -285,12 +289,12 @@
     opacity: 0.4;
 }
 
-.btnBaseDefault{
+.btnBaseDefault {
     position: relative;
     width: 100%;
 }
 
-.btnDefault{
+.btnDefault {
     text-align: center;
     position: absolute;
     left: 50%;
@@ -311,15 +315,14 @@
     padding: 5px 0;
 }
 
-.btnDefault:hover{
-    transform: translateZ(0) scale3d(1.2, 1.2, 1); 
+.btnDefault:hover {
+    transform: translateZ(0) scale3d(1.2, 1.2, 1);
     backface-visibility: hidden;
     /* transform: perspective(1px) scale3d(1.2, 1.2, 1); */
     box-shadow: 0 0 0.5em #fff, 0 0 1em #fff, 0 0 1.3em #b11a80, 0 0 2em #b11a80, 0 0 2.3em #b11a80, 0 0 2.5em #b11a80, 0 0 3em #b11a80;
 }
 
-
-.baseDefault{
+.baseDefault {
     position: relative;
     padding: 20px;
     border: 1px solid #fff;
@@ -327,14 +330,13 @@
     display: inline-table;
 }
 
-.baseDefault .baseDefaultInterno{
+.baseDefault .baseDefaultInterno {
     display: inline-table;
     position: relative;
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
 }
-
 
 .closeFeed {
     font-size: 1.3em;
@@ -349,7 +351,7 @@
     line-height: 1.7em;
     text-align: center;
     transition: transform 0.2s;
-    transform: translateZ(0) scale3d(1, 1, 1); 
+    transform: translateZ(0) scale3d(1, 1, 1);
     backface-visibility: hidden;
 }
 
@@ -365,12 +367,10 @@
     border: solid 1px #fff;
 }
 
-
-.closeFeed:hover{
+.closeFeed:hover {
     /* transform: scale(1.1); */
-    transform: translateZ(0) scale3d(1.2, 1.2, 1); 
+    transform: translateZ(0) scale3d(1.2, 1.2, 1);
     backface-visibility: hidden;
-
 }
 
 .containerGeral {
@@ -398,9 +398,9 @@
 .customBase .helpBase {
     position: absolute;
     z-index: 999999999999999999999999999999999999999;
-    display:none;
-    background-color: rgba(0, 0, 0, 0.75);
-    width:100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
     height: 100%;
 }
 
@@ -415,55 +415,49 @@
 
 .customBase .btnHelpH {
     position: absolute;
-    background: url('../img/btnHelp.png') -10px -10px no-repeat;
-    width: 41px;
-    height: 41px;
-    top: 0;
-    left: 0;
-    z-index: 999999999;
-}
-
-.customBase .btnMenuH {
-    position: fixed;
-    background: url('../img/btnMenu.png') -10px -10px no-repeat;
-    width: 41px;
-    height: 41px;
-    top: 0;
-    left: 0;
-    z-index: 999999999;
+    background: url('../img/btnHelp.svg') no-repeat center;
+    background-size: 100%;
+    background-position: bottom;
+    width: 51px;
+    height: 51px;
 }
 
 .customBase .btnCloseH {
     position: absolute;
-    background: url('../img/btnClose.png') -10px -10px;
-    width: 41px;
-    height: 41px;
-    z-index: 9999;
+    background: url('../img/btnFechar2.svg') no-repeat center;
+    background-size: 100%;
+    background-position: bottom;
+    width: 51px;
+    height: 51px;
     top: 0;
     left: 0;
-    z-index: 999999999;
+    z-index: 999999999999999999999999999999999999999;
 }
 
 .customBase .btnPrevH {
     position: absolute;
-    background: url('../img/btnPrev.png') -10px -10px;
-    width: 55px;
-    height: 79px;
+    width: 27px;
+    height: 109.5px;
     z-index: 9999;
     top: 0;
     left: 0;
-    z-index: 999999999;
+    z-index: 999999999999999999999999999999999999999;
+    background: url('../img/btnPrev.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
 }
 
 .customBase .btnNextH {
     position: absolute;
-    background: url('../img/btnNext.png') -10px -10px;
-    width: 55px;
-    height: 79px;
+    width: 27px;
+    height: 109.5px;
     z-index: 9999;
     top: 0;
     left: 0;
-    z-index: 999999999;
+    z-index: 999999999999999999999999999999999999999;
+    background: url('../img/btnNext.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
 }
 
 .customBase .explAjuda {
@@ -473,21 +467,8 @@
     background-size: 100%;
     top: 0;
     left: 0;
-    width: 350px;
-    height: 76px;
-    z-index: 999999;
-}
-
-
-.customBase .explMenu {
-    position: absolute;
-    background-image: url(../img/help1.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    top: 0;
-    left: 0;
-    width: 425px;
-    height: 188px;
+    width: 700px;
+    height: 152px;
     z-index: 999999;
 }
 
@@ -495,11 +476,11 @@
     position: absolute;
     background-image: url(../img/help2.png);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: contain;
     top: 0;
     left: 0;
-    width: 369px;
-    height: 251px;
+    width: 678px;
+    height: 295px;
     z-index: 999999;
 }
 
@@ -510,8 +491,8 @@
     background-size: 100%;
     top: 0;
     left: 0;
-    width: 288px;
-    height: 172px;
+    width: 576px;
+    height: 344px;
     z-index: 999999;
 }
 
@@ -522,8 +503,8 @@
     background-size: 100%;
     top: 0;
     left: 0;
-    width: 313px;
-    height: 150px;
+    width: 626px;
+    height: 300px;
     z-index: 999999;
 }
 
@@ -539,14 +520,14 @@
     z-index: 999999;
 }
 
-.customBase .btnCloseHelpBase{
+.customBase .btnCloseHelpBase {
     position: absolute;
-    width: 200px;
+    width: 500px;
     top: 0;
     left: 0;
 }
 
-.customBase .btnCloseHelp{
+.customBase .btnCloseHelp {
     position: relative;
     color: #393939;
     background-color: #fff;
@@ -555,22 +536,20 @@
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 30px;
 }
 
-.customBase .btnCloseHelp:hover{
+.customBase .btnCloseHelp:hover {
     background-color: #0D2554;
-    color:#fff;   
+    color: #fff;
 }
 
-
-
-
-.btnMenuReturn{
+.btnMenuReturn {
     position: absolute;
     width: 200px;
 }
 
-.btnMenuReturn .btnIt{
+.btnMenuReturn .btnIt {
     background: #fff;
     border-radius: 20px;
     padding: 5px;
@@ -579,14 +558,13 @@
     color: #0D2554;
 }
 
-.btnMenuReturn .btnIt:hover{
+.btnMenuReturn .btnIt:hover {
     background: #0D2554;
     color: #fff;
 }
 
-
 @media screen and (orientation: portrait) {
-    .containerAABase{
+    .containerAABase {
         background-size: contain !important;
     }
 }
