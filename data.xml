@@ -10,7 +10,6 @@
             <nivel id="aa6" titulo="AA6" path="aa6/index.html" avancar="2" transicao="alpha" setas="ambas" />
             <nivel id="aa7" titulo="AA7" path="aa7/index.html" avancar="-1" transicao="alpha" setas="ambas" />
 
-
             <nivel id="aa8" titulo="AA8" path="aa8/index.html" avancar="-1" transicao="alpha" setas="esquerda" />
             <nivel id="aa9" titulo="AA9" path="aa9/index.html" avancar="2" transicao="alpha" setas="ambas" />
             <nivel id="aa10" titulo="AA10" path="aa10/index.html" avancar="-1" transicao="alpha" setas="ambas" />
@@ -24,22 +23,17 @@
             <nivel id="aa17" titulo="AA17" path="aa17/index.html" avancar="-1" transicao="alpha" setas="esquerda" />
             <nivel id="aa18" titulo="AA18" path="aa18/index.html" avancar="2" transicao="alpha" setas="ambas" />
             <nivel id="aa19" titulo="AA19" path="aa19/index.html" avancar="-1" transicao="alpha" setas="ambas" />
+            <nivel id="aa20" titulo="AA20" path="aa20/index.html" avancar="-1" transicao="alpha" setas="ambas" />
+            <nivel id="aa21" titulo="AA21" path="aa21/index.html" avancar="-1" transicao="alpha" setas="ambas" />
 
-            <nivel id="aa20" titulo="AA20" path="aa20/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            <nivel id="aa21" titulo="AA21" path="aa21/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            <nivel id="aa22" titulo="AA22" path="aa22/index.html" avancar="2" transicao="alpha" setas="ambas" />
+            <nivel id="aa22" titulo="AA22" path="aa22/index.html" avancar="-1" transicao="alpha" setas="esquerda" />
             <nivel id="aa23" titulo="AA23" path="aa23/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            <nivel id="aa24" titulo="AA24" path="aa24/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            <nivel id="aa25" titulo="AA25" path="aa25/index.html" avancar="2" transicao="alpha" setas="ambas" />
+            <nivel id="aa24" titulo="AA24" path="aa24/index.html" avancar="-1" transicao="alpha" setas="ambas" />
+            <nivel id="aa25" titulo="AA25" path="aa25/index.html" avancar="-1" transicao="alpha" setas="ambas" />
+            <nivel id="aa26" titulo="AA26" path="aa26/index.html" avancar="-1" transicao="alpha" setas="ambas" />
+            <nivel id="aa27" titulo="AA27" path="aa27/index.html" avancar="-1" transicao="alpha" setas="ambas" />
             
-            <nivel id="aa26" titulo="AA26" path="aa26/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            <nivel id="aa27" titulo="AA27" path="aa27/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            
-            <nivel id="aa28" titulo="AA28" path="aa28/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            
-            <nivel id="aa29" titulo="AA29" path="aa29/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            <nivel id="aa30" titulo="AA30" path="aa30/index.html" avancar="2" transicao="alpha" setas="ambas" />
-            <nivel id="aa31" titulo="AA31" path="aa31/index.html" avancar="-1" transicao="alpha" setas="esquerda" />
+            <nivel id="aa28" titulo="AA28" path="aa28/index.html" avancar="-1" transicao="alpha" setas="esquerda" />
 
         </nivel>       
                       

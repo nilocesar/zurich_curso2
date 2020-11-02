@@ -1,88 +1,254 @@
 <script>
-        window["aa28"] = {
-            indice: "aa28",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa28").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
+    window["aa28"] = {
+        indice: "aa28",
+        status: false,
+        modulo: 5
+    }
 
-                    //controle();
-    
-                  
-                } else {
-    
-                }
+    $("body").on('navegacaoComplete', function() {
 
-                function controle(){
+        if ((course.config[course.indice].id).toUpperCase() == ("aa28").toUpperCase()) {
 
-                    _containerTela.find(".item2").addClass('sInativo');
-                    _containerTela.find(".bl2").addClass('sInativo');
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
 
-                    _containerTela.find(".seta").on('click', function(){
-                        $(this).parent().find('.item2').removeClass('sInativo');
-                        _containerTela.find(".bl2").removeClass('sInativo');
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
 
-                        $(this).attr('ativo', 1);
+            course.controleCarregamento();
+            course.completeScorm();
 
-                        var _comp = true;
-                        _containerTela.find(".seta").each(function(indice, item){
-                            if( !$(item).attr('ativo') )
-                                _comp = false;
-                        })
+            if (_tela.status == false) {
+                _tela.status = true;
 
-                        if(_comp){
-                            course.liberarNavegacao();
-                        }
-                    });
-                   
-                }
-    
-               
+                course.controleMenu(_tela.modulo);
+                controleNota();
+
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA28 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size24" px="180" py="550">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Colocando<br> em prática
+
+            function controleNota() {
+
+                var _nota = course.notaCurrent();
+                _containerTela.find(".feed").css('display', 'none');
+
+                if (_nota < 4) {
+                    _containerTela.find(".feedNegativo").css('display', 'flex');
+                } else if (_nota >= 4 && _nota < 7) {
+                    _containerTela.find(".feedNeutro").css('display', 'flex');
+                } else {
+                    _containerTela.find(".feedPositivo").css('display', 'flex');
+                }
+
+
+                _containerTela.find(".fecharFeed").on("click", function() {
+
+                    _containerTela.find(".feed").css('display', 'none');
+                });
+
+
+
+
+            }
+
+        }
+    })
+</script>
+
+
+<div class="containerAA28 containerAABase">
+
+    <div class="containerGeral">
+
+        <!-- <div class="titulo posicionar animated fadeIn" px="118" py="230">
+            <div class="animated fadeInUp delay0_8 light size65 azul3">
+                Na Zurich, todos nós nos preocupamos com os dados pessoais de <br>nossos clientes.
+            </div>
+        </div>
+
+        <div class="lineBase posicionar animated fadeIn" px="118" py="570">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="textBase posicionar animated fadeIn azul3" px="118" py="605">
+            <div class="animated fadeInUp delay1_4 size32">
+                Para que você continue colaborando nessa missão, você passará por quatro desafios. Acesse cada uma das portas de proteção, acompanhe as informações, e tente responder corretamente às perguntas. <br><br>Quanto mais você acertar, mais nosso
+                cliente estará protegido.
+            </div>
+            <div class="mt20 bold animated fadeInUp delay1_8 size45">
+                Vamos começar?
+            </div>
+        </div> -->
+
+        <div class="globoX posicionar animated fadeIn delay0_8" px="500" py="218">
+            <div class="animated fadeIn"></div>
+        </div>
+
+        <div class="itemX item1 posicionar status1" px="510" py="280" item="AA3">
+            <div class="itBasx animated fadeIn delay1_0">
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 right mb5">
+                        <div>Conceitos</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
                     </div>
                 </div>
-                <div class="sub animated fadeInRight delay0_8">
-                    <div class="cinza1">
-                      Pensando no quão drástica pode ser a punição para quem é pego fraudando, 
-                      você se recorda das motivações que levam uma pessoa a cometer esse tipo de 
-                      crime. Você se lembra de alguns exemplos de Pressão, Oportunidade e 
-                      Racionalização do <span class="xbold">Triângulo da Fraude</span>?
-                    </div>       
+                <div class="escudo ml20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
                 </div>
-            </div> 
- 
-            
+            </div>
         </div>
-    
-    
+
+
+        <div class="itemX item2 posicionar status1" px="430" py="450" item="AA9">
+            <div class="itBasx animated fadeIn delay1_2">
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 right mb5">
+                        <div>Aplicação da lei</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+                <div class="escudo ml20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="itemX item3 posicionar status1" px="1010" py="280" item="AA18">
+            <div class="itBasx animated fadeIn delay1_4">
+                <div class="escudo mr20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 mb5">
+                        <div>Política de proteção de dados da Zurich</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="itemX item4 posicionar status1" px="1092" py="450" item="AA23">
+            <div class="itBasx animated fadeIn delay1_6">
+                <div class="escudo mr20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+                <div class="carregamento book2">
+                    <div class="titCarregamento2 azul1 size23 mb5">
+                        <div>Desdobramentos</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="feed feedPositivo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 branco">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="icoXD"></div>
+                    <div class="litD">
+                        <div class="tiX size70 light">
+                            Parabéns!
+                        </div>
+                        <div class="size35 mt20">
+                            Você teve <span class="numberCurrent">01</span> acertos de <span class="numberAll">08</span> e está preparado para manter os dados de nossos clientes completamente seguros.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="feed feedNeutro posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 branco">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="icoXD"></div>
+                    <div class="litD">
+                        <div class="tiX size70 light">
+                            Você poderia ter ido melhor!
+                        </div>
+                        <div class="size35 mt20">
+                            Você teve <span class="numberCurrent">01</span> acertos de <span class="numberAll">08</span>, isso significa que você teve um bom desempenho, mas ainda pode se preparar mais.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="feed feedNegativo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 azul1">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="icoXD"></div>
+                    <div class="litD">
+                        <div class="tiX size70 light">
+                            Não foi dessa vez!
+                        </div>
+                        <div class="size35 mt20">
+                            Você teve <span class="numberCurrent">01</span> acertos de <span class="numberAll">08</span>, relembre com atenção os detalhes relativos à aplicação da LGPD e lembre-se: não fazemos pela lei, mas sim pelos clientes.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
+
+</div>

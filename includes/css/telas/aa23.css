@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA23 {
     position: fixed;
@@ -8,375 +8,195 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    background: url(../../img/cenario23.jpg) no-repeat center;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                    background-size: cover; */
+}
+
+.containerAA23 .baseFundoX {
+    background: url(../../img/aa23.png) no-repeat center;
     background-size: cover;
 }
 
+
 /* -------------------------------- 
-
-Main Components 
-
--------------------------------- */
-
-.containerAA23 .content {
-    position: absolute;
-    width: 1030px;
-    line-height: normal;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    /* align-items: center; */
-    overflow: hidden;
-}
-
-.containerAA23 .content .sub {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin-left: 0px;
-    margin-top: 15px;
-    /* margin-top: 25px; */
-    /* border-left: 1px solid #0D2554;
-padding-left: 25px; */
-}
-
-.containerAA23 .item {
-    position: relative;
-    width: 150px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-}
-
-.containerAA23 .item .ico {
-    position: relative;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius: 20px;
-    background: url(../../img/ico6.svg) no-repeat center;
-    background-size: 60%;
-}
-
-.containerAA23 .item .text {
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-.containerAA23 .blocos {
-    position: absolute;
-    width: 930px;
-}
+                
+                Main Components 
+                
+                -------------------------------- */
 
 .containerAA23 .titulo {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.containerAA23 .titulo div {
-    width: 50%;
-}
-
-.containerAA23 .block {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: 20px;
-}
-
-.containerAA23 .block .it {
-    width: 45%;
-    padding: 10px;
-}
-
-.containerAA23 .block .seta {
-    width: 10%;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-}
-
-.containerAA23 .block .item1 {
-    border: 1px solid #0D2554;
-}
-
-.containerAA23 .info {
-    width: 100%;
-    text-align: center;
-}
-
-.containerAA23 .sInativo {
-    /* opacity: 0;
-pointer-events: none; */
-    display: none;
-}
-
-.containerAA23 .quiz {
     position: absolute;
-    width: 553px;
-    height: 467px;
-    padding: 30px;
-    /* background-color: rgba(0, 0, 255, 0.116); */
+    width: 660px;
 }
 
-.containerAA23 .quiz .ti {
+.containerAA23 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA23 .lineBase div {
     position: relative;
-    display: flex;
-    flex-direction: row;
     width: 100%;
-    justify-content: space-between;
+    border: 3px solid #063796;
 }
 
-.containerAA23 .quiz .balao {
+.containerAA23 .textBase {
+    position: absolute;
+    width: 660px;
+}
+
+.containerAA23 .itemX {
+    position: absolute;
+    width: 398px;
+}
+
+.containerAA23 .itemX .itBasx {
     position: relative;
-    background: #FFCC00;
-    border-radius: 10px;
-    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.containerAA23 .quiz .balao:after {
-    content: '';
+.containerAA23 .menuInativo {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.containerAA23 .itemX .carregamento {
+    position: relative;
+    width: 282px;
+}
+
+.containerAA23 .itemX .imgCarregamento {
+    position: relative;
+    width: 282px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA23 .itemX .titCarregamento {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA23 .itemX .titCarregamento div {
     position: absolute;
     bottom: 0;
-    left: 10%;
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
-    border-top-color: #FFCC00;
-    border-bottom: 0;
-    margin-left: -10px;
-    margin-bottom: -10px;
-}
-
-.containerAA23 .quiz .al {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    margin-bottom: 5px;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.containerAA23 .quiz .al .letra {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    /* background-color: #FF5900; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    color: #fff;
-    border: 5px solid #0D2554;
-}
-
-.containerAA23 .quiz .al .letra .Linit {
-    width: 40px;
-    height: 40px;
-    border: 1px solid #0D2554;
-    border-radius: 50%;
-    position: relative;
-}
-
-.containerAA23 .quiz .al .text {
-    position: relative;
-    width: 400px;
-    /* background-color: #fff; */
-    padding: 20px;
-    text-align: center;
-    color: #0D2554;
-    border-radius: 40px;
-    border: 1px solid #0D2554;
-    margin-left: 20px;
-}
-
-.containerAA23 .quiz .al:hover .text {
-    background-color: #0D2554;
-    color: #fff;
-}
-
-.containerAA23 .quiz .al:hover .Linit {
-    background-color: #0D2554;
-}
-
-.containerAA23 .quiz .alAtivo .text {
-    background-color: #0D2554;
-    color: #fff;
-}
-
-.containerAA23 .quiz .alAtivo .Linit {
-    background-color: #0D2554;
-}
-
-.containerAA23 .quiz .alNegativo .letra{
-    border-color: #acabab;
-}
-.containerAA23 .quiz .alNegativo .text {
-    border: 1px solid #acabab;
-    background-color: #acabab;
-    color: #fff;
-}
-
-.containerAA23 .quiz .alNegativo .Linit {
-    border: 1px solid #acabab !important;
-    background-color: #acabab;
-    color: #fff;
-}
-
-.containerAA23 .quiz .responder {
-    background-color: #0D2554;
-    font-size: 26px;
-    color: #fff;
-    cursor: pointer;
-    padding: 5px 0;
-    width: 200px;
-    border-radius: 20px;
-    position: relative;
     right: 0;
-    float: right;
-    margin-top: 20px;
 }
 
-.containerAA23 .quiz .responder:hover {
-    background-color: #004C9A;
-    color: #fff;
+.containerAA23 .itemX .titCarregamento2 {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
 }
 
-.containerAA23 .feed {
+.containerAA23 .itemX .titCarregamento2 div {
     position: absolute;
-    width: 1120px;
-    height: 540px;
-    display: none;
+    bottom: 0;
 }
 
-.containerAA23 .feed .feedBase {
+.containerAA23 .imgCarr1 {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #51A3CB;
-    z-index: 999999;
-    /* padding-top: 70px; */
+    background: url(../../img/carregamentoRed.svg) no-repeat center;
+    background-size: contain;
     display: none;
-    border-radius: 20px;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
-.containerAA23 .feed .feedNegativo {
-    background-color: #8DB5D6;
-}
-
-.containerAA23 .feed .infX {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.containerAA23 .feed .icoPositivo {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    background: url(../../img/icoPositivo.svg) no-repeat center;
-    background-size: contain;
-}
-
-.containerAA23 .feed .icoNegativo {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    background: url(../../img/icoNegativo.svg) no-repeat center;
-    background-size: contain;
-}
-
-.containerAA23 .feed .inf {
-    position: relative;
-    width: 50%;
-    color: #fff;
-    /* background-color: #004990; */
-    margin-right: 30px;
-}
-
-.containerAA23 .feed .continuar {
-    background-color: #0D2554;
-    font-size: 26px;
-    color: #fff;
-    cursor: pointer;
-    padding: 5px 0;
-    width: 200px;
-    border-radius: 20px;
-    position: relative;
-    margin-top: 50px;
-    text-align: center;
-}
-
-.containerAA23 .feed .continuar:hover {
-    background-color: #004C9A;
-    color: #fff;
-}
-
-.containerAA23 .icos {
+.containerAA23 .imgCarr2 {
     position: absolute;
-    right: -25px;
-    top: 50%;
-    margin-top: -10px;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoAmarelo.svg) no-repeat center;
+    background-size: contain;
     display: none;
 }
 
-.containerAA23 .icos .icoNeg {
+.containerAA23 .imgCarr3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoVerde.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA23 .escudo {
     position: relative;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #acabab;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
+    width: 72px;
+    height: 101px;
+}
+
+.containerAA23 .escudoX1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo1AA2.png) no-repeat center;
+    background-size: contain;
     display: none;
 }
 
-.containerAA23 .icos .icoPos {
+.containerAA23 .escudoX2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo2AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA23 .escudoX3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo3AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA23 .txtCarr {
     position: relative;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #0D2554;
+    z-index: 9999999;
+}
+
+.containerAA23 .status1 .imgCarr1 {
+    display: block;
+}
+
+.containerAA23 .status1 .escudoX1 {
+    display: block;
+}
+
+.containerAA23 .status1 .imgCarregamento {
+    color: #DA3A43;
+}
+
+.containerAA23 .status2 .imgCarr2 {
+    display: block;
+}
+
+.containerAA23 .status2 .escudoX2 {
+    display: block;
+}
+
+.containerAA23 .status2 .imgCarregamento {
+    color: #4A4A4A;
+}
+
+.containerAA23 .status3 .imgCarr3 {
+    display: block;
+}
+
+.containerAA23 .status3 .escudoX3 {
+    display: block;
+}
+
+.containerAA23 .status3 .imgCarregamento {
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    display: none;
-}
-
-.containerAA23 .alInativo {
-    pointer-events: none;
-}
-
-.containerAA23 .pontBloco {
-    border: 1px solid #0D2554;
-    border-radius: 10px;
-    padding: 10px;
 }

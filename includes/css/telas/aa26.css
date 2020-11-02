@@ -1,128 +1,130 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
-.containerAA26 {
+.containerAA23 {
     position: fixed;
     padding: 0;
     margin: 0;
     height: 100%;
     width: 100%;
     z-index: 9999;
-    background: url(../../img/cenario22.jpg) no-repeat center;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                            background-size: cover; */
+}
+
+.containerAA26 .baseFundoX {
+    background: url(../../img/aa26.png) no-repeat center;
     background-size: cover;
 }
 
-/* -------------------------------- 
-
-Main Components 
-
--------------------------------- */
-
-
-.containerAA26 .content{
+.containerAA26 .baX1 .baseFundoXD {
     position: absolute;
-    width: 930px;
-    line-height: normal;
-    display:flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    /* align-items: center; */
+    width: 1817px;
+    height: 885px;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 14px 14px 0px 0px;
+    opacity: 1;
+    background: url(../../img/aa24a.png) no-repeat center;
+    background-size: content;
+}
+
+.containerAA26 .baX2 .baseFundoXD {
+    position: absolute;
+    width: 1817px;
+    height: 885px;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 14px 14px 0px 0px;
+    opacity: 1;
+    background: url(../../img/aa24b.png) no-repeat center;
+    background-size: content;
+}
+
+.containerAA26 .baX3 .baseFundoXD {
+    position: absolute;
+    width: 1817px;
+    height: 885px;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 14px 14px 0px 0px;
+    opacity: 1;
+    background: url(../../img/aa24c.png) no-repeat center;
+    background-size: content;
+}
+
+.containerAA26 .bloco {
+    position: absolute;
+    width: 1300px;
+    height: 600px;
+    background-color: #041d37 !important;
+    z-index: 999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.containerAA26 .nav {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 50%;
+}
+
+.containerAA26 .nleft {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #000066 !important;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -100px;
+    top: -60px;
+}
+
+.containerAA26 .nright {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #000066 !important;
+    cursor: pointer;
+    right: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: -60px;
+}
+
+.containerAA26 .nleft:hover,
+.containerAA26 .nright:hover {
+    background-color: #003399 !important;
+}
+
+.containerAA26 .step {
+    display: none;
+}
+
+.containerAA26 .step {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
     overflow: hidden;
 }
 
-.containerAA26 .content .sub{
-    position: relative;
-    width:100%;
-    height:100%;
-    margin-left: 0px;
-    /* margin-top: 25px; */
-    border-left: 1px solid #0D2554;
-    padding-left: 25px;
-    
+.containerAA26 .step1 {
+    /* background-color: #4A8ECC; */
 }
 
-
-.containerAA26 .item{
-    position: relative;
-    width: 400px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-    
-}
-
-.containerAA26 .item .ico{
-    position: relative;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius:20px;
-    background: url(../../img/ico6.svg) no-repeat center;
-    background-size: 60%;   
-}
-
-
-.containerAA26 .item .text{
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-
-.containerAA26 .blocos{
-    position: absolute;
-    width: 930px;
-}
-
-.containerAA26 .titulo{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.containerAA26 .titulo div{
-    width: 50%;
-}
-
-.containerAA26 .block{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: 20px;
-}
-
-
-.containerAA26 .block .it{
-    width: 45%;
-    padding: 10px;
-}
-.containerAA26 .block .seta{
-    width: 10%;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-}
-
-.containerAA26 .block .item1{
-    border: 1px solid #0D2554;
-}
-
-.containerAA26 .info{
-    width: 100%;
-    text-align: center;
-}
-
-.containerAA26 .sInativo{
-    /* opacity: 0;
-    pointer-events: none; */
-    display: none;
+.containerAA26 ul li {
+    list-style-type: square;
+    margin-left: 30px;
 }

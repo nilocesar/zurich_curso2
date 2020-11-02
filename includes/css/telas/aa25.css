@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA25 {
     position: fixed;
@@ -8,424 +8,198 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    background: url(../../img/cenario25.jpg) no-repeat center;
-    background-size: cover;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                    background-size: cover; */
 }
+
+.containerAA25 .baseFundoX {
+    /* background: url(../../img/aa3.png) no-repeat center;
+            background-size: content; */
+    background-color: #fff;
+}
+
 
 /* -------------------------------- 
+                
+                Main Components 
+                
+                -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-.containerAA25 .content {
+.containerAA25 .titulo {
     position: absolute;
-    width: 700px;
-    line-height: normal;
+    width: 1500px;
     display: flex;
-    flex-direction: row;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
 
-.containerAA25 .content .sub {
+.containerAA25 .icox {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: url(../../img/icoExcercicio.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA25 .txtx {
+    position: relative;
+    width: 1450px;
+    padding: 30px;
+}
+
+.containerAA25 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA25 .lineBase div {
     position: relative;
     width: 100%;
-    height: 100%;
-    margin-left: 0px;
-    margin-top: 25px;
+    border: 3px solid #005aab;
+}
+
+.containerAA25 .quiz {
+    position: absolute;
+    width: 1450px;
 }
 
 .containerAA25 .item {
     position: relative;
-    width: 150px;
-    cursor: pointer;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.containerAA25 .check {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #010766;
+}
+
+.containerAA25 .item:hover .check {
+    background-color: #010766;
+}
+
+.containerAA25 .itemAtivo .check {
+    background-color: #010766;
+}
+
+.containerAA25 .inativoX {
     pointer-events: none;
 }
 
-.containerAA25 .item .ico {
+.containerAA25 .txtD {
     position: relative;
+    width: 1400px;
     padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius: 20px;
-    background: url(../../img/ico6.svg) no-repeat center;
-    background-size: 60%;
 }
 
-.containerAA25 .item .text {
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-.containerAA25 .blocos {
+.containerAA25 .btnConfirmar {
     position: absolute;
-    width: 930px;
-}
-
-.containerAA25 .titulo {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.containerAA25 .titulo div {
-    width: 50%;
-}
-
-.containerAA25 .block {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: 20px;
-}
-
-.containerAA25 .block .it {
-    width: 45%;
-    padding: 10px;
-}
-
-.containerAA25 .block .seta {
-    width: 10%;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-}
-
-.containerAA25 .block .item1 {
-    border: 1px solid #0D2554;
-}
-
-.containerAA25 .info {
-    width: 100%;
-    text-align: center;
-}
-
-.containerAA25 .sInativo {
+    width: 412px;
+    height: 60px;
     display: none;
 }
 
+.containerAA25 .btnX {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.containerAA25 .btnY {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    border: 1px solid #010766;
+    color: #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA25 .btnX:hover {
+    background-color: #003399;
+}
 
 .containerAA25 .feed {
     position: absolute;
-    width: 1120px;
-    height: 540px;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.776);
+    z-index: 99999999999999999999999999999999999999999;
     display: none;
+    justify-content: center;
+    align-items: flex-end;
 }
 
-.containerAA25 .feed .feedBase {
-    position: absolute;
+.containerAA25 .feedPositivo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #003399;
+}
+
+.containerAA25 .feedNegativo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #D9CEB4;
+}
+
+.containerAA25 .feedInt {
+    position: relative;
     width: 100%;
     height: 100%;
-    background-color: #51A3CB;
-    z-index: 999999;
-    /* padding-top: 70px; */
-    display: none;
-    border-radius: 20px;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-    justify-content: center;
-    align-items: center;
+    display: flex;
     flex-direction: column;
-}
-
-.containerAA25 .feed .feedNegativo {
-    background-color: #8DB5D6;
-}
-
-.containerAA25 .feed .infX {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    width: 100%;
+    /* align-items: center; */
+    /* margin: 200px; */
+    padding: 0 210px;
 }
 
-.containerAA25 .feed .icoPositivo {
+.containerAA25 .subInfo {
     position: relative;
-    width: 250px;
-    height: 250px;
-    background: url(../../img/icoPositivo.svg) no-repeat center;
-    background-size: contain;
+    margin-top: 200px;
 }
 
-.containerAA25 .feed .icoNegativo {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    background: url(../../img/icoNegativo.svg) no-repeat center;
-    background-size: contain;
-}
-
-.containerAA25 .feed .inf {
-    position: relative;
-    width: 50%;
-    color: #fff;
-    /* background-color: #004990; */
-    margin-right: 30px;
-}
-
-.containerAA25 .feed .continuar {
-    background-color: #0D2554;
-    font-size: 26px;
-    color: #fff;
-    cursor: pointer;
-    padding: 5px 0;
-    width: 200px;
-    border-radius: 20px;
-    position: relative;
-    margin-top: 50px;
-    text-align: center;
-}
-
-.containerAA25 .feed .continuar:hover {
-    background-color: #004C9A;
-    color: #fff;
-}
-
-
-.containerAA25 .relacionamento{
-  position: absolute;
-  width: 800px;
-}
-
-.containerAA25 .questao {
-    position: relative;
-    margin-bottom: 30px;
-    display:flex;
-    flex-direction: row;
-}
-.containerAA25 .item {
-    position: relative;
-    padding: 10px;
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 30px;
-}
-.containerAA25 .item span {
-    border: 1px solid #fff;
-    border-radius: 10px;
-    padding: 30px;
-    cursor: pointer;
-}
-.containerAA25 .item span:hover {
-    border: 1px solid #0D2554;
-    background: #0D2554;
-    color: #fff;
-}
-.containerAA25 .itemActive {
-    border: 1px solid #0D2554;
-    background: #0D2554;
-    color: #fff;
-}
-.containerAA25 .texQuestion {
-    position: relative;
-    z-index: 0000;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-items: center;
-}
-
-.containerAA25 .incorreto {
+.containerAA25 .feedPositivo .fecharFeed {
     position: absolute;
-    color: #004C9A;
-    top: -20px;
-    padding-left:10px;
-    /* left: 10px; */
-    font-size: 0.8rem;
-    background-color: rgba(0, 0, 0, 0);
-    width: 400px;
-    display: none;
-    height: 80px;
-}
-
-.containerAA25 .custom-dropdown {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 10px;
-    margin-right: 20px;
-    
-}
-.containerAA25 .custom-dropdown select {
-    background-color: #004C9A;
-    color: #fff;
-    font-size: 1.2rem;
-    padding: .3em;
-    padding-right: 2.5em;
-    border: 0;
-    margin: 0;
-    border-radius: 3px;
-    text-indent: 0.01px;
-    text-overflow: '';
-    -webkit-appearance: button;
-    /* hide default arrow in chrome OSX */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0 !important;
-    background-image: none;
-    font-family: "bold" !important;
-}
-
-.containerAA25 select::-ms-expand {
-  display: none;
-}
-
-.containerAA25 .custom-dropdown::before,
-.containerAA25 .custom-dropdown::after {
-    content: "";
-    position: absolute;
-    pointer-events: none;
-}
-.containerAA25 .custom-dropdown::after {
-    /*  Custom dropdown arrow */
-    content: "\25BC";
-    height: 1em;
-    font-size: .625em;
-    line-height: 1;
-    right: 1.2em;
-    top: 50%;
-    margin-top: -.5em;
-}
-.containerAA25 .custom-dropdown::before {
-    /*  Custom dropdown arrow cover */
-    width: 2em;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    border-radius: 0 3px 3px 0;
-}
-.containerAA25 .custom-dropdown select[disabled] {
-    color: rgba(0, 0, 0, .3);
-}
-.containerAA25 .custom-dropdown select[disabled]::after {
-    color: rgba(0, 0, 0, .1);
-}
-.containerAA25 .custom-dropdown::before {
-    background-color: #dddddd;
-}
-.containerAA25 .custom-dropdown::after {
-    color: rgba(0, 0, 0, .4);
-}
-.containerAA25 .corretoSelect select {
-    border: 1px solid #0D2554 !important;
-    background-color: #fff;
-    color: #0D2554 !important;
-    text-align: center;
-    border-radius: 20px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 15px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    text-align-last: center;
-    text-align: center;
-   -ms-text-align-last: center;
-   -moz-text-align-last: center;
-}
-.containerAA25 .corretoSelect::before {
-    background-color: rgba(0, 0, 0, 0) !important;
-}
-.containerAA25 .corretoSelect::after {
-    color: rgba(0, 0, 0, 0) !important;
-}
-.containerAA25 .erradoSelect select {
-    
-    border: 1px solid #acabab !important;
-    background-color: #fff;
-    color: #acabab !important;
-    text-align: center;
-    border-radius: 20px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 15px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    text-align-last: center;
-    text-align: center;
-   -ms-text-align-last: center;
-   -moz-text-align-last: center;
-}
-.containerAA25 .erradoSelect::before {
-    background-color: rgba(0, 0, 0, 0) !important;
-}
-.containerAA25 .erradoSelect::after {
-    color: rgba(0, 0, 0, 0) !important;
-}
-
-.containerAA25 .confirmar {
-    background-color: #0D2554;
-    font-size: 26px;
-    color: #fff;
+    background: url('../../img/btnFechar3.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
     cursor: pointer;
-    padding: 5px 0;
-    width: 200px;
-    border-radius: 20px;
-    position: relative;
-    right: 0;
-    float: right;
-    margin-top: 20px;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
 }
 
-.containerAA25 .confirmar:hover {
-    background-color: #004C9A;
-    color: #fff;
-}
-
-.containerAA25 .icos {
+.containerAA25 .feedNegativo .fecharFeed {
     position: absolute;
-    left: -25px;
-    top: 50%;
-    margin-top: -10px;
-    display: none;
+    background: url('../../img/btnFechar4.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
 }
 
-.containerAA25 .icos .icoNeg {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #acabab;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    display: none;
-}
-
-.containerAA25 .icos .icoPos {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #0D2554;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    display: none;
+.containerAA25 .fecharFeed:hover {
+    background-position: bottom;
 }

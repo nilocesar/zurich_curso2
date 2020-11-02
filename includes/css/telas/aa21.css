@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA21 {
     position: fixed;
@@ -8,137 +8,289 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    /* background: url(../../img/cenario6.jpg) no-repeat center;
-    background-size: contain; */
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                    background-size: cover; */
 }
+
+.containerAA21 .baseFundoX {
+    /* background: url(../../img/aa3.png) no-repeat center;
+            background-size: content; */
+    background-color: #fff;
+}
+
 
 /* -------------------------------- 
+                
+                Main Components 
+                
+                -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-
-.containerAA21 .content{
+.containerAA21 .titulo {
     position: absolute;
-    width: 930px;
-    line-height: normal;
-    display:flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
-}
-
-.containerAA21 .content .sub{
-    position: relative;
-    width:100%;
-    height:100%;
-    /* margin-left: 100px;
-    margin-top: 25px; */
-}
-
-
-.containerAA21 .item{
-    position: relative;
-    width: 400px;
-    cursor: pointer;
+    width: 1600px;
     display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-    
-}
-
-.containerAA21 .item .ico{
-    position: relative;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius:20px;
-    background: url(../../img/ico5.svg) no-repeat center;
-    background-size: 70%;   
-}
-
-
-.containerAA21 .item .text{
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-
-.containerAA21 .blocos{
-    position: absolute;
-    width: 930px;
-    display: flex;
-    flex-direction: row;
-}
-
-.containerAA21 .titulo{
-    position: absolute;
-     width: 930px;
-     display: flex;
-    flex-direction: row;
-}
-
-.containerAA21 .titulo div{
-    width: 50%;
-}
-
-.containerAA21 .block{
-    display: flex;
-    flex-direction: column;
-    /* text-align: center; */
-    margin-top: 25px;
-    width: 50%;
-}
-
-
-.containerAA21 .block .it{
-    width: 90%;
-    padding: 10px;
-    margin-top: 20px;
-    
-}
-.containerAA21 .block .seta{
-    width: 90%;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
     justify-content: center;
-    border-top: 1px solid #004C9A;
+    align-items: center;
 }
 
-.containerAA21 .block .item1{
-    border: 1px solid #0D2554;
+.containerAA21 .icox {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: url(../../img/icoExcercicio.svg) no-repeat center;
+    background-size: contain;
 }
 
-.containerAA21 .info{
+.containerAA21 .txtx {
+    position: relative;
+    width: 1500px;
+    padding: 30px;
+}
+
+.containerAA21 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA21 .lineBase div {
+    position: relative;
     width: 100%;
-    text-align: center;
+    border: 3px solid #005aab;
 }
 
-.containerAA21 .sInativo{
-    /* opacity: 0;
-    pointer-events: none; */
+.containerAA21 .textBase {
+    position: absolute;
+    width: 660px;
+}
+
+.containerAA21 .baseInContainer {
+    /* background: url(../../img/fundoAA1.png) no-repeat;
+                background-size: 100%; */
+    background-color: rgb(48, 19, 4);
+}
+
+.containerAA21 .texto {
+    height: 300px;
+    position: fixed;
+    width: 600px;
+}
+
+.containerAA21 .content {
+    position: absolute;
+    width: 1660px;
+}
+
+.containerAA21 .exercicio {
+    position: relative;
+    width: 100%;
+}
+
+.containerAA21 .item {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.containerAA21 .textL {
+    text-align: right;
+    padding: 0 10px;
+}
+
+.containerAA21 .textR {
+    padding: 0 10px;
+}
+
+.containerAA21 .item .itemL,
+.containerAA21 .item .itemR {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 120px;
+}
+
+.containerAA21 .item .itemL {
+    position: relative;
+    background: #fff;
+    border-top: 2px solid #03296A;
+    -webkit-box-shadow: -1px -1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: -1px -1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: -1px -1px 5px 0px rgba(50, 50, 50, 0.75);
+    width: 50%;
+    cursor: pointer;
+}
+
+.containerAA21 .item .textL {
+    position: relative;
+    width: 680px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.containerAA21 .item .itemR {
+    position: relative;
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.containerAA21 .item .textR {
+    position: relative;
+    width: 750px;
+    height: 100%;
+    background-color: #005aab;
+    color: #fff;
+    padding: 10px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.containerAA21 .item .numL {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 4px solid #005aab;
+    background-color: #005aab;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.containerAA21 .item .itemL:hover .numL {
+    border-color: black;
+    color: black;
+}
+
+.containerAA21 .numLAtivo {
+    border-color: black !important;
+    color: black !important;
+}
+
+.containerAA21 .item .numR {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 2px solid #577aac;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.containerAA21 .btnConfirmar {
+    position: absolute;
+    width: 412px;
+    height: 60px;
     display: none;
 }
 
-.containerAA21 .setaIn{
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #D3C3A5 !important;
-  color: #0D2554;
-  cursor: pointer;
-  position:absolute;
-  top: 0px;
+.containerAA21 .btnX {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
 }
 
-.containerAA21 .fa-chevron-up{
-  display:none;
+.containerAA21 .btnY {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    border: 1px solid #010766;
+    color: #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA21 .btnX:hover {
+    background-color: #003399;
+}
+
+.containerAA21 .feed {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.776);
+    z-index: 99999999999999999999999999999999999999999;
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.containerAA21 .feedPositivo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #003399;
+}
+
+.containerAA21 .feedNegativo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #D9CEB4;
+}
+
+.containerAA21 .feedInt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* margin: 200px; */
+    padding: 0 210px;
+}
+
+.containerAA21 .subInfo {
+    position: relative;
+    margin-top: 200px;
+}
+
+.containerAA21 .feedPositivo .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar3.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA21 .feedNegativo .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar4.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA21 .fecharFeed:hover {
+    background-position: bottom;
+}
+
+.containerAA21 .inativoX {
+    pointer-events: none;
 }

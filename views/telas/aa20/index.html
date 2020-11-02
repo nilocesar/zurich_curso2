@@ -1,71 +1,374 @@
 <script>
-        window["aa20"] = {
-            indice: "aa20",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa20").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-    
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
-    
-                  
-                } else {
-    
-                }
-    
-               
+    window["aa20"] = {
+        indice: "aa20",
+        status: false,
+        tema: 3,
+        exerc: 1
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa20").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            block();
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                _containerTela.find(".posicionar").positionCSS({
+                    box: _containerTela.find('.containerGeral'),
+                    img_H: course.height,
+                    img_W: course.width
+                });
+
+                controle();
+
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA20 containerAABase">
-        <div class="containerGeral">
 
-          <div class="lupa posicionar" px="110" py="221">
-                <div class="img animated zoomIn delay1_2"></div>
+            function block() {
+
+
+
+                var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+
+
+                if (course.scorm_get_suspendData(_exercCurrent)) {
+
+                    course.notaCurrent();
+
+                    var _res = course.scorm_get_suspendData(_exercCurrent);
+
+                    if (_res == 1) {
+                        _containerTela.find(".feedPositivo").css('display', 'flex');
+                    } else {
+                        _containerTela.find(".feedNegativo").css('display', 'flex');
+                    }
+                    course.liberarNavegacao();
+                }
+
+
+
+
+            }
+
+            function controle() {
+
+                _containerTela.find(".selec").on("click", function() {
+
+                    $(this).parent().find(".selec").removeClass("selecAtivo");
+                    $(this).addClass("selecAtivo");
+
+                    var _sel = $(this).attr("selec");
+
+                    $(this).parent().parent().attr("selec", _sel);
+
+                    var comp = true;
+                    _containerTela.find(".vfItem").each(function(indice, item) {
+
+                        if (!$(item).attr("selec"))
+                            comp = false;
+
+                    });
+
+                    if (comp)
+                        _containerTela.find(".btnConfirmar").css("display", "flex");
+
+                });
+
+                _containerTela.find(".btnConfirmar").on("click", function() {
+
+                    _containerTela.find(".btnConfirmar").css("display", "none");
+                    _containerTela.find(".blockExerc").css("display", "block");
+
+                    _containerTela.find('.selec').addClass("icoInativo");
+                    _containerTela.find('.vfContainer').addClass("vfContainerFeed");
+
+                    var feed = true;
+                    var _feito = [];
+                    _containerTela.find(".vfItem").each(function(indice, item) {
+
+                        //Acertou
+                        if ($(item).attr("res") == $(item).attr("selec")) {
+                            $(item).find('.selecAtivo').removeClass("icoInativo");
+                            $(item).find('.selecAtivo').addClass("positivoVF");
+                        } else {
+                            $(item).find('.selecAtivo').removeClass("icoInativo");
+                            $(item).find('.selecAtivo').addClass("negativoVF");
+                            feed = false;
+                        }
+
+                        _feito.push(
+                            $(item).attr("selec")
+                        );
+
+                    });
+
+                    var _exercCurrent = "ed" + _tela.tema + "_" + _tela.exerc;
+                    course.scorm_set_suspendData(_exercCurrent, JSON.stringify(_feito));
+
+                    var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+                    if (feed) {
+                        course.scorm_set_suspendData(_exercCurrent, 1);
+                        course.notaCurrent();
+                        _containerTela.find(".feedPositivo").css("display", "flex");
+                    } else {
+                        course.scorm_set_suspendData(_exercCurrent, 0);
+                        course.notaCurrent();
+                        _containerTela.find(".feedNegativo").css("display", "flex");
+                    }
+                });
+
+                _containerTela.find(".fecharFeed").on("click", function() {
+                    _containerTela.find(".feed").css("display", "none");
+                    _containerTela.find(".btnConfirmar").css("display", "none");
+
+                    var _exercCurrent = "ed" + _tela.tema + "_" + _tela.exerc;
+                    if (course.scorm_get_suspendData(_exercCurrent)) {
+                        var _feito = JSON.parse(course.scorm_get_suspendData(_exercCurrent));
+
+                        $.each(_feito, function(indice, item) {
+                            var _itenX = _containerTela.find(".vfItem").eq(indice);
+
+                            if (_itenX.attr('res') == item) {
+
+                                _itenX.find('.selec').each(function(indice, itemDD) {
+
+                                    if ($(itemDD).attr('selec') == item) {
+                                        $(itemDD).addClass("positivoVF");
+                                    } else {
+                                        $(itemDD).addClass("icoInativo");
+                                    }
+
+                                });
+
+                            } else {
+
+                                _itenX.find('.selec').each(function(indice, itemDD) {
+
+                                    if ($(itemDD).attr('selec') == item) {
+                                        $(itemDD).addClass("negativoVF");
+                                    } else {
+                                        $(itemDD).addClass("icoInativo");
+                                    }
+
+                                });
+                            }
+
+                        });
+                    }
+
+
+                    course.liberarNavegacao();
+                });
+            }
+
+
+
+
+        }
+
+
+    })
+</script>
+
+
+<div class="containerAA20 containerAABase">
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="icox animated zoomIn delay0_8">
+
             </div>
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="700" py="200">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Lidando<br> com suspeitas
-                    </div>
-                </div>
-                <div class="sub animated zoomIn delay0_8">
-                    
-                    <div class="cinza1">
-                        Com tantos prejuízos causados pelas fraudes, estes são sinais que 
-                        valem a pena ficar de olho! Você se sente satisfeito com o estudo, 
-                        mas logo surge outra dúvida: o que fazer quando se deparar com essas 
-                        ações? Você se lembra de um colega parceiro que trabalha na parte de 
-                        Compliance, que logo responde à sua dúvida através de um e-mail.
-                    </div>
-                       
-                </div>
-            </div> 
-
-            
-            
+            <div class="txtx animated fadeInUp delay0_8 light size35 azul3">
+                Há orientações importantíssimas que devem ser seguidas a partir da implementação da LGPD. Avalie as ações abaixo, e clique em <span class="bold2">V</span> (verdadeiro) ou <span class="bold2">F</span> (falso).
+            </div>
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="270" py="380">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+
+        <div class="vfBase posicionar animated fadeIn delay1_8" px="250" py="320">
+
+            <div class="vfContainer size28 light azul1">
+                <div class="vfItem vf1" res="v">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            As normas do Clean Desk são essenciais porque ajudam a proteger documentos físicos.
+                        </div>
+                        <!-- <div class="subFeed subFeedF">
+                            <span class="xbold">Afirmativa falsa:</span> A ANA tem como objetivo avaliar o nível de alfabetização dos estudantes no segundo ano do ensino fundamental.
+                        </div> -->
+                    </div>
+                </div>
+                <div class="vfItem vf2" res="v">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            É possível compartilhar dados pessoais, desde que a pessoa precise deles para algum fim específico.
+                        </div>
+                        <!-- <div class="subFeed">
+                            <span class="xbold">Afirmativa verdadeira:</span> Além de avaliar a apropriação e domínio do sistema da escrita.
+                        </div> -->
+                    </div>
+                </div>
+                <div class="vfItem vf3" res="v">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            É um erro grave enviar mensagens do e-mail corporativo para o e-mail pessoa.
+                        </div>
+                        <!-- <div class="subFeed subFeedF">
+                            <span class="xbold">Afirmativa falsa:</span> Os testes de desempenho são voltados às crianças do segundo ano e visam aferir o desempenho dos mesmos em língua portuguesa e matemática.
+                        </div> -->
+                    </div>
+                </div>
+                <div class="vfItem vf4" res="f">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            Não é um problema clicar em links recebidos de qualquer forma, porque a Zurich já tem proteção contra malwares nos sistemas.
+                        </div>
+                        <!-- <div class="subFeed">
+                            <span class="xbold">Afirmativa verdadeira:</span> Os questionários visam coletar informações sobre as condições de infraestrutura da escola, formação docente da escola, gestão da unidade escolar e organização do trabalho pedagógico.
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="vfItem vf5" res="v">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            É essencial cumprir os períodos de retenção, descartando corretamente as informações quando não forem necessárias.
+                        </div>
+                        <!-- <div class="subFeed">
+                            <span class="xbold">Afirmativa verdadeira:</span> Os questionários visam coletar informações sobre as condições de infraestrutura da escola, formação docente da escola, gestão da unidade escolar e organização do trabalho pedagógico.
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="vfItem vf6" res="f">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            É possível utilizar o e-mail corporativo para criar contas em redes sociais, especialmente aquelas voltadas à carreira.
+                        </div>
+                        <!-- <div class="subFeed">
+                            <span class="xbold">Afirmativa verdadeira:</span> Os questionários visam coletar informações sobre as condições de infraestrutura da escola, formação docente da escola, gestão da unidade escolar e organização do trabalho pedagógico.
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="btnConfirmar animated zoomIn">
+                <div class="btnX light animated zoomIn delay0_2">
+                    RESPODER
+                </div>
+                <div class="btnY bold2 animated zoomIn delay0_4">
+                    01 PONTO
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="feed feedPositivo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 branco">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Parabéns!
+                    </div>
+                    <div class="size23 mt20 bold2">
+                        ISSO MESMO!
+                    </div>
+                    <div class="size35 mt20">
+                        Você completou corretamente as afirmações. Realmente não podemos clicar em
+                        <span class="book2_italic">links</span> suspeitos nem devemos utilizar o e-mail corporativo em redes sociais.
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="feed feedNegativo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 azul1">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Não foi desta vez!
+                    </div>
+                    <div class="size23 mt20 bold2 up">
+                        VAMOS REVER…
+                    </div>
+                    <div class="size35 mt20">
+                        Não podemos clicar em <span class="book2_italic">links</span> suspeitos nem devemos utilizar o e-mail corporativo em redes sociais.
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
     </div>
+
+
+</div>

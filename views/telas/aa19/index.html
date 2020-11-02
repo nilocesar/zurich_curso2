@@ -18,12 +18,13 @@
                 img_W: course.width,
             });
 
-
+            reset();
             if (_tela.status == false) {
                 _tela.status = true;
 
 
                 controleFeed();
+                controleNav();
 
 
             } else {
@@ -33,8 +34,8 @@
             function controleFeed() {
 
                 _containerTela.find(".feed").css('display', 'none');
-                // _containerTela.find(".item").addClass('itemInativo');
-                // _containerTela.find(".item1").removeClass('itemInativo');
+                _containerTela.find(".item").addClass('itemInativo');
+                _containerTela.find(".item1").removeClass('itemInativo');
 
                 var _all = _containerTela.find(".item").length;
                 var _current = 0;
@@ -62,6 +63,75 @@
                     }
                 });
 
+            }
+
+            function controleNav() {
+
+                var _stepAll = _containerTela.find(".step").length;
+                var _i = 0;
+
+                _containerTela.find(".feed3 .fecharFeed").css('display', 'none');
+
+                _containerTela.find(".nleft").on('click', function() {
+
+                    var _step = parseInt($(this).parent().attr('stepAtivo')) - 1;
+                    $(this).parent().attr('stepAtivo', _step);
+
+                    //_containerTela.find(".nright").css('display', 'flex');
+                    _containerTela.find(".nright").removeClass("setaInativaX");
+
+
+                    if (_step == 1) {
+                        //_containerTela.find(".nleft").css('display', 'none');
+                        _containerTela.find(".nleft").addClass("setaInativaX");
+                    }
+
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".step" + _step).css('display', 'block');
+                    _containerTela.find(".pin").removeClass('pinAtivo');
+                    _containerTela.find(".pin" + _step).addClass('pinAtivo');
+
+                });
+
+                _containerTela.find(".nright").on('click', function() {
+
+                    var _step = parseInt($(this).parent().attr('stepAtivo')) + 1;
+
+                    _containerTela.find(".nright").removeClass('animated infinite pulse');
+
+
+                    //_containerTela.find(".nleft").css('display', 'flex');
+                    _containerTela.find(".nleft").removeClass("setaInativaX");
+
+                    if (_step == _stepAll) {
+                        //_containerTela.find(".nright").css('display', 'none');
+                        _containerTela.find(".nright").addClass("setaInativaX");
+
+                        _containerTela.find(".feed3 .fecharFeed").css('display', 'flex');
+
+                    }
+
+
+                    $(this).parent().attr('stepAtivo', _step);
+
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".step" + _step).css('display', 'block');
+
+                });
+
+            }
+
+            function reset() {
+                _containerTela.find(".nav").attr('stepAtivo', 1);
+                _containerTela.find(".step").css('display', 'none');
+                //_containerTela.find(".nX").css('display', 'none');
+                _containerTela.find(".nX").addClass("setaInativaX");
+
+                //_containerTela.find(".nright").css('display', 'flex');
+                _containerTela.find(".nright").removeClass("setaInativaX");
+                _containerTela.find(".nright").addClass('animated infinite pulse');
+
+                _containerTela.find(".step1").css('display', 'block');
             }
         }
     })
@@ -149,16 +219,68 @@
         <div class="feed feed3 posicionar animated fadeIn azul1" px="0" py="0">
 
             <div class="feedBase animated fadeInUp delay0_6">
-                <div class="fecharFeed"></div>
+                <div class="fecharFeed animated zoomIn delay0_8"></div>
 
                 <div class="feedInt book2">
+
+                    <div class="nav branco size30" stepAtivo=1>
+                        <div class="nX nleft">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </div>
+                        <div class="nX nright">
+                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
                     <div class="tiX size65 bold2">
                         Responsabilidades
                     </div>
                     <div class="size30 mt20">
-                        <span class="bold2">O DPPC na área de  <span class="bold2_italic">Compliance</span> é responsável por:</span><br> Apoiar as áreas de negócios, identificar leis e regulamentos que possam gerar conflito e validar o estabelecimento
-                        dos controles adequados. Além disso, deve fornecer consultoria, orientação, treinamento e suporte, bem como monitorar a aplicação dos regulamentos e acompanhar a correção de problemas identificados. <br><br> Muito importante também
-                        é o papel de relatar incidentes, potenciais incidentes e fornecer os dados necessários ao Central Team de Compliance do grupo.
+                        <div class="step step1 animated fadeInUp" step="1">
+                            <span class="bold2">O DPPC na área de  <span class="bold2_italic">Compliance</span> é responsável por:</span><br> Apoiar as áreas de negócios, identificar leis e regulamentos que possam gerar conflito e validar o estabelecimento
+                            dos controles adequados. Além disso, deve fornecer consultoria, orientação, treinamento e suporte, bem como monitorar a aplicação dos regulamentos e acompanhar a correção de problemas identificados. <br><br> Muito importante
+                            também é o papel de relatar incidentes, potenciais incidentes e fornecer os dados necessários ao Central Team de Compliance do grupo.
+                        </div>
+
+                        <div class="step step2 animated fadeInUp" step="2">
+                            <span class="bold2">O DPO/Encarregado é responsável por:</span><br> Informar e aconselhar o controlador ou processador, bem como seus funcionários, de suas obrigações. Monitorar a aplicação da legislação de proteção de dados,
+                            inclusive em auditorias, atividades de conscientização e treinamento da equipe envolvida no processamento das operações.
+                            <br><br> Além disso, devem aconselhar as Avaliações de Impacto na Proteção de Dados e monitorar seu desempenho, ser o ponto de contato da Zurich para atendimento das solicitações dos Titulares de Dados Pessoais e da Autoridade
+                            Nacional de Proteção de Dados.
+                        </div>
+
+                        <div class="step step3 animated fadeInUp" step="3">
+                            <span class="bold2">O departamento Jurídico é responsável por:
+                            </span><br>
+                            <div>
+                                Fornecer suporte e assistência ao departamento de Compliance, ao DPO/Encarregado e demais áreas de negócios em relação a:
+                            </div>
+                            <div>
+                                <ul>
+                                    <li>Monitoramento e interpretação de novas leis e regulamentos.</li>
+                                    <li>Interpretação do alcance extraterritorial de leis e regulamentos.</li>
+                                    <li>Opiniões sobre leis e regulamentos conflitantes. </li>
+                                    <li>Opiniões sobre casos complexos do ponto de vista jurídico.</li>
+                                    <li>Tratamento de denúncias recebidas por meio do canal de denúncias da Zurich (<span class="book2_italic">Zurich Ethics Line</span>) relacionadas a descumprimentos das políticas do Programa de Privacidade e Proteção de
+                                        Dados Pessoais.</li>
+                                    <li>Atuação estratégica em casos processuais.</li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step step4 animated fadeInUp" step="4">
+                            <span class="bold2">Os demais funcionários são responsáveis por:
+                            </span><br> Conhecer, entender e cumprir os requisitos da Política de Proteção de Dados Pessoais, participar e concluir os treinamentos relativos ao tema. O objetivo é que os funcionários compreendam
+                            as consequências de não cumprir a política e possam relatar, quando necessário e de boa fé, qualquer possível problema com relação à proteção de dados.
+
+                        </div>
+
+                        <div class="step step5 animated fadeInUp" step="5">
+                            <span class="bold2">Os Agentes de Proteção de Dados são responsáveis por:
+                            </span><br> Atuar como pontos focais do DPO/Encarregado, nas respectivas áreas em que atuam, facilitar a comunicação entre os colaboradores da Zurich e o DPO/Encarregado, auxiliar os demais colaboradores
+                            nas questões relativas à privacidade e proteção de Dados Pessoais. Além disso, levantar informações de projetos da área em que é responsável, para auxílio no preparo de Avaliações de Impacto à Proteção de Dados.
+                        </div>
 
                     </div>
                 </div>

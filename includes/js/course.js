@@ -288,6 +288,8 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
             // var _alt = _qA[0];
             // var _res = _qA[1];
 
+            return _nota;
+
         }
 
         $public.controleMenu = function controleMenu(_menu) {

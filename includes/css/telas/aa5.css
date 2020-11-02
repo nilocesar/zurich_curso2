@@ -27,7 +27,7 @@
 
 .containerAA5 .titulo {
     position: absolute;
-    width: 1500px;
+    width: 1600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
 
 .containerAA5 .txtx {
     position: relative;
-    width: 1450px;
+    width: 1500px;
     padding: 30px;
 }
 

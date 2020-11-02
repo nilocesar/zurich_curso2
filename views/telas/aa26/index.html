@@ -1,86 +1,220 @@
 <script>
-        window["aa26"] = {
-            indice: "aa26",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa26").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
+    window["aa26"] = {
+        indice: "aa26",
+        status: false
+    }
 
-                    //controle();
-    
-                  
-                } else {
-    
-                }
+    $("body").on('navegacaoComplete', function() {
 
-                function controle(){
+        if ((course.config[course.indice].id).toUpperCase() == ("aa26").toUpperCase()) {
 
-                    _containerTela.find(".item2").addClass('sInativo');
-                    _containerTela.find(".bl2").addClass('sInativo');
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
 
-                    _containerTela.find(".seta").on('click', function(){
-                        $(this).parent().find('.item2').removeClass('sInativo');
-                        _containerTela.find(".bl2").removeClass('sInativo');
 
-                        $(this).attr('ativo', 1);
+            reset();
 
-                        var _comp = true;
-                        _containerTela.find(".seta").each(function(indice, item){
-                            if( !$(item).attr('ativo') )
-                                _comp = false;
-                        })
+            if (_tela.status == false) {
+                _tela.status = true;
 
-                        if(_comp){
-                            course.liberarNavegacao();
-                        }
-                    });
-                   
-                }
-    
-               
+
+                nav();
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA26 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size24" px="180" py="550">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Colocando<br> em prática
+
+            function nav() {
+
+                controleFundo(1);
+
+                _containerTela.find(".nleft").on('click', function() {
+
+                    var _step = parseInt($(this).parent().attr('stepAtivo')) - 1;
+                    $(this).parent().attr('stepAtivo', _step);
+
+                    _containerTela.find(".nright").css('display', 'flex');
+
+                    if (_step == 1)
+                        _containerTela.find(".nleft").css('display', 'none');
+
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".step" + _step).css('display', 'flex');
+
+                    controleFundo(_step);
+
+                });
+
+                _containerTela.find(".nright").on('click', function() {
+
+                    var _step = parseInt($(this).parent().attr('stepAtivo')) + 1;
+                    var _stepAll = _containerTela.find(".step").length;
+
+                    _containerTela.find(".nleft").css('display', 'flex');
+
+                    if (_step == _stepAll) {
+
+                        course.liberarNavegacao();
+                        _containerTela.find(".nright").css('display', 'none');
+                    }
+
+
+
+                    $(this).parent().attr('stepAtivo', _step);
+
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".step" + _step).css('display', 'flex');
+
+                    controleFundo(_step);
+
+                });
+
+                function controleFundo(_step) {
+
+                    // _containerTela.find(".baX").css('display', 'none');
+                    // if (_step == 1) {
+                    //     _containerTela.find(".baX1").css('display', 'block');
+                    // } else if (_step > 1 && _step < 5) {
+                    //     _containerTela.find(".baX2").css('display', 'block');
+                    // } else {
+                    //     _containerTela.find(".baX3").css('display', 'block');
+                    // }
+
+                }
+
+            }
+
+            function reset() {
+                _containerTela.find(".nav").attr('stepAtivo', 1);
+                _containerTela.find(".step").css('display', 'none');
+                _containerTela.find(".nX").css('display', 'none');
+
+                _containerTela.find(".nright").css('display', 'flex');
+                _containerTela.find(".step1").css('display', 'flex');
+                _containerTela.find(".menu").css('display', 'none');
+            }
+
+
+
+        }
+
+
+    })
+</script>
+
+
+<div class="containerAA26 containerAABase">
+    <div class="containerGeral">
+
+        <!-- <div class="baX baX1">
+            <div class="baseFundoXD posicionar animated fadeIn delay0_2" px="52" py="195"></div>
+            <div class="lineX posicionar animated fadeIn" px="257" py="192"></div>
+        </div>
+
+        <div class="baX baX2">
+            <div class="baseFundoXD posicionar animated fadeIn delay0_2" px="52" py="195"></div>
+            <div class="lineX posicionar animated fadeIn" px="257" py="192"></div>
+        </div>
+
+        <div class="baX baX3">
+            <div class="baseFundoXD posicionar animated fadeIn delay0_2" px="52" py="195"></div>
+            <div class="lineX posicionar animated fadeIn" px="257" py="192"></div>
+        </div> -->
+
+
+        <div class="bloco posicionar animated fadeIn delay0_8" px="300" py="350">
+
+
+            <div class="nav branco size60" stepAtivo=1>
+                <div class="nX nleft">
+                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                </div>
+                <div class="nX nright">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </div>
+            </div>
+
+
+            <div class="step step1 animated fadeIn delay0_2" step=1>
+                <div class="azul1 size30 book2">
+                    <div class="bold2 size60">
+                        Transferência internacional de dados
+                    </div>
+                    <div class="mt10">
+                        <span class="bold2">É permitida quando:
+                        </span><br>
+                        <ul>
+                            <li>
+                                Países ou organismos internacionais com mesmo grau de proteção previsto da LGPD.
+                            </li>
+                            <li>
+                                Quando o controlador comprovar garantias na forma de:
+                            </li>
+                        </ul>
+                        <div class="ml30">
+                            <ul>
+                                <li>
+                                    Cláusulas contratuais.
+                                </li>
+                                <li>
+                                    Normas corporativas globais, cooperação internacional.
+                                </li>
+                                <li>
+                                    Selos, certificado ou códigos de conduta.
+                                </li>
+                                <li>
+                                    Cooperação de órgãos públicos.
+                                </li>
+                                <li>
+                                    Proteção à vida do titular ou de terceiro.
+                                </li>
+                                <li>
+                                    Autorização da Autoridade Nacional de Proteção de Dados.
+                                </li>
+                                <li>
+                                    Quando o titular consentir de forma expressa e em destaque.
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="sub animated fadeInRight delay0_8">
-                    <div class="cinza1">
-                      Você acaba se lembrando de que esses casos de fraude podem 
-                      acabar indo para a Justiça Penal. Mas você recorda qual é a pena máxima?
-                    </div>       
+            </div>
+
+            <div class="step step2 animated fadeIn delay0_2" step=2>
+                <div class="azul1 size30 book2">
+                    <div class="bold2 size60">
+                        Compromisso global de dados
+                    </div>
+                    <div class="mt10">
+                        <span class="bold2">
+                            Foram definidos quatro pilares que sustentam a proteção de dados pessoais no mundo inteiro, e a Política da Zurich segue todos eles:
+                        </span><br>
+                        <ul>
+                            <li>
+                                Manter os dados pessoais seguros.
+                            </li>
+                            <li>
+                                Nunca vender dados pessoais de ninguém.
+                            </li>
+                            <li>
+                                Não compartilhar os dados pessoais sem ser transparentes sobre isso.
+                            </li>
+                            <li>
+                                Proteger ainda mais os dados pessoais dos clientes para que eles possam ficar despreocupados.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div> 
- 
-            
-        </div>
-    
-    
+            </div>
+
+
+
+
+        </div>å
+
+
+
     </div>
+
+
+</div>

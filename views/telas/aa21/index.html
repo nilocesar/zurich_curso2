@@ -1,154 +1,352 @@
 <script>
-        window["aa21"] = {
-            indice: "aa21",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa21").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
+    window["aa21"] = {
+        indice: "aa21",
+        status: false,
+        correto: 0,
+        tema: 3,
+        exerc: 2
+    }
 
-                    controle();
-    
-                  
-                } else {
-    
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa21").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+
+            block();
+            if (_tela.status == false) {
+                _tela.status = true;
+
+
+                exercicio();
+
+            } else {
+
+            }
+
+            function block() {
+
+
+
+                var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+
+
+                if (course.scorm_get_suspendData(_exercCurrent)) {
+
+                    course.notaCurrent();
+
+                    var _res = course.scorm_get_suspendData(_exercCurrent);
+
+                    if (_res == 1) {
+                        _containerTela.find(".feedPositivo").css('display', 'flex');
+                    } else {
+                        _containerTela.find(".feedNegativo").css('display', 'flex');
+                    }
+                    course.liberarNavegacao();
                 }
 
-                function controle(){
 
-                  _containerTela.find(".btnMenuReturn").css('display','none');
-                  _containerTela.find(".btnMenuReturn").on('click', function(){
-                      course.returnMenu(5);
-                  });
 
-                    _containerTela.find(".item2").addClass('sInativo');
-                    _containerTela.find(".bl2").addClass('sInativo');
 
-                    _containerTela.find(".seta").on('click', function(){
-                        
-                        $(this).css('pointer-events', 'none');
-                        $(this).find('.setaIn').removeClass('animated infinite pulse');
-                        $(this).find('.fa-chevron-down').css('display', 'none');
-                        $(this).find('.fa-chevron-up').css('display', 'block');
-                        
-                        $(this).parent().find('.item2').removeClass('sInativo');
-                        _containerTela.find(".bl2").removeClass('sInativo');
+            }
 
-                        $(this).attr('ativo', 1);
+            function exercicio() {
 
-                        var _comp = true;
-                        _containerTela.find(".seta").each(function(indice, item){
-                            if( !$(item).attr('ativo') )
-                                _comp = false;
-                        })
+                var _item;
+                var _oldItem = _containerTela.find('.numR');
+                var _travar = false;
 
-                        if(_comp){
-                            _containerTela.find(".btnMenuReturn").css('display','block');
+                _containerTela.find('.itemL').on('click', function() {
+
+                    _containerTela.find('.numL').addClass('animated');
+                    _containerTela.find('.numL').removeClass('numLAtivo');
+
+                    $(this).find('.numL').removeClass('animated');
+                    $(this).find('.numL').addClass('numLAtivo');
+
+                    _item = $(this).find('.numL');
+
+                });
+
+                _containerTela.find('.numR').on('click', function() {
+
+                    var _txt = _item.text();
+                    var _itemCurrent = _item.attr('item');
+                    var _color = _item.css('background-color');
+
+                    _containerTela.find('.numR').each(function() {
+                        if ($(this).text() == _item.text()) {
+                            $(this).text('');
+                            $(this).css('background-color', '#fff');
                         }
                     });
-                   
-                }
-    
-               
+
+                    $(this).text(_txt);
+                    $(this).attr('item', _itemCurrent);
+                    $(this).css('background-color', _color);
+
+                    var _comp = true;
+                    var _res = true;
+                    _containerTela.find('.numR').each(function() {
+
+                        if ($(this).text() == '') {
+                            _comp = false;
+                            _containerTela.find(".btnConfirmar").css('display', 'none');
+                        }
+
+                        if ($(this).attr('item') != $(this).attr('res')) {
+                            _res = false;
+                        }
+                    });
+
+                    //verifica se todos estao preenchios
+                    if (_comp)
+                        _containerTela.find(".btnConfirmar").css('display', 'flex');
+
+
+
+                    //verifica se a resposta esta correta
+                    if (_res) {
+                        _tela.correto = 1;
+                    } else {
+                        _tela.correto = 0;
+                    }
+
+                });
+
+                _containerTela.find(".btnConfirmar").on('click', function() {
+
+                    _containerTela.find(".btnConfirmar").css('display', 'none');
+                    var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+
+                    //
+                    if (_tela.correto == 1) {
+                        course.scorm_set_suspendData(_exercCurrent, 1);
+                        course.notaCurrent();
+                        _containerTela.find(".feedPositivo").css('display', 'flex');
+
+
+                    } else {
+                        course.scorm_set_suspendData(_exercCurrent, 0);
+                        course.notaCurrent();
+                        _containerTela.find(".feedNegativo").css('display', 'flex');
+
+                    }
+
+                    var _feito = [];
+
+                    _containerTela.find(".numR").each(function(indice, item) {
+                        _feito.push({
+                            text: $(item).text(),
+                            color: $(item).css('background-color')
+                        });
+                    });
+
+                    var _exercCurrent = "ed" + _tela.tema + "_" + _tela.exerc;
+                    course.scorm_set_suspendData(_exercCurrent, JSON.stringify(_feito));
+
+                });
+
+
+                _containerTela.find(".fecharFeed").on("click", function() {
+                    // $("body").attr("nav", "next");
+                    // $("body").trigger("navegacao");
+
+                    var _exercCurrent = "ed" + _tela.tema + "_" + _tela.exerc;
+                    if (course.scorm_get_suspendData(_exercCurrent)) {
+                        var _feito = JSON.parse(course.scorm_get_suspendData(_exercCurrent));
+
+                        $.each(_feito, function(indice, item) {
+                            _containerTela.find('.numR').eq(indice).css('background-color', item.color);
+                            _containerTela.find('.numR').eq(indice).text(item.text);
+                        });
+                    }
+
+
+                    _containerTela.find('.itemL').addClass("inativoX");
+                    _containerTela.find('.numR').addClass("inativoX");
+                    _containerTela.find('.numL').removeClass('numLAtivo');
+                    _containerTela.find(".feed").css('display', 'none');
+
+                    course.liberarNavegacao();
+                });
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA21 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="130">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Lidando<br> com suspeitas
-                    </div>
-                </div>
-                <div class="sub animated fadeInRight delay0_8">
-                    <div class="cinza1">
-                          Clique nas setas para saber como agir em cada tipo de fraude.
-                    </div>       
-                </div>
-            </div> 
+        }
+    })
+</script>
 
-            <div class="titulo posicionar xbold size24 cinza1 animated fadeIn delay1_2" px="245" py="340">
-                <div class="subT">
-                    No caso de fraudes internas
-                </div>
-                  <div class="subT">
-                    No caso de fraudes externas
-                </div>
-            </div>
 
-            <div class="blocos posicionar animated fadeIn delay1_2 branco size22" px="210" py="370">
-              
+<div class="containerAA21 containerAABase">
 
-                <div class="block bl1">
-                    
-                    <div class="seta azul1 size50">
-                        <div class="setaIn animated infinite pulse">
-                          <i class="fas fa-chevron-down"></i>
-                          <i class="fas fa-chevron-up"></i>
-                        </div>
-                    </div>
-                     <div class="it item2 cinza1 animated fadeInUp">
-                        Quando detectada alguma suspeita de fraude envolvendo 
-                        funcionários da seguradora, as informações deverão ser 
-                        imediatamente comunicadas à área de Legal & Compliance, que 
-                        ficará responsável pela apuração dos fatos e definição das 
-                        medidas legais cabíveis a serem tomadas. A denúncia pode 
-                        ser feita por telefone ou pela internet, por meio do <span class="bold">
-                          Zurich Ethics Line (ZEL)
-                        </span>.
-                    </div>
-                </div>
+    <div class="containerGeral">
 
-               <div class="block bl2">
-                    
-                    <div class="seta azul1 size50">
-                        <div class="setaIn animated infinite pulse">
-                          <i class="fas fa-chevron-down"></i>
-                          <i class="fas fa-chevron-up"></i>
-                        </div>
-                    </div>
-                     <div class="it item2 cinza1 animated fadeInUp">
-                        No caso de fraudes nos processos de aceitação de seguros 
-                        e liquidação de sinistros em que haja envolvimento ou não 
-                        de prestadores de serviços, o fato pode ser denunciado por e-mail 
-                        ao <span class="bold">Canal de Denúncia à Fraude Externa</span>, com o 
-                        preenchimento do <span class="bold">Formulário 
-                        de Denúncia a Fraudes Externas</span> <br>no site da Zurich.
-                    </div>
-                </div>
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="icox animated zoomIn delay0_8">
 
             </div>
-
-            <div class="btnMenuReturn posicionar size26 animated fadeIn delay0_4" px="570" py="700">
-                <div class="btnIt animated zoomIn">
-                    Menu
-                </div>
+            <div class="txtx animated fadeInUp delay0_8 light size35 azul3">
+                Com a LGPD, o Comitê Executivo fica responsável por monitorar a aplicação do Programa de Privacidade da Zurich. Abaixo dele, há importantes níveis de proteção de dados. Clique no número e, depois, no campo ao lado da definição correta.
             </div>
-           
-            
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="400">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="content posicionar animated fadeIn delay1_6" px="130" py="430">
+            <div class="exercicio size25 book2">
+                <div class="item">
+                    <div class="itemL">
+                        <div class="textL size28 azul1">
+                            O Comitê de Proteção de Dados composto por diretores, superintendentes ou gerentes da companhia, e é responsável...
+                        </div>
+                        <div class="numL bold2 branco" item=1>
+                            01
+                        </div>
+                    </div>
+                    <div class="itemR">
+                        <div class="numR bold2 branco" res=3></div>
+                        <div class="textR size28">
+                            ... por observar e atender as diretrizes da Política da Zurich, bem como auxiliar os outros colaboradores com relação à privacidade e proteção de dados.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemL">
+                        <div class="textL size28 azul1">
+                            O encarregado/DPO é responsável,<br> entre outras coisas,...
+                        </div>
+                        <div class="numL bold2 branco" item=2>
+                            02
+                        </div>
+                    </div>
+                    <div class="itemR">
+                        <div class="numR bold2 branco" res=4></div>
+                        <div class="textR size28">
+                            ... conhecer a política da Zurich, participar dos treinamentos, compreender a importância da lei e as consequências de sua não aplicação.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemL">
+                        <div class="textL size28 azul1">
+                            Os agentes de proteção de <br>dados são responsáveis...
+                        </div>
+                        <div class="numL bold2 branco" item=3>
+                            03
+                        </div>
+                    </div>
+                    <div class="itemR">
+                        <div class="numR bold2 branco" res=1></div>
+                        <div class="textR size28">
+                            ... pela aplicação e deliberação a respeito da proteção de dados.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemL">
+                        <div class="textL size28 azul1">
+                            Os demais colaboradores são responsáveis...
+                        </div>
+                        <div class="numL bold2 branco" item=4>
+                            04
+                        </div>
+                    </div>
+                    <div class="itemR">
+                        <div class="numR bold2 branco" res=2></div>
+                        <div class="textR size28">
+                            ... pelo aconselhamento do controlador e pelo monitoramento da organização com relação a aplicação da legislação.
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="btnConfirmar posicionar size35" px="1378" py="975">
+            <div class="btnX light animated zoomIn delay0_2">
+                RESPODER
+            </div>
+            <div class="btnY bold2 animated zoomIn delay0_4">
+                01 PONTO
+            </div>
+        </div>
+
+        <div class="feed feedPositivo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 branco">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Parabéns!
+                    </div>
+                    <div class="size23 mt20 bold2">
+                        ISSO MESMO!
+                    </div>
+                    <div class="size35 mt20">
+                        Você relacionou corretamente os níveis e suas definições. É importante conhecer o papel de cada um para que a gente consiga garantir a segurança dos dados de nossos clientes.
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="feed feedNegativo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 azul1">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Não foi desta vez!
+                    </div>
+                    <div class="size23 mt20 bold2 up">
+                        VAMOS REVER…
+                    </div>
+                    <div class="size35 mt20">
+                        Você errou duas ou mais definições. É importante conhecer o papel de cada um para que a gente consiga garantir a segurança dos dados de nossos clientes.
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
     </div>
+
+</div>

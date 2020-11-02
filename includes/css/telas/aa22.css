@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA22 {
     position: fixed;
@@ -8,121 +8,214 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    background: url(../../img/cenario22.jpg) no-repeat center;
-    background-size: cover;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                    background-size: cover; */
 }
+
+.containerAA22 .baseFundoX {
+    /* background: url(../../img/aa1.png) no-repeat center;
+                background-size: content; */
+    background: #fff;
+}
+
 
 /* -------------------------------- 
+                
+                Main Components 
+                
+                -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-
-.containerAA22 .content{
+.containerAA22 .titulo {
     position: absolute;
-    width: 930px;
-    line-height: normal;
-    display:flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    /* align-items: center; */
-    overflow: hidden;
+    width: 702px;
 }
 
-.containerAA22 .content .sub{
-    position: relative;
-    width:100%;
-    height:100%;
-    margin-left: 0px;
-    /* margin-top: 25px; */
-    border-left: 1px solid #0D2554;
-    padding-left: 25px;
-    
-}
-
-
-.containerAA22 .item{
-    position: relative;
-    width: 400px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-    
-}
-
-.containerAA22 .item .ico{
-    position: relative;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius:20px;
-    background: url(../../img/ico6.svg) no-repeat center;
-    background-size: 60%;   
-}
-
-
-.containerAA22 .item .text{
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-
-.containerAA22 .blocos{
+.containerAA22 .lineBase {
     position: absolute;
-    width: 930px;
+    width: 88px;
 }
 
-.containerAA22 .titulo{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.containerAA22 .titulo div{
-    width: 50%;
-}
-
-.containerAA22 .block{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: 20px;
-}
-
-
-.containerAA22 .block .it{
-    width: 45%;
-    padding: 10px;
-}
-.containerAA22 .block .seta{
-    width: 10%;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-}
-
-.containerAA22 .block .item1{
-    border: 1px solid #0D2554;
-}
-
-.containerAA22 .info{
+.containerAA22 .lineBase div {
+    position: relative;
     width: 100%;
-    text-align: center;
+    border: 3px solid #063796;
 }
 
-.containerAA22 .sInativo{
-    /* opacity: 0;
-    pointer-events: none; */
+.containerAA22 .textBase {
+    position: absolute;
+    width: 602px;
+}
+
+.containerAA22 .globoX {
+    position: absolute;
+    width: 898px;
+    height: 826px;
+    background: url(../../img/itemAA2.png) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA22 .itemX {
+    position: absolute;
+    width: 398px;
+}
+
+.containerAA22 .itemX .itBasx {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.containerAA22 .menuInativo {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.containerAA22 .itemX .carregamento {
+    position: relative;
+    width: 282px;
+}
+
+.containerAA22 .itemX .imgCarregamento {
+    position: relative;
+    width: 282px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA22 .itemX .titCarregamento {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA22 .itemX .titCarregamento div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.containerAA22 .itemX .titCarregamento2 {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA22 .itemX .titCarregamento2 div {
+    position: absolute;
+    bottom: 0;
+}
+
+.containerAA22 .imgCarr1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoRed.svg) no-repeat center;
+    background-size: contain;
     display: none;
 }
+
+.containerAA22 .imgCarr2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoAmarelo.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA22 .imgCarr3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoVerde.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA22 .escudo {
+    position: relative;
+    width: 72px;
+    height: 101px;
+}
+
+.containerAA22 .escudoX1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo1AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA22 .escudoX2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo2AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA22 .escudoX3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo3AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA22 .txtCarr {
+    position: relative;
+    z-index: 9999999;
+}
+
+.containerAA22 .status1 .imgCarr1 {
+    display: block;
+}
+
+.containerAA22 .status1 .escudoX1 {
+    display: block;
+}
+
+.containerAA22 .status1 .imgCarregamento {
+    color: #DA3A43;
+}
+
+.containerAA22 .status2 .imgCarr2 {
+    display: block;
+}
+
+.containerAA22 .status2 .escudoX2 {
+    display: block;
+}
+
+.containerAA22 .status2 .imgCarregamento {
+    color: #4A4A4A;
+}
+
+.containerAA22 .status3 .imgCarr3 {
+    display: block;
+}
+
+.containerAA22 .status3 .escudoX3 {
+    display: block;
+}
+
+.containerAA22 .status3 .imgCarregamento {
+    color: #fff;
+}
+
+
+/* .containerAA22 .globoX {
+                position: absolute;
+                width: 898px;
+                height: 826px;
+                background: url(../../img/itemAA2.png) no-repeat center;
+                background-size: content;
+            } */

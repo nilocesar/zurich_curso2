@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA28 {
     position: fixed;
@@ -8,121 +8,325 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    background: url(../../img/cenario22.jpg) no-repeat center;
-    background-size: cover;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                        background-size: cover; */
 }
+
+.containerAA28 .baseFundoX {
+    /* background: url(../../img/aa1.png) no-repeat center;
+                    background-size: content; */
+    background: #fff;
+}
+
 
 /* -------------------------------- 
+                    
+                    Main Components 
+                    
+                    -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-
-.containerAA28 .content{
+.containerAA28 .titulo {
     position: absolute;
-    width: 930px;
-    line-height: normal;
-    display:flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    /* align-items: center; */
-    overflow: hidden;
+    width: 702px;
 }
 
-.containerAA28 .content .sub{
-    position: relative;
-    width:100%;
-    height:100%;
-    margin-left: 0px;
-    /* margin-top: 25px; */
-    border-left: 1px solid #0D2554;
-    padding-left: 25px;
-    
-}
-
-
-.containerAA28 .item{
-    position: relative;
-    width: 400px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-    
-}
-
-.containerAA28 .item .ico{
-    position: relative;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius:20px;
-    background: url(../../img/ico6.svg) no-repeat center;
-    background-size: 60%;   
-}
-
-
-.containerAA28 .item .text{
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-
-.containerAA28 .blocos{
+.containerAA28 .lineBase {
     position: absolute;
-    width: 930px;
+    width: 88px;
 }
 
-.containerAA28 .titulo{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.containerAA28 .titulo div{
-    width: 50%;
-}
-
-.containerAA28 .block{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: 20px;
-}
-
-
-.containerAA28 .block .it{
-    width: 45%;
-    padding: 10px;
-}
-.containerAA28 .block .seta{
-    width: 10%;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-}
-
-.containerAA28 .block .item1{
-    border: 1px solid #0D2554;
-}
-
-.containerAA28 .info{
+.containerAA28 .lineBase div {
+    position: relative;
     width: 100%;
-    text-align: center;
+    border: 3px solid #063796;
 }
 
-.containerAA28 .sInativo{
-    /* opacity: 0;
-    pointer-events: none; */
+.containerAA28 .textBase {
+    position: absolute;
+    width: 602px;
+}
+
+.containerAA28 .globoX {
+    position: absolute;
+    width: 898px;
+    height: 826px;
+    background: url(../../img/itemAA2.png) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA28 .itemX {
+    position: absolute;
+    width: 398px;
+}
+
+.containerAA28 .itemX .itBasx {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.containerAA28 .menuInativo {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.containerAA28 .itemX .carregamento {
+    position: relative;
+    width: 282px;
+}
+
+.containerAA28 .itemX .imgCarregamento {
+    position: relative;
+    width: 282px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA28 .itemX .titCarregamento {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA28 .itemX .titCarregamento div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.containerAA28 .itemX .titCarregamento2 {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA28 .itemX .titCarregamento2 div {
+    position: absolute;
+    bottom: 0;
+}
+
+.containerAA28 .imgCarr1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoRed.svg) no-repeat center;
+    background-size: contain;
     display: none;
+}
+
+.containerAA28 .imgCarr2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoAmarelo.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA28 .imgCarr3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoVerde.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA28 .escudo {
+    position: relative;
+    width: 72px;
+    height: 101px;
+}
+
+.containerAA28 .escudoX1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo1AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA28 .escudoX2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo2AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA28 .escudoX3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo3AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA28 .txtCarr {
+    position: relative;
+    z-index: 9999999;
+}
+
+.containerAA28 .status1 .imgCarr1 {
+    display: block;
+}
+
+.containerAA28 .status1 .escudoX1 {
+    display: block;
+}
+
+.containerAA28 .status1 .imgCarregamento {
+    color: #DA3A43;
+}
+
+.containerAA28 .status2 .imgCarr2 {
+    display: block;
+}
+
+.containerAA28 .status2 .escudoX2 {
+    display: block;
+}
+
+.containerAA28 .status2 .imgCarregamento {
+    color: #4A4A4A;
+}
+
+.containerAA28 .status3 .imgCarr3 {
+    display: block;
+}
+
+.containerAA28 .status3 .escudoX3 {
+    display: block;
+}
+
+.containerAA28 .status3 .imgCarregamento {
+    color: #fff;
+}
+
+.containerAA28 .feed {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.776);
+    z-index: 99999999999999999999999999999999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.containerAA28 .feedPositivo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #003399;
+}
+
+.containerAA28 .feedNeutro .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #00BFB3;
+}
+
+.containerAA28 .feedNegativo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #D9CEB4;
+}
+
+.containerAA28 .feedInt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    padding: 0 210px;
+}
+
+.containerAA28 .feedPositivo .icoXD {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background: url(../../img/escudo1AA28.png) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA28 .feedNeutro .icoXD {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background: url(../../img/escudo2AA28.png) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA28 .feedNegativo .icoXD {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background: url(../../img/escudo3AA28.png) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA28 .litD {
+    position: relative;
+    padding: 50px;
+}
+
+.containerAA28 .subInfo {
+    position: relative;
+    margin-top: 200px;
+}
+
+.containerAA28 .feedPositivo .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar3.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA28 .feedNeutro .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar3.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA28 .feedNegativo .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar4.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA28 .fecharFeed:hover {
+    background-position: bottom;
 }

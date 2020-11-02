@@ -1,8 +1,7 @@
 <script>
     window["aa24"] = {
         indice: "aa24",
-        status: false,
-        exerc: 2
+        status: false
     }
 
     $("body").on('navegacaoComplete', function() {
@@ -12,141 +11,89 @@
             var _tela = window[course.config[course.indice].id];
             var _containerTela = $(".container" + (_tela.indice).toUpperCase());
 
-            controleQuizScorm();
+
+            reset();
+
             if (_tela.status == false) {
                 _tela.status = true;
 
-                //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                _containerTela.find(".posicionar").positionCSS({
-                    box: _containerTela.find('.containerGeral'),
-                    img_H: course.height,
-                    img_W: course.width
-                });
 
-                controleQuiz();
-
+                nav();
 
             } else {
 
             }
-            
-            function controleQuizScorm() {
-               if (course.scorm_get_suspendData('exerc' + _tela.exerc)) {
 
-                    var _exerc = parseInt(course.scorm_get_suspendData('exerc' + _tela.exerc));
-                    _containerTela.find(".al").addClass('alInativo');
+            function nav() {
 
-                    _containerTela.find(".al").each(function(indice, item) {
+                controleFundo(1);
 
-                        if ($(item).attr('correto') == 1) {
-                            $(item).find('.icos').css('display', 'block');
-                            $(item).find('.icoPos').css('display', 'flex');
-                        } else {
-                            if ($(item).attr('correto') == _exerc) {
-                                $(item).find('.icos').css('display', 'block');
-                                $(item).find('.icoNeg').css('display', 'flex');
-                                $(item).addClass('alNegativo');
-                            }
-                        }
+                _containerTela.find(".nleft").on('click', function() {
 
-                        if ($(item).attr('correto') == _exerc) {
-                            $(item).addClass('alAtivo');
-                        }
+                    var _step = parseInt($(this).parent().attr('stepAtivo')) - 1;
+                    $(this).parent().attr('stepAtivo', _step);
 
-                    });
+                    _containerTela.find(".nright").css('display', 'flex');
 
-                    setTimeout(function() {
+                    if (_step == 1)
+                        _containerTela.find(".nleft").css('display', 'none');
+
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".step" + _step).css('display', 'flex');
+
+                    controleFundo(_step);
+
+                });
+
+                _containerTela.find(".nright").on('click', function() {
+
+                    var _step = parseInt($(this).parent().attr('stepAtivo')) + 1;
+                    var _stepAll = _containerTela.find(".step").length;
+
+                    _containerTela.find(".nleft").css('display', 'flex');
+
+                    if (_step == _stepAll) {
+
                         course.liberarNavegacao();
-                    }, 1000 * 2);
+                        _containerTela.find(".nright").css('display', 'none');
+                    }
 
-                }else{
-                    _containerTela.find(".al").removeClass('alInativo');
-                    _containerTela.find(".al").removeClass('alAtivo');
-                    _containerTela.find(".al").removeClass('alNegativo');
-                    
-                    _containerTela.find('.icos').css('display', 'none');
-                    _containerTela.find('.icoPos').css('display', 'none');
-                    _containerTela.find('.icoNeg').css('display', 'none');
-                    
-                }
-            }
 
-            function controleQuiz() {
-                // _containerTela.find(".feed").css('display', 'block');
-                // _containerTela.find(".feed2").css('display', 'flex');
 
-                _containerTela.find(".responder").css('display', 'none');
-                _containerTela.find(".al").each(function() {
-                    if ($(this).attr('correto') == 1)
-                        $(this).addClass('corretoRespost');
-                })
+                    $(this).parent().attr('stepAtivo', _step);
 
-                _containerTela.find(".al").on('click', function() {
+                    _containerTela.find(".step").css('display', 'none');
+                    _containerTela.find(".step" + _step).css('display', 'flex');
 
-                    _containerTela.find(".responder").css('display', 'block');
-                    _containerTela.find(".al").removeClass('alAtivo');
-                    $(this).addClass('alAtivo');
+                    controleFundo(_step);
 
                 });
 
-                _containerTela.find(".responder").on('click', function() {
+                function controleFundo(_step) {
 
-                    _containerTela.find(".responder").css('display', 'none');
-
-                    var correto = _containerTela.find(".alAtivo").attr('correto');
-                    _containerTela.find(".al").addClass('alInativo');
-
-                    course.scorm_set_suspendData('exerc' + _tela.exerc, correto);
-
-                    if (correto == 1) {
-                        _containerTela.find(".alAtivo .icos").css('display', 'block');
-                        _containerTela.find(".alAtivo .icoPos").css('display', 'flex');
-
-                        _containerTela.find(".feed").css('display', 'block');
-                        _containerTela.find(".feed1").css('display', 'flex');
-
-                        if(course.scorm_get_suspendData('total')){
-                          var _total = parseInt(course.scorm_get_suspendData('total')) + 1;
-                          course.scorm_set_suspendData('total', _total )
-
-                        }else{
-                           course.scorm_set_suspendData('total', 1);
-                        }
-                       
-
+                    _containerTela.find(".baX").css('display', 'none');
+                    if (_step == 1) {
+                        _containerTela.find(".baX1").css('display', 'block');
+                    } else if (_step > 1 && _step < 5) {
+                        _containerTela.find(".baX2").css('display', 'block');
                     } else {
-                        _containerTela.find(".alAtivo .icos").css('display', 'block');
-                        _containerTela.find(".alAtivo .icoNeg").css('display', 'flex');
-                        _containerTela.find(".alAtivo").addClass('alNegativo');
-
-                        _containerTela.find(".corretoRespost .icos").css('display', 'block');
-                        _containerTela.find(".corretoRespost .icoPos").css('display', 'flex');
-
-                        _containerTela.find(".feed").css('display', 'block');
-
-                        if (correto == 2) {
-                            _containerTela.find(".feed2").css('display', 'flex');
-                        } else {
-                            _containerTela.find(".feed3").css('display', 'flex');
-                        }
-
+                        _containerTela.find(".baX3").css('display', 'block');
                     }
 
-                    if(course.scorm_get_suspendData('total')){
-                        var _total = parseInt(course.scorm_get_suspendData('total'));
-                        _containerTela.find(".pontuacao").text( _total );
+                }
 
-                    }else{
-                        _containerTela.find(".pontuacao").text( 0 );
-                    }
-
-                });
-
-                _containerTela.find(".continuar").on('click', function() {
-                    _containerTela.find(".feed").css('display', 'none');
-                    course.liberarNavegacao();
-                });
             }
+
+            function reset() {
+                _containerTela.find(".nav").attr('stepAtivo', 1);
+                _containerTela.find(".step").css('display', 'none');
+                _containerTela.find(".nX").css('display', 'none');
+
+                _containerTela.find(".nright").css('display', 'flex');
+                _containerTela.find(".step1").css('display', 'flex');
+                _containerTela.find(".menu").css('display', 'none');
+            }
+
 
 
         }
@@ -159,170 +106,150 @@
 <div class="containerAA24 containerAABase">
     <div class="containerGeral">
 
-        <div class="content posicionar animated fadeIn delay0_4 branco size24" px="380" py="120">
-            <div class="item animated fadeInRight delay0_6">
-                <div class="ico"></div>
-                <!-- <div class="text">
-                        Colocando<br> em prática
-                    </div> -->
-            </div>
-            <div class="sub animated fadeInRight delay0_8">
-                <div class="azul2">
-                  Você toma conhecimento que um colaborador da companhia 
-                  sofreu um sinistro e realizou a regulação de seu próprio 
-                  sinistro nos sistemas da Zurich. O que você faria neste caso?
-                </div>
-            </div>
+        <div class="baX baX1">
+            <div class="baseFundoXD posicionar animated fadeIn delay0_2" px="52" py="195"></div>
+            <div class="lineX posicionar animated fadeIn" px="257" py="192"></div>
+        </div>
+
+        <div class="baX baX2">
+            <div class="baseFundoXD posicionar animated fadeIn delay0_2" px="52" py="195"></div>
+            <div class="lineX posicionar animated fadeIn" px="257" py="192"></div>
+        </div>
+
+        <div class="baX baX3">
+            <div class="baseFundoXD posicionar animated fadeIn delay0_2" px="52" py="195"></div>
+            <div class="lineX posicionar animated fadeIn" px="257" py="192"></div>
         </div>
 
 
-        <div class="quiz posicionar animated fadeIn delay0_2" px="550" py="235">
+        <div class="bloco posicionar animated fadeIn delay0_8" px="300" py="350">
 
 
-            <div class="al al1 animated fadeInUp delay0_6" correto=2>
-                <div class="letra xbold">
-                    <div class="Linit"></div>
+            <div class="nav branco size60" stepAtivo=1>
+                <div class="nX nleft">
+                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
                 </div>
-                <div class="text">
-                    Nada. O Cada colaborador sabe o que faz em seu processo e 
-                    não tem problema ele regular seu próprio sinistro.
+                <div class="nX nright">
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </div>
-                <div class="icos animated fadeInUp delay0_6">
-                    <div class="icoNeg">
-                        <i class="fas fa-times"></i>
+            </div>
+
+            <div class="step step1 animated fadeIn delay0_2" step=1>
+                <div class="branco size45 light">
+                    Como você pode imaginar, a LGPD também tem efeito nas relações de trabalho, no Estado (exigindo que haja autoridades de fiscalização), nas relações internacionais, além de diversos outros desafios para sua aplicação.<br><br> Vamos
+                    analisar agora esses efeitos:
+                </div>
+            </div>
+
+            <div class="step step2 animated fadeIn delay0_2" step=2>
+                <div class="azul1 size30 book2">
+                    <div class="bold2 size60">
+                        Direitos dos colaboradores
                     </div>
-                    <div class="icoPos">
-                        <i class="fas fa-check"></i>
+                    <div class="mt10">
+                        <span class="bold2">Fase Pré-Contratual</span><br> Empresas devem informar o candidato de maneira clara que seus dados serão utilizados para recrutamento, avaliação e seleção e informar o prazo de manutenção.
+                        <br><br> As empresas deverão ter cautela no uso de informações pretéritas do candidato (ex.: existência de ações trabalhistas) como elemento capaz de deﬁnir sua contratação ou não, já que, nos termos da LGPD, dados pessoais referentes
+                        ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo (art. 21).
                     </div>
                 </div>
             </div>
 
-            <div class="al al2 animated fadeInUp delay0_8" correto=3>
-                <div class="letra xbold">
-                    <div class="Linit"></div>
-                </div>
-                <div class="text">
-                    Faria uma investigação por conta própria e entregaria um relatório 
-                    aos meus gestores para expor o caso.
-                </div>
-                <div class="icos animated fadeInUp delay0_6">
-                    <div class="icoNeg">
-                        <i class="fas fa-times"></i>
+            <div class="step step3 animated fadeIn delay0_2" step=3>
+                <div class="azul1 size30 book2">
+                    <div class="bold2 size60">
+                        Direitos dos colaboradores
                     </div>
-                    <div class="icoPos">
-                        <i class="fas fa-check"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="al al3 animated fadeInUp delay1_0" correto=1>
-                <div class="letra xbold">
-                    <div class="Linit"></div>
-                </div>
-                <div class="text">
-                    Denunciaria o colaborador no Zurich Ethics Line (ZEL). 
-                    Regular o próprio sinistro é conflito de interesses.
-                </div>
-                <div class="icos animated fadeInUp delay0_6">
-                    <div class="icoNeg">
-                        <i class="fas fa-times"></i>
-                    </div>
-                    <div class="icoPos">
-                        <i class="fas fa-check"></i>
+                    <div class="mt10">
+                        <span class="bold2">Fase Contratual</span><br> O consentimento para tratamento dos dados pessoais do empregado agora está previsto no contrato de trabalho:<br><br>
+                        <ul>
+                            <li>
+                                Consentimento expresso e as ﬁnalidades determinadas;
+                            </li>
+                            <li>
+                                Alterações relacionadas ao tratamento das informações devem <br>ser comunicadas.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
 
-
-            <div class="responder center animated fadeIn">
-                Confirmar
-            </div>
-
-        </div>
-
-
-        <div class="feed posicionar animated fadeIn" px="134" py="120">
-
-            <div class="feedBase feedPositivo feed1">
-
-                <div class="infX">
-                    <div class="inf size33 animated fadeInRight delay0_6">
-                        <div class="xbold size50">Parabéns!</div>
-                        <div class="mt20">
-                            O correto é denunciar ao Zurich Ethics Line (ZEL).
-                        </div>
-                        <div class="mt20 xbold">
-                            Sua pontuação é: 
-                            <span class="size40 pontBloco azul1">
-                                <span class="xbold azul1 pontuacao">X</span> de 
-                                <span class="xbold azul1 totalEx">5</span>
-                            </span>
-                        </div>
+            <div class="step step4 animated fadeIn delay0_2" step=4>
+                <div class="azul1 size30 book2">
+                    <div class="bold2 size60">
+                        Direitos dos colaboradores
                     </div>
-                    <div class="icoPositivo animated zoomIn delay1_0"></div>
-                </div>
-
-                <div class="continuar xbold animated fadeInUp delay1_2">
-                    Continuar
-                </div>
-
-            </div>
-
-
-            <div class="feedBase feedNegativo feed2">
-
-                <div class="infX">
-                    <div class="inf size33 animated fadeInRight delay0_6">
-                        <div class="xbold size50">Não foi<br> desta vez!</div>
-                        <div class="mt20">
-                          O correto é denunciar ao Zurich Ethics Line (ZEL).
-                        </div>
-                        <div class="mt20 xbold">
-                            Sua pontuação é: 
-                            <span class="size40 pontBloco azul1">
-                                <span class="xbold azul1 pontuacao">X</span> de 
-                                <span class="xbold azul1 totalEx">5</span>
-                            </span>
-                        </div>
+                    <div class="mt10">
+                        <span class="bold2">Fase Pós-Contratual</span><br> Encerrada a relação de trabalho, os dados pessoais do empregado devem ser eliminados, salvo nas hipóteses de obrigação legal de conservar tais documentos, para atendimento, por
+                        exemplo, de ﬁscalizações e ações trabalhistas.
                     </div>
-                    <div class="icoNegativo animated zoomIn delay1_0"></div>
                 </div>
-
-                <div class="continuar xbold animated fadeInUp delay1_2">
-                    Continuar
-                </div>
-
-
             </div>
 
-            <div class="feedBase feedNegativo feed3">
-
-                <div class="infX">
-                    <div class="inf size33 animated fadeInRight delay0_6">
-                        <div class="xbold size50">Não foi<br> desta vez!</div>
-                        <div class="mt20">
-                           O correto é denunciar ao Zurich Ethics Line (ZEL).
-                        </div>
-                        <div class="mt20 xbold">
-                            Sua pontuação é: 
-                            <span class="size40 pontBloco azul1">
-                                <span class="xbold azul1 pontuacao">X</span> de 
-                                <span class="xbold azul1 totalEx">5</span>
-                            </span>
-                        </div>
+            <div class="step step5 animated fadeIn delay0_2" step=5>
+                <div class="azul1 size30 book2">
+                    <div class="bold2 size60">
+                        Autoridade e Conselho Nacional de Proteção De Dados
                     </div>
-                    <div class="icoNegativo animated zoomIn delay1_0"></div>
+                    <div class="mt10">
+                        <span class="bold2">Principais competências:</span><br>
+                        <ul>
+                            <li>
+                                Zelar pela proteção de dados nos termos da Lei.
+                            </li>
+                            <li>
+                                Elaborar a Política Nacional de Dados Pessoais.
+                            </li>
+                            <li>
+                                Fiscalizar e aplicar sanções no caso de desacordo com a Lei.
+                            </li>
+                            <li>
+                                Ouvir os agentes de tratamento e sociedade sobre privacidade<br> e prestar contas.
+                            </li>
+                            <li>
+                                Auditar.
+                            </li>
+                            <li>
+                                Avaliar o nível de proteção de dados para transferência<br> internacional de dados.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="continuar xbold animated fadeInUp delay1_2">
-                    Continuar
-                </div>
-
-
             </div>
 
-        </div>
+            <div class="step step6 animated fadeIn delay0_2" step=6>
+                <div class="azul1 size30 book2">
+                    <div class="bold2 size60">
+                        Conselho Nacional de Proteção <br>de Dados
+                    </div>
+                    <div class="mt10">
+                        <span class="bold2">Principais competências:</span><br>
+                        <ul>
+                            <li>
+                                Propor diretrizes estratégicas.
+                            </li>
+                            <li>
+                                Elaborar relatórios anuais de avaliação da execução das ações <br>da Política Nacional.
+                            </li>
+                            <li>
+                                Sugerir ações a serem realizadas pela ANPD.
+                            </li>
+                            <li>
+                                Elaborar estudos e debates e audiências públicas.
+                            </li>
+                            <li>
+                                Disseminar conhecimento.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>å
+
 
 
     </div>
