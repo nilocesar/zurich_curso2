@@ -1,74 +1,85 @@
 <script>
-        window["aa18"] = {
-            indice: "aa18",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa18").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-    
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
-    
-                  
-                } else {
-    
-                }
-    
-               
-            }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA18 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="200">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Fraudes<br> externas
-                    </div>
-                </div>
-                <div class="sub animated zoomIn delay0_8">
-                   
-                    <div class="cinza1">
-                        São fraudes cometidas por aqueles que contratam ou prestam serviço 
-                        a <span class="bold azul1">Zurich</span>, seja durante a contratação, 
-                        no curso de eventos previstos no contrato, ou mesmo após sua ocorrência. 
-                        Dentre as fraudes desse tipo, estão:<br><br> 
-                        • mudança suspeita do real benefíciário do seguro; <br>
-                        • falsas declarações no preenchimento da proposta; <br>
-                        • falsa indicação do condutor habitual; <br>
-                        • falso acionamento do seguros de roubo ou furto; <br>
-                        • omissões da existência de seguros anteriores com sinistros 
-                        no preenchimento da proposta de seguro.
-                    </div>
-                       
-                </div>
-            </div> 
+    window["aa18"] = {
+        indice: "aa18",
+        status: false
+    }
 
-            <div class="elemento posicionar" px="730" py="121">
-                <div class="img animated zoomIn delay1_2"></div>
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa18").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+            var _modulo = 3;
+            _containerTela.find(".itemX").addClass('item' + _modulo);
+            course.controleCarregamento();
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+
+
+            } else {
+
+            }
+        }
+    })
+</script>
+
+
+<div class="containerAA18 containerAABase">
+
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="animated fadeInUp delay0_8 light size65 azul3">
+                Capítulo 3 - Política de proteção de dados <br>da Zurich
             </div>
-            
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="470">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="textBase posicionar animated fadeIn" px="127" py="500">
+            <div class="animated fadeInUp delay1_4 size32 azul3">
+                Chegamos à última porta. Estamos perto de garantir a segurança dos dados pessoais de nossos clientes.
+                <br><br> Agora que você já conhece bem a proteção de dados e a nova LGPD, vamos entender melhor como ela funcionará dentro da Zurich. Essa talvez seja a porta mais importante.
+                <br><br> Fique atento e vamos lá!
+            </div>
+        </div>
+
+
+        <div class="itemX posicionar status1" px="127" py="910">
+            <div class="itBasx animated fadeIn delay2_6">
+                <div class="escudo mr20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+                <div class="carregamento book2">
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
+
+</div>

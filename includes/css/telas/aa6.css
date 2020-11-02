@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA6 {
     position: fixed;
@@ -8,68 +8,44 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    background: url(../../img/cenario6.jpg) no-repeat center;
-    background-size: cover;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+            background-size: cover; */
 }
+
+.containerAA6 .baseFundoX {
+    background: url(../../img/aa6.png) no-repeat center;
+    background-size: content;
+}
+
 
 /* -------------------------------- 
+        
+        Main Components 
+        
+        -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-
-.containerAA6 .content{
+.containerAA6 .titulo {
     position: absolute;
-    width: 330px;
-    line-height: normal;
+    width: 1004px;
 }
 
-.containerAA6 .content .sub{
+.containerAA6 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA6 .lineBase div {
     position: relative;
-    width:100%;
-    height:100%;
-    display:flex;
-    /* border-left: 1px solid #0D2554; */
-    align-items: center;
-    padding: 20px;
-    overflow: hidden;
-    background-color: rgba(0, 158, 221, 0.85);
-    border-radius: 10px;
+    width: 100%;
+    border: 3px solid #005AAB;
 }
 
-
-.containerAA6 .item{
-    position: relative;
-    width: 400px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-    
+.containerAA6 .textBase {
+    position: absolute;
+    width: 750px;
 }
 
-.containerAA6 .item .ico{
-    position: relative;
-    background-size: 10%;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius:20px;
-    background: url(../../img/ico1.svg) no-repeat center;
-    background-size: 80%;   
+.containerAA6 ul li {
+    list-style-type: square;
+    margin-left: 30px;
 }
-
-
-.containerAA6 .item .text{
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-
-    

@@ -1,62 +1,86 @@
 <script>
-        window["aa6"] = {
-            indice: "aa6",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa6").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-    
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
-    
-                  
-                } else {
-    
-                }
-    
-               
+    window["aa6"] = {
+        indice: "aa6",
+        status: false
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa6").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA6 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="110" py="200">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Impactos<br> da fraude
-                    </div>
-                </div>
-                <div class="sub animated zoomIn delay0_8">
-                    <div class="">
-                        Ao iniciar os estudos, os primeiros questionamentos que lhe 
-                        vêm à mente são: afinal, o que são fraudes? E por que elas são tão 
-                        temidas? Por acaso, estas respostas são encontradas rapidamente.
-                    </div>
-                       
-                </div>
-            </div> 
-            
+        }
+    })
+</script>
+
+
+<div class="containerAA6 containerAABase">
+
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="animated fadeInUp delay0_8 light size35 azul3">
+                Além das regras que ditam o trabalho daqueles que têm posse dos dados pessoais, como temos de nossos clientes, há alguns direitos importantes garantidos ao titular dos dados pessoais.
+            </div>
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="380">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="textBase posicionar animated fadeIn" px="127" py="410">
+            <div class="animated fadeInUp delay1_4 size32 azul3 bold2">
+                Diretos do titular
+            </div>
+            <div class="animated fadeInUp delay1_6 size32 azul3 book mt10">
+                Em geral, o titular dos dados deve dar seu consentimento para que seus dados sejam tratados por alguma empresa. Na área de seguros isso acontece, pois a própria assinatura do contrato já dá à seguradora esse consentimento. Outros direitos são mantidos,
+                como:
+            </div>
+            <div class="animated fadeInUp delay1_6 size32 azul3 book mt20">
+                <ul>
+                    <li>
+                        Confirmação da existência de tratamento.
+                    </li>
+                    <li>
+                        Acesso aos dados.
+                    </li>
+                    <li>
+                        Correção de dados.
+                    </li>
+                    <li>
+                        Portabilidade.
+                    </li>
+                    <li>
+                        Informação sobre com quem foi compartilhado os dados.
+                    </li>
+                    <li>
+                        Não consentir mas estar ciente das consequências.
+                    </li>
+                    <li>
+                        Revisão de decisões automatizadas.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </div>
+
+</div>

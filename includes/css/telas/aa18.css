@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA18 {
     position: fixed;
@@ -8,81 +8,195 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    /* background: url(../../img/cenario6.jpg) no-repeat center;
-    background-size: contain; */
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                background-size: cover; */
 }
+
+.containerAA18 .baseFundoX {
+    background: url(../../img/aa18.png) no-repeat center;
+    background-size: content;
+}
+
 
 /* -------------------------------- 
+            
+            Main Components 
+            
+            -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-
-.containerAA18 .content{
+.containerAA18 .titulo {
     position: absolute;
-    width: 500px;
-    line-height: normal;
+    width: 660px;
 }
 
-.containerAA18 .content .sub{
-    position: relative;
-    width:100%;
-    height:100%;
-    /* display:flex; */
-    /* border-left: 1px solid #0D2554; */
-    align-items: center;
-    /* padding: 20px; */
-    /* overflow: hidden;
-    background-color: rgba(0, 158, 221, 0.85);
-    border-radius: 10px; */
-    /* margin-left: 110px; */
-}
-
-
-.containerAA18 .item{
-    position: relative;
-    width: 400px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-    
-}
-
-.containerAA18 .item .ico{
-    position: relative;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius:20px;
-    background: url(../../img/ico4.svg) no-repeat center;
-    background-size: 80%;   
-}
-
-
-.containerAA18 .item .text{
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-.containerAA18 .elemento{
+.containerAA18 .lineBase {
     position: absolute;
-    width: 519px;
-    height: 654px;   
+    width: 88px;
 }
 
-.containerAA18 .elemento .img{
+.containerAA18 .lineBase div {
     position: relative;
-    background: url(../../img/cone.png) no-repeat center;
-    background-size: 100%;
     width: 100%;
-    height:100%;
+    border: 3px solid #063796;
 }
 
-    
+.containerAA18 .textBase {
+    position: absolute;
+    width: 660px;
+}
+
+.containerAA18 .itemX {
+    position: absolute;
+    width: 398px;
+}
+
+.containerAA18 .itemX .itBasx {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA18 .menuInativo {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.containerAA18 .itemX .carregamento {
+    position: relative;
+    width: 282px;
+}
+
+.containerAA18 .itemX .imgCarregamento {
+    position: relative;
+    width: 282px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA18 .itemX .titCarregamento {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA18 .itemX .titCarregamento div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.containerAA18 .itemX .titCarregamento2 {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA18 .itemX .titCarregamento2 div {
+    position: absolute;
+    bottom: 0;
+}
+
+.containerAA18 .imgCarr1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoRed.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA18 .imgCarr2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoAmarelo.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA18 .imgCarr3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoVerde.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA18 .escudo {
+    position: relative;
+    width: 72px;
+    height: 101px;
+}
+
+.containerAA18 .escudoX1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo1AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA18 .escudoX2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo2AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA18 .escudoX3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo3AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA18 .txtCarr {
+    position: relative;
+    z-index: 9999999;
+}
+
+.containerAA18 .status1 .imgCarr1 {
+    display: block;
+}
+
+.containerAA18 .status1 .escudoX1 {
+    display: block;
+}
+
+.containerAA18 .status1 .imgCarregamento {
+    color: #DA3A43;
+}
+
+.containerAA18 .status2 .imgCarr2 {
+    display: block;
+}
+
+.containerAA18 .status2 .escudoX2 {
+    display: block;
+}
+
+.containerAA18 .status2 .imgCarregamento {
+    color: #4A4A4A;
+}
+
+.containerAA18 .status3 .imgCarr3 {
+    display: block;
+}
+
+.containerAA18 .status3 .escudoX3 {
+    display: block;
+}
+
+.containerAA18 .status3 .imgCarregamento {
+    color: #fff;
+}

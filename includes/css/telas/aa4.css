@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA4 {
     position: fixed;
@@ -8,34 +8,140 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    background: url(../../img/cenario4.jpg) no-repeat center;
-    background-size: cover;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+            background-size: cover; */
 }
+
+.containerAA4 .baseFundoX {
+    background: url(../../img/aa4.png) no-repeat center;
+    background-size: content;
+}
+
 
 /* -------------------------------- 
+        
+        Main Components 
+        
+        -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-
-.containerAA4 .content{
+.containerAA4 .titulo {
     position: absolute;
-    width: 930px;
-    line-height: normal;
+    width: 1065px;
 }
 
-.containerAA4 .content .sub{
+.containerAA4 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA4 .lineBase div {
     position: relative;
-    width:100%;
-    height:100%;
-    display:flex;
-    border-left: 1px solid #0D2554;
+    width: 100%;
+    border: 3px solid #fff;
+}
+
+.containerAA4 .listBase {
+    position: absolute;
+    width: 1660px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerAA4 .item {
+    position: relative;
+    width: 523px;
+    height: 108px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-top: 3px solid #010766;
+    display: flex;
+    justify-content: center;
     align-items: center;
     padding: 20px;
-    overflow: hidden;
+    margin: 0 20px 20px 0;
+    cursor: pointer;
 }
 
+.containerAA4 .feed {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.776);
+    z-index: 99999999999999999999999999999999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
 
+.containerAA4 .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #fff;
+}
 
-    
+.containerAA4 .feedInt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* margin: 200px; */
+    padding: 0 210px;
+}
+
+.containerAA4 .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar2.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA4 .fecharFeed:hover {
+    background-position: bottom;
+}
+
+.containerAA4 .feedBase ul li {
+    list-style-type: square;
+    margin-left: 30px;
+}
+
+.containerAA4 .feedV ul {
+    list-style: none;
+    padding-left: 0;
+    list-style: none !important;
+    list-style-type: none !important;
+}
+
+.containerAA4 .feedV li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-left: 0px !important;
+    margin-bottom: 10px;
+    list-style: none !important;
+    list-style-type: none !important;
+    /* space to preserve indentation on wrap */
+}
+
+.containerAA4 .feedV li:before {
+    content: '\2713\0020';
+    /* placeholder for the SVG */
+    position: absolute;
+    left: 0;
+    /* place the SVG at the start of the padding */
+    width: 1em;
+    height: 1em;
+    /* background: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg width='18' height='18' viewBox='0 0 1792 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z'/></svg>") no-repeat; */
+}
+
+.containerAA4 .itemInativo {
+    opacity: 0.4;
+    pointer-events: none;
+}

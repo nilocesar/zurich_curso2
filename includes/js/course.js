@@ -1,12 +1,13 @@
-define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded', 
-'velocity', 'componentes_jquery', "transform2d_jquery", "transform3d_jquery", 
-"transit_jquery", "easing_jquery", 'detectmobilebrowser', 
-'highcharts', 'exporting', 'export_data', 'print', 'hammer', 
-'TweenMax','TimelineMax' , 'd3', "slick" , 'blast' ], function ($) {
+define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
+    'velocity', 'componentes_jquery', "transform2d_jquery", "transform3d_jquery",
+    "transit_jquery", "easing_jquery", 'detectmobilebrowser',
+    'highcharts', 'exporting', 'export_data', 'print', 'hammer',
+    'TweenMax', 'TimelineMax', 'd3', "slick", 'blast'
+], function($) {
 
     'use strict';
 
-    var course = function () {
+    var course = function() {
         var $public = {};
         var $private = {};
 
@@ -39,13 +40,12 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
         $public.parentBody = null;
 
         $public.pageLoaderInit = 3; /// carrega 3 página inicialmente 
-        
-        
+
+
         $public.timeExercicio = 3;
 
 
-        $public.telasExce = [
-            {
+        $public.telasExce = [{
                 "t": "aa2",
                 "a": 0
             },
@@ -61,7 +61,7 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
 
         $public.padraoALL = 0;
 
-        $public.menuAll = ['aa3', 'aa5', 'aa7', 'aa9', 'aa11', 'aa13', 'aa15'  ];
+        $public.menuAll = ['aa3', 'aa5', 'aa7', 'aa9', 'aa11', 'aa13', 'aa15'];
 
 
         $public.totalExerc = 5;
@@ -107,11 +107,11 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
         $public.liberarNavegacao = function liberarNavegacao() {
             $public.getComponente("base").liberarNavegacao();
         }
-        
-        $public.callModal = function callModal( url , _containerTela ) {
-            $public.getComponente("base").callModal( url , _containerTela );
+
+        $public.callModal = function callModal(url, _containerTela) {
+            $public.getComponente("base").callModal(url, _containerTela);
         }
-        
+
         $public.carregamento = function carregamento() {
             $public.getComponente("carregamento").carregar();
         }
@@ -167,7 +167,7 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
         $public.completeScorm = function completeScorm() {
             $public.getComponente("scorm").completeScorm();
         }
-        
+
         $public.resetSuspendata = function resetSuspendata() {
             $public.getComponente("scorm").resetSuspendata();
         }
@@ -175,68 +175,183 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
         $public.resetAll = function resetAll() {
             $public.getComponente("scorm").resetAll();
         }
-        
+
         $public.sair = function sair() {
             $public.getComponente("base").sair();
         }
 
         $public.prevTela = function prevTela(id) {
-             $public.getComponente("base").prev(parseInt(id.split("aa")[1]));
+            $public.getComponente("base").prev(parseInt(id.split("aa")[1]));
         }
 
         $public.nextTela = function nextTela(id) {
-             $public.getComponente("base").next(parseInt(id.split("aa")[1]));
+            $public.getComponente("base").next(parseInt(id.split("aa")[1]));
         }
 
         $public.returnMenu = function returnMenu(_menu) {
-            
-            if( $public.scorm_get_suspendData("controleMenu") ){
-                if( parseInt( $public.scorm_get_suspendData("controleMenu") ) < _menu ){
-                    $public.scorm_set_suspendData("controleMenu" , _menu);
+
+            if ($public.scorm_get_suspendData("controleMenu")) {
+                if (parseInt($public.scorm_get_suspendData("controleMenu")) < _menu) {
+                    $public.scorm_set_suspendData("controleMenu", _menu);
                 }
+            } else {
+                $public.scorm_set_suspendData("controleMenu", _menu);
             }
-            else{
-                $public.scorm_set_suspendData("controleMenu" , _menu);
-            }
-            
+
 
             //
-            var _tela ="AA5";
+            var _tela = "AA5";
             var _indice = 0;
 
-            $.each( $public.config, function(indice,item){
+            $.each($public.config, function(indice, item) {
 
-                if( String(item.id).toUpperCase() == String(_tela).toUpperCase() ){
+                if (String(item.id).toUpperCase() == String(_tela).toUpperCase()) {
                     _indice = item.indice;
                 }
             });
-            
+
             $public.indice = _indice;
             $("body").attr("nav", "go");
             $("body").trigger("navegacao");
-            
+
         }
 
+        $public.controleCarregamento = function controleCarregamento() {
 
-        $public.returnGame = function returnGame() {
-            
-            $public.resetAll();
+            var page = $public.config[$public.indice];
+            var id = String(page.id).toUpperCase();
+            var _container = $(".container" + id);
 
-            //
-            var _tela ="AA22";
-            var _indice = 0;
+            var _all = 4;
 
-            $.each( $public.config, function(indice,item){
+            _container.find('.itemX').removeClass('status1 status2 status3');
 
-                if( String(item.id).toUpperCase() == String(_tela).toUpperCase() ){
-                    _indice = item.indice;
+            for (var i = 1; i <= _all; i++) {
+
+                var _exerc1 = "e" + i + "_" + 1;
+                var _exerc2 = "e" + i + "_" + 2;
+                var _notaModulo = 0;
+
+                if ($public.scorm_get_suspendData(_exerc1) == 1) {
+                    _notaModulo += 1;
                 }
-            });
-            
-            $public.indice = _indice;
-            $("body").attr("nav", "go");
-            $("body").trigger("navegacao");
-            
+                if ($public.scorm_get_suspendData(_exerc2) == 1) {
+                    _notaModulo += 1;
+                }
+
+                if (_notaModulo == 0) {
+                    _container.find('.item' + i).addClass('status1');
+                }
+                if (_notaModulo == 1) {
+                    _container.find('.item' + i).addClass('status2');
+                }
+
+                if (_notaModulo == 2) {
+                    _container.find('.item' + i).addClass('status3');
+                }
+
+
+            }
+
+        }
+
+        $public.notaCurrent = function notaCurrent() {
+
+            var page = $public.config[$public.indice];
+            var id = String(page.id).toUpperCase();
+            var _container = $(".container" + id);
+
+            var _all = 4;
+            var _nota = 0;
+            //var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+
+            for (var i = 1; i <= _all; i++) {
+
+                var _exerc1 = "e" + i + "_" + 1;
+                var _exerc2 = "e" + i + "_" + 2;
+
+                if ($public.scorm_get_suspendData(_exerc1) == 1) {
+                    _nota += 1;
+                }
+                if ($public.scorm_get_suspendData(_exerc2) == 1) {
+                    _nota += 1;
+                }
+
+            }
+
+            _container.find('.numberCurrent').text("0" + String(_nota));
+            _container.find('.numberAll').text("0" + String(_all * 2));
+
+
+            // var _qA = $public.scorm_get_suspendData("exerc1").split('_');
+
+            // var _alt = _qA[0];
+            // var _res = _qA[1];
+
+        }
+
+        $public.controleMenu = function controleMenu(_menu) {
+
+            var page = $public.config[$public.indice];
+            var id = String(page.id).toUpperCase();
+            var _container = $(".container" + id);
+
+
+            if ($public.scorm_get_suspendData("controleMenu")) {
+                if (parseInt($public.scorm_get_suspendData("controleMenu")) < _menu) {
+                    $public.scorm_set_suspendData("controleMenu", _menu);
+                }
+            } else {
+                $public.scorm_set_suspendData("controleMenu", _menu);
+            }
+
+            var _all = 4;
+            var _menuCurrent = parseInt($public.scorm_get_suspendData("controleMenu"));
+            _container.find('.itemX').addClass('menuInativo');
+            _container.find('.itemX .escudo').removeClass("animated infinite pulse");
+
+
+            for (var i = 1; i <= _all; i++) {
+
+
+                if (i <= _menuCurrent) {
+
+                    _container.find('.item' + i).removeClass('menuInativo');
+
+                    if (i == _menuCurrent) {
+                        _container.find('.item' + i + " .escudo").addClass("animated infinite pulse");
+                    }
+
+                }
+
+            }
+
+
+
+
+
+
+            _container.find('.itemX').on('click', function() {
+
+
+                var _tela = $(this).attr('item');
+                var _indice = 0;
+
+                $.each($public.config, function(indice, item) {
+
+                    if (String(item.id).toUpperCase() == String(_tela).toUpperCase()) {
+                        _indice = item.indice;
+                    }
+                });
+
+                $public.indice = _indice;
+                $("body").attr("nav", "go");
+                $("body").trigger("navegacao");
+
+            })
+
+
+
         }
 
 
@@ -250,9 +365,9 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
         ////////////////////////////////
 
         $private.initXML = function initXML() {
-            require(["utils/xml/xmlLoader"], function (module) {
+            require(["utils/xml/xmlLoader"], function(module) {
                 module.init($public);
-                module.create(function () {
+                module.create(function() {
                     $private.initScorm();
                 });
             });
@@ -264,9 +379,9 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
 
 
         $private.initScorm = function initScorm() {
-            require(["utils/scorm/scorm"], function (module) {
+            require(["utils/scorm/scorm"], function(module) {
                 module.init($public);
-                module.create(function () {
+                module.create(function() {
                     $private.initBase();
                     $private.initSpeed();
                 });
@@ -281,7 +396,7 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
 
         $private.initSpeed = function initSpeed() {
             if ($public.speed) {
-                require(["componentes/speed"], function (module) {
+                require(["componentes/speed"], function(module) {
                     module.init($public);
                 });
             }
@@ -293,7 +408,7 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
         ////////////////////////////////
 
         $private.initBase = function initBase() {
-            require(["componentes/base"], function (module) {
+            require(["componentes/base"], function(module) {
                 module.init($public);
                 $public.setComponente("base", module);
                 $private.initNav();
@@ -302,23 +417,23 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
 
         $private.initNav = function initNav() {
 
-            require(["utils/navegacao/carregamento"], function (module) {
+            require(["utils/navegacao/carregamento"], function(module) {
                 module.init($public);
                 $public.setComponente("carregamento", module);
             });
 
-            require(["utils/navegacao/motion"], function (module) {
+            require(["utils/navegacao/motion"], function(module) {
                 module.init($public);
                 $public.setComponente("motion", module);
             });
 
-            require(["utils/navegacao/navegacao"], function (module) {
+            require(["utils/navegacao/navegacao"], function(module) {
                 module.init($public);
                 module.create();
                 $public.setComponente("navegacao", module);
             });
 
-            require(["componentes/info"], function (module) {
+            require(["componentes/info"], function(module) {
                 module.init($public);
                 module.create();
                 $public.setComponente("info", module);
@@ -335,7 +450,7 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
             //Iniciar após o carregamento inicial
             $("body").attr("nav", "init");
             $("body").trigger("navegacao");
-            
+
         }
 
 

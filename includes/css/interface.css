@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     /* -webkit-font-smoothing:subpixel-antialiased; */
@@ -8,7 +7,7 @@
 body,
 html {
     width: 100%;
-    font-family: "light", Verdana, Geneva, sans-serif;
+    font-family: "book", Verdana, Geneva, sans-serif;
     background-color: rgba(150, 40, 115, .0);
     -webkit-font-smoothing: subpixel-antialiased;
     color: #464749 !important;
@@ -47,10 +46,10 @@ html {
     background-color: #f5f5f5;
 }
 
-
 i {
     font-style: italic;
 }
+
 
 /*------------
 /// SPEED
@@ -66,6 +65,7 @@ i {
     margin-top: 50px;
 }
 
+
 /*------------
 /// MAIN
 -------------*/
@@ -76,6 +76,7 @@ i {
     width: 100%;
     height: 100%;
 }
+
 
 /*------------
 /// BASE
@@ -110,7 +111,6 @@ i {
     box-shadow: 0px 10px 14px -7px #444445;
 }
 
-
 .telaBase {
     position: fixed;
     /*top: 70px;*/
@@ -137,7 +137,6 @@ i {
     font-size: 1rem;
 }
 
-
 .titulosBase {
     float: left;
     position: relative;
@@ -157,8 +156,6 @@ i {
 }
 
 .titulo3Base {}
-
-
 
 .iconBase {
     position: absolute;
@@ -203,6 +200,7 @@ i {
     cursor: pointer;
     margin-right: 10px;
 }
+
 
 /*.iconSairBase {
     display: none;
@@ -260,19 +258,17 @@ i {
         right: 20px;
         /*transform: rotate(90deg);*/
     }
-
     .telaBase {
         position: fixed;
         /*top: 40px;*/
     }
-/* 
+    /* 
     .logoBase {
         background-size: 100%;
         width: 100px;
         top: 0px;
         display: none;
     } */
-
     .iconBase {
         position: fixed;
         right: 0;
@@ -281,19 +277,16 @@ i {
         margin-left: 0px;
         /*margin-left: -170px;*/
     }
-
     .infoValor {
         top: 1px;
         left: 5px;
     }
-
     .infoValor .salario {
         font-size: 10px;
         text-align: right;
         margin-right: 0px;
         display: none;
     }
-
     .infoValor .info {
         font-size: 10px;
         padding: 0 2px;
@@ -302,7 +295,6 @@ i {
         border: 1px solid #2a2a2a;
         border-radius: 5px;
     }
-
     .iconAjudaBase {
         position: relative;
         float: left;
@@ -315,7 +307,6 @@ i {
         margin-top: 0px;
         left: 0px;
     }
-
     .iconSairBase {
         position: relative;
         float: left;
@@ -329,7 +320,6 @@ i {
         left: 0px;
     }
 }
-
 
 
 /*= MODAL
@@ -522,6 +512,7 @@ i {
     background-color: #232424 !important;
 }
 
+
 /*------------
 /// AJUDA
 -------------*/
@@ -541,6 +532,7 @@ i {
     background-color: rgb(0, 111, 111);
 }
 
+
 /*= PRELOADER
 	----------------------------*/
 
@@ -557,8 +549,10 @@ i {
     opacity: 1;
 }
 
+
 /*= SCROLL
 	----------------------------*/
+
 
 /** initial setup **/
 
@@ -569,7 +563,7 @@ i {
     overflow: hidden;
 }
 
-.nano > .nano-content {
+.nano>.nano-content {
     position: absolute;
     overflow: scroll;
     overflow-x: hidden;
@@ -579,19 +573,19 @@ i {
     left: 0;
 }
 
-.nano > .nano-content:focus {
+.nano>.nano-content:focus {
     outline: thin dotted;
 }
 
-.nano > .nano-content::-webkit-scrollbar {
+.nano>.nano-content::-webkit-scrollbar {
     display: none;
 }
 
-.has-scrollbar > .nano-content::-webkit-scrollbar {
+.has-scrollbar>.nano-content::-webkit-scrollbar {
     display: block;
 }
 
-.nano > .nano-pane {
+.nano>.nano-pane {
     background: rgba(0, 0, 0, .25);
     position: absolute;
     width: 10px;
@@ -610,7 +604,7 @@ i {
     border-radius: 5px;
 }
 
-.nano > .nano-pane > .nano-slider {
+.nano>.nano-pane>.nano-slider {
     background: #444;
     background: rgba(0, 0, 0, .5);
     position: relative;
@@ -620,7 +614,7 @@ i {
     border-radius: 3px;
 }
 
-.nano:hover > .nano-pane,
+.nano:hover>.nano-pane,
 .nano-pane.active,
 .nano-pane.flashed {
     visibility: visible\9;
@@ -646,8 +640,6 @@ i {
     background: #111;
 }
 
-
-
 .retormar {
     display: none;
     position: fixed;
@@ -655,14 +647,10 @@ i {
     left: 0;
 }
 
-
-
-
 @-webkit-keyframes fade_in {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -672,7 +660,6 @@ i {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -683,17 +670,14 @@ i {
     animation-duration: 0.4s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-
     -webkit-animation-name: fade_in;
     animation-name: fade_in;
 }
-
 
 @-webkit-keyframes fade_out {
     0% {
         opacity: 1;
     }
-
     100% {
         opacity: 0;
     }
@@ -703,7 +687,6 @@ i {
     0% {
         opacity: 1;
     }
-
     100% {
         opacity: 0;
     }
@@ -714,18 +697,14 @@ i {
     animation-duration: 0.4s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-
     -webkit-animation-name: fade_out;
     animation-name: fade_out;
 }
-
-
 
 @-webkit-keyframes fade_out_down {
     0% {
         opacity: 1;
     }
-
     100% {
         opacity: 0;
         -webkit-transform: translate3d(0, 100%, 0);
@@ -737,7 +716,6 @@ i {
     0% {
         opacity: 1;
     }
-
     100% {
         opacity: 0;
         -webkit-transform: translate3d(0, 100%, 0);
@@ -750,12 +728,9 @@ i {
     animation-duration: 0.4s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-
     -webkit-animation-name: fade_out_down;
     animation-name: fade_out_down;
 }
-
-
 
 @-webkit-keyframes fade_in_down {
     0% {
@@ -763,7 +738,6 @@ i {
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
     }
-
     100% {
         opacity: 1;
         -webkit-transform: none;
@@ -777,7 +751,6 @@ i {
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
     }
-
     100% {
         opacity: 1;
         -webkit-transform: none;
@@ -790,11 +763,9 @@ i {
     animation-duration: 0.4s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-
     -webkit-animation-name: fade_in_down;
     animation-name: fade_in_down;
 }
-
 
 @-webkit-keyframes fade_in_up {
     0% {
@@ -802,7 +773,6 @@ i {
         -webkit-transform: translate3d(0, 100%, 0);
         transform: translate3d(0, 100%, 0);
     }
-
     100% {
         opacity: 1;
         -webkit-transform: none;
@@ -816,7 +786,6 @@ i {
         -webkit-transform: translate3d(0, 100%, 0);
         transform: translate3d(0, 100%, 0);
     }
-
     100% {
         opacity: 1;
         -webkit-transform: none;
@@ -824,23 +793,19 @@ i {
     }
 }
 
-
 .fade_in_up {
     -webkit-animation-duration: 0.4s;
     animation-duration: 0.4s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-
     -webkit-animation-name: fade_in_up;
     animation-name: fade_in_up;
 }
-
 
 @-webkit-keyframes fade_out_up {
     0% {
         opacity: 1;
     }
-
     100% {
         opacity: 0;
         -webkit-transform: translate3d(0, -100%, 0);
@@ -852,7 +817,6 @@ i {
     0% {
         opacity: 1;
     }
-
     100% {
         opacity: 0;
         -webkit-transform: translate3d(0, -100%, 0);
@@ -865,11 +829,9 @@ i {
     animation-duration: 0.4s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-
     -webkit-animation-name: fade_out_up;
     animation-name: fade_out_up;
 }
-
 
 
 /*
@@ -885,7 +847,6 @@ i {
     left: 0;
     display: none;
 }
-
 
 .modalBase .marcacaoModal {
     position: fixed;
@@ -920,4 +881,3 @@ i {
     top: 0;
     left: 0;
 }
-

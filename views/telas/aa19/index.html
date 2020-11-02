@@ -15,74 +15,53 @@
             _containerTela.find(".posicionar").positionCSS({
                 box: _containerTela.find('.containerGeral'),
                 img_H: course.height,
-                img_W: course.width
+                img_W: course.width,
             });
 
-           
 
-            reset();
             if (_tela.status == false) {
                 _tela.status = true;
 
-                nav();
-                
+
+                controleFeed();
+
 
             } else {
 
             }
 
-            function nav() {
+            function controleFeed() {
 
-                _containerTela.find(".btnMenuReturn").on('click', function(){
-                    course.returnMenu(4);
-                });
+                _containerTela.find(".feed").css('display', 'none');
+                // _containerTela.find(".item").addClass('itemInativo');
+                // _containerTela.find(".item1").removeClass('itemInativo');
 
-                _containerTela.find(".nleft").on('click', function() {
+                var _all = _containerTela.find(".item").length;
+                var _current = 0;
 
-                    var _step = parseInt($(this).parent().attr('stepAtivo')) - 1;
-                    $(this).parent().attr('stepAtivo', _step);
 
-                    _containerTela.find(".nright").css('display', 'flex');
+                _containerTela.find(".item").on('click', function() {
 
-                    if (_step == 1)
-                        _containerTela.find(".nleft").css('display', 'none');
+                    _current = $(this).attr('item');
 
-                    _containerTela.find(".step").css('display', 'none');
-                    _containerTela.find(".step" + _step).css('display', 'block');
+
+                    _containerTela.find(".feed" + _current).css('display', 'flex');
 
                 });
 
-                _containerTela.find(".nright").on('click', function() {
 
-                    var _step = parseInt($(this).parent().attr('stepAtivo')) + 1;
-                    var _stepAll = _containerTela.find(".step").length;
+                _containerTela.find(".fecharFeed").on('click', function() {
+                    _containerTela.find(".feed").css('display', 'none');
 
-                    _containerTela.find(".nleft").css('display', 'flex');
+                    var _next = parseInt(_current) + 1;
 
-                    if (_step == _stepAll){
-                        _containerTela.find(".nright").css('display', 'none');
-                        _containerTela.find(".btnMenuReturn").css('display', 'block');
+                    _containerTela.find(".item" + _next).removeClass('itemInativo');
+
+                    if (_current == _all) {
+                        course.liberarNavegacao();
                     }
-                       
-
-
-                    $(this).parent().attr('stepAtivo', _step);
-
-                    _containerTela.find(".step").css('display', 'none');
-                    _containerTela.find(".step" + _step).css('display', 'block');
-
                 });
 
-            }
-
-            function reset() {
-                _containerTela.find(".nav").attr('stepAtivo', 1);
-                _containerTela.find(".step").css('display', 'none');
-                _containerTela.find(".nX").css('display', 'none');
-
-                _containerTela.find(".nright").css('display', 'flex');
-                _containerTela.find(".step1").css('display', 'block');
-                _containerTela.find(".btnMenuReturn").css('display', 'none');
             }
         }
     })
@@ -93,131 +72,162 @@
 
     <div class="containerGeral">
 
-
-        <div class="content posicionar animated fadeIn delay0_4 cinza1 size22" px="210" py="300">
-            <div class="item animated fadeInRight delay0_6">
-                <div class="ico"></div>
-                <div class="text">
-                    Fraudes<br> externas
-                </div>
+        <!-- <div class="titulo posicionar animated fadeIn" px="118" py="230">
+            <div class="animated fadeInUp delay0_8 light size47 branco">
+                Vamos começar a conhecer questões mais práticas. Quais são os principais impactos da LGPD, agora que ela já está valendo? Veja abaixo.
             </div>
-            <div class="sub animated zoomIn delay0_8">
-                <div class="">
-                    <span class="bold_italic">Red flags</span> de fraudes externas:
-                </div>
-                    
-            </div>
-        </div> 
+        </div> -->
 
+        <!-- <div class="lineBase posicionar animated fadeIn" px="127" py="424">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div> -->
 
-        <div class="bloco posicionar animated fadeIn delay0_8" px="643" py="262">
+        <div class="listBase posicionar animated fadeIn azul1 size41 bold2 center" px="155" py="537">
 
-                <div class="nav size30" stepAtivo=1>
-                    <div class="nX nleft">
-                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                    </div>
-                    <div class="nX nright">
-                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    </div>
-                </div>
-
-                <div class="step step1 animated fadeIn delay0_2" step=1>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico animated zoomIn delay0_2">
-                          <div class="ico1"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            Dificuldade na verificação de informações da empresa, como localização, 
-                            tipo, número de funcionários, publicação de balanços etc.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step2  animated fadeIn delay0_2" step=2>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico2"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            Informações desconexas na documentação apresentada.
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="step step3 animated fadeIn delay0_2" step=3>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico3"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            Dificuldades de contatar os agentes envolvidos (corretor, segurado, etc.)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step4 animated fadeIn delay0_2" step=4>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico4"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            Variações na grafia do nome do fornecedor aprovado.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step5 animated fadeIn delay0_2" step=5>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico5"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                          Situações “boas demais para serem verdades”.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step6 animated fadeIn delay0_2" step=6>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico animated zoomIn delay0_2">
-                            <div class="ico6"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                          Mudanças nos beneficiários dos pagamentos de indenizações ou restituições.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step7 animated fadeIn delay0_2" step=7>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico animated zoomIn delay0_2">
-                            <div class="ico7"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                          Consultas ou reclamações de clientes sobre apólices não registradas
-                          no sistema (por exemplo, absent em caso de assistência).
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step8 animated fadeIn delay0_2" step=8>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico animated zoomIn delay0_2">
-                            <div class="ico8"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                          Pedidos de emissão de apólices extras ou ausência de documentação oficial.
-                        </div>
-                    </div>
-                </div>
-
+            <div class="item item1 animated zoomIn delay1_4" item="1">
+                Objetivos
             </div>
 
-            <div class="btnMenuReturn posicionar size26" px="780" py="600">
-                <div class="btnIt animated zoomIn">
-                    Menu
+            <div class="item item2 animated zoomIn delay1_6" item="2">
+                A Política de Proteção <br>de Dados
+            </div>
+
+
+            <div class="item item3 animated zoomIn delay1_8" item="3">
+                Responsabilidades
+            </div>
+
+            <div class="item item4 animated zoomIn delay2_0" item="4">
+                Orientações
+            </div>
+
+            <div class="item item5 animated zoomIn delay2_2" item="5">
+                Estrutura
+            </div>
+
+
+        </div>
+
+        <div class="feed feed1 posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size65 bold2">
+                        Objetivos
+                    </div>
+                    <div class="size30 mt20">
+                        Acima de tudo, nos preocupamos com a <span class="bold2">segurança de nossos clientes</span>, com ou sem lei que regule o tratamento de dados. <br><br> Queremos demonstrar nosso compromisso com a Privacidade e Proteção de Dados
+                        Pessoais e apoiar o cumprimento de nossas obrigações legais, garantir <span class="book2_italic">accountability</span> e atribuir responsabilidade em nossas operações de Tratamento de Dados Pessoais.<br><br> Com isso, buscamos
+                        demonstrar que tratamos os Dados Pessoais de nossos clientes, colaboradores e terceiros, de maneira <span class="bold2">justa, transparente, ética e responsável</span>.
+
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="feed feed2 posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size65 bold2">
+                        A Política de Proteção de Dados
+                    </div>
+                    <div class="size30 mt20">
+                        A Política de Proteção de Dados se aplica a todos os funcionários das empresas do Grupo Zurich no Brasil e seus agentes, joint ventures e prestadores de serviços.<br><br> É de responsabilidade da área de Compliance manter atualizada
+                        esta Política, e o cumprimento destes requisitos é da primeira linha de defesa, áreas que manuseiam os dados de clientes, funcionários e terceiros.<br><br> No link <span class="bold2">Responsabilidades</span> você poderá ver o
+                        papel de cada um nesse processo.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feed feed3 posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size65 bold2">
+                        Responsabilidades
+                    </div>
+                    <div class="size30 mt20">
+                        <span class="bold2">O DPPC na área de  <span class="bold2_italic">Compliance</span> é responsável por:</span><br> Apoiar as áreas de negócios, identificar leis e regulamentos que possam gerar conflito e validar o estabelecimento
+                        dos controles adequados. Além disso, deve fornecer consultoria, orientação, treinamento e suporte, bem como monitorar a aplicação dos regulamentos e acompanhar a correção de problemas identificados. <br><br> Muito importante também
+                        é o papel de relatar incidentes, potenciais incidentes e fornecer os dados necessários ao Central Team de Compliance do grupo.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="feed feed4 posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size65 bold2">
+                        Orientações
+                    </div>
+                    <div class="size30 mt20">
+                        Temos como orientação geral se comprometer a manter a confidencialidade dos <span class="bold2">Dados Pessoais</span> e o respeito ao direito das pessoas à privacidade. Os Dados Pessoais são processados somente para atender às
+                        necessidades do negócio, sendo o acesso a esses dados concedido somente às pessoas que deles precisem tomar conhecimento.<br><br> Para conhecer as orientações práticas, consulte a Política de Proteção de Dados do Grupo Zurich.
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feed feed5 posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size65 bold2">
+                        Estrutura
+                    </div>
+                    <div class="size30 mt20 baseXEstrutura cinza1">
+                        <div class="itd it1">
+                            <div class="size26 bold2 azul1 mb20">
+                                Comitê Executivo
+                            </div>
+                            <div class="size26">
+                                É responsável por monitorar a conformidade do Programa de Privacidade da Zurich e ratificar decisões não unânimes do Comitê de Proteção de Dados.
+                            </div>
+                        </div>
+                        <div class="itd it2"></div>
+                        <div class="itd it3">
+                            <div class="size26 bold2 azul1 mb20">
+                                Comitê de Proteção de Dados
+                            </div>
+                            <div class="size26">
+                                <div>O comitê de proteção de dados é composto por diretores, superintendentes ou gerentes das seguintes áreas da Companhia:</div>
+                                <div class='mt5 mb5 azul2'>
+                                    i. Jurídico e Compliance (Legal and Compliance);<br> ii. Operações (Operations); <br> iii. Auditoria (Audit); <br> iv. Recursos Humanos (Human Resources); <br> v. Gerenciamento de Risco (Risk Management); <br> vi. Estratégia
+                                    (Strategy);
+                                </div>
+                                <div>
+                                    As responsabilidades do Comitê de Proteção de Dados estão descritas no “Regimento Interno do Comitê de Proteção de Dados”.
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
 </div>

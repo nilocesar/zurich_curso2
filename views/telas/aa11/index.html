@@ -1,64 +1,189 @@
 <script>
-        window["aa11"] = {
-            indice: "aa11",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa11").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-    
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
-    
-                  
-                } else {
-    
-                }
-    
-               
+    window["aa11"] = {
+        indice: "aa11",
+        status: false
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa11").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                controle();
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA11 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="110" py="200">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Triângulo<br> da fraude
-                    </div>
-                </div>
-                <div class="sub animated zoomIn delay0_8">
-                    <div class="">
-                        Isso quer dizer que, além das perdas imensas 
-                        para a companhia e sociedade, o fraudador pode 
-                        ser até preso? Como alguém seria capaz de fazer 
-                        ou colaborar com isso? Sua pergunta é logo respondida 
-                        quando você se depara com o chamado Triângulo da Fraude.
-                    </div>
-                       
-                </div>
-            </div> 
-            
+
+            function controle() {
+
+                _containerTela.find(".itemX").addClass('inativoX');
+                _containerTela.find(".itemX2").addClass('inativoX');
+
+                _containerTela.find(".itemd1").removeClass('inativoX');
+                _containerTela.find(".itemNext1").removeClass('inativoX');
+
+
+                _containerTela.find(".itemX2").on('click', function() {
+
+                    var _current = parseInt($(this).attr('item'));
+                    var _next = _current + 1;
+                    var _all = _containerTela.find(".itemX2").length;
+
+                    $(this).find('.nextS').css('display', 'none');
+
+                    _containerTela.find(".itemd" + _next).removeClass('inativoX');
+                    _containerTela.find(".itemNext" + _next).removeClass('inativoX');
+
+                    if (_current == _all) {
+                        course.liberarNavegacao();
+                    }
+
+                });
+
+
+
+            }
+        }
+    })
+</script>
+
+
+<div class="containerAA11 containerAABase">
+
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="animated fadeInUp delay0_8 light size45 azul3">
+                E, na prática, o que a LGPD prevê com relação ao trabalho do controlador?<br> Quando se considera que o tratamento chegou ao fim?
+
+            </div>
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="380">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="baseTip posicionar animated fadeIn cinza1 light size22" px="127" py="500">
+
+            <div class="itemX itemd1 animated zoomIn delay1_4">
+                <div class="icoX"></div>
+                <div class="txt">
+                    A LGPD autoriza o tratamento de dados pelo controlador para exercício regular de direito, sempre que houver legítimo interesse, inclusive para proteção do crédito.
+                </div>
+            </div>
+
+            <div class="itemX2 bold2 size25 center itemNext1 animated zoomIn delay1_6" item="1">
+                <div class="nextS size90 azul3 mb10">
+                    <i class="fas fa-chevron-circle-right"></i>
+                </div>
+                <div class="txtS">
+                    Hipóteses
+                </div>
+            </div>
+
+            <div class="itemX itemd2 animated zoomIn delay1_8">
+                <div class="txt">
+                    <div class="azul3 bold2 mb20">
+                        Possibilidades de tratamento de dados:
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                Apoio e promoção de atividades do controlador.
+                            </li>
+                            <li>
+                                Prestação de serviços que beneficie o titular dos dados.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itemX2 bold2 size25 center itemNext2 animated zoomIn delay2_0" item="2">
+                <div class="nextS size90 azul3 mb10">
+                    <i class="fas fa-chevron-circle-right"></i>
+                </div>
+                <div class="txtS">
+                    Quando acaba?
+                </div>
+            </div>
+
+            <div class="itemX itemd3 animated zoomIn delay2_2">
+                <div class="txt">
+                    <div class="azul3 bold2 mb20">
+                        Término do tratamento:
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                Finalidade alcançada.
+                            </li>
+                            <li>
+                                Fim do período de tratamento.
+                            </li>
+                            <li>
+                                A pedido do titular dos dados.
+                            </li>
+                            <li>
+                                Por determinação da Autoridade Nacional de Proteção de Dados.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itemX2 bold2 size22 center itemNext3 animated zoomIn delay2_4" item="3">
+                <div class="nextS size90 azul3 mb10">
+                    <i class="fas fa-chevron-circle-right"></i>
+                </div>
+                <div class="txtS">
+                    Quando os dados podem ser mantidos?
+                </div>
+            </div>
+
+            <div class="itemX itemd4 animated zoomIn delay2_6">
+                <div class="txt">
+                    <div class="azul3 bold2 mb20">
+                        Dados podem ser mantidos por:
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                Obrigação legal ou regulatória.
+                            </li>
+                            <li>
+                                Estudo por órgão público de pesquisa, garantida sempre que possível a anonimização e, para entidades privadas, serão sempre anonimizado.
+                            </li>
+                            <li>
+                                Transferência a terceiro, respeitados os requisitos da lei.
+                            </li>
+                            <li>
+                                Uso exclusivo do controlador, desde que anonimizado.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
     </div>
+
+</div>

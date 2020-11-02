@@ -2,6 +2,7 @@
     window["aa2"] = {
         indice: "aa2",
         status: false,
+        modulo: 1
     }
 
     $("body").on('navegacaoComplete', function() {
@@ -11,57 +12,156 @@
             var _tela = window[course.config[course.indice].id];
             var _containerTela = $(".container" + (_tela.indice).toUpperCase());
 
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+            course.controleCarregamento();
 
 
             if (_tela.status == false) {
                 _tela.status = true;
 
-                //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                _containerTela.find(".posicionar").positionCSS({
-                    box: _containerTela.find('.containerGeral'),
-                    img_H: course.height,
-                    img_W: course.width
-                });
+                course.controleMenu(_tela.modulo);
 
 
             } else {
 
             }
-
-
         }
-
-
     })
 </script>
 
 
 <div class="containerAA2 containerAABase">
+
     <div class="containerGeral">
 
-        <!-- <div class="content posicionar animated fadeIn delay0_4 azul1 size22" px="940" py="150">
-            <div class="sub animated fadeInLeft delay0_5">
-                <div class="animated fadeInRight delay0_8">
-                    <div class="bold mb10">Introdução</div>
-                    <div>
-                        
-                        Bem-vindo ao curso <br>Prevenção à Fraude!<br><br> 
-                        O objetivo deste treinamento é construir 
-                        um entendimento sobre os malefícios da fraude, 
-                        o que motiva alguém a cometê-la, quando se 
-                        deve desconfiar de uma e o que fazer no caso de 
-                        suspeita. <br><br>
-                        Você irá incorporar um colaborador 
-                        que se diverte explorando o universo das investigações 
-                        em <br>seu tempo livre. 
-                        <br><br>Vamos começar?
+        <div class="titulo posicionar animated fadeIn" px="118" py="230">
+            <div class="animated fadeInUp delay0_8 light size65 azul3">
+                Para que continue colaborando nessa missão, você passará <br>por quatro desafios.
+            </div>
+        </div>
+
+        <div class="lineBase posicionar animated fadeIn" px="118" py="570">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="textBase posicionar animated fadeIn azul3" px="118" py="605">
+            <div class="animated fadeInUp delay1_4 size32">
+                Acesse cada uma das portas de proteção, acompanhe as informações, e tente responder corretamente às perguntas. Quanto mais você acertar, mais nosso cliente estará protegido.
+            </div>
+            <div class="mt30 bold animated fadeInUp delay1_8 size45">
+                Vamos começar?
+            </div>
+        </div>
+
+        <div class="globoX posicionar animated fadeIn delay1_4" px="873" py="218">
+            <div class="animated fadeIn"></div>
+        </div>
+
+        <div class="itemX item1 posicionar status1" px="880" py="280" item="AA3">
+            <div class="itBasx animated fadeIn delay2_0">
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 right mb5">
+                        <div>Conceitos</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
                     </div>
                 </div>
-                   
+                <div class="escudo ml20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
             </div>
-        </div>  -->
+        </div>
+
+
+        <div class="itemX item2 posicionar status1" px="795" py="450" item="AA9">
+            <div class="itBasx animated fadeIn delay2_2">
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 right mb5">
+                        <div>Aplicação da lei</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+                <div class="escudo ml20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="itemX item3 posicionar status1" px="1380" py="280" item="AA18">
+            <div class="itBasx animated fadeIn delay2_4">
+                <div class="escudo mr20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 mb5">
+                        <div>Política de proteção de dados da Zurich</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="itemX item4 posicionar status1" px="1470" py="450" item="AA3">
+            <div class="itBasx animated fadeIn delay2_6">
+                <div class="escudo mr20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+                <div class="carregamento book2">
+                    <div class="titCarregamento2 azul1 size23 mb5">
+                        <div>Desdobramentos</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     </div>
-
 
 </div>

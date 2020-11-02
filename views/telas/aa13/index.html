@@ -1,63 +1,216 @@
 <script>
-        window["aa13"] = {
-            indice: "aa13",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa13").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-    
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
-    
-                  
-                } else {
-    
-                }
-    
-               
+    window["aa13"] = {
+        indice: "aa13",
+        status: false
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa13").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+
+                controleFeed();
+
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA13 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="910" py="150">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Fraudes<br> internas
-                    </div>
-                </div>
-                <div class="sub animated zoomIn delay0_8">
-                    <div class="">
-                        Pois é. Parece que, com a combinação certa de motivações
-                        e circunstâncias, até mesmo um colaborador de uma companhia
-                        de seguros pode cair na tentação de cometer uma fraude. 
-                        Interessado, você se debruça em materiais sobre esse tipo de fraude.
-                    </div>
-                       
-                </div>
-            </div> 
-            
+
+            function controleFeed() {
+
+                _containerTela.find(".feed").css('display', 'none');
+                _containerTela.find(".item").addClass('itemInativo');
+                _containerTela.find(".item1").removeClass('itemInativo');
+
+                var _all = _containerTela.find(".item").length;
+                var _current = 0;
+
+
+                _containerTela.find(".item").on('click', function() {
+
+                    _current = $(this).attr('item');
+
+
+                    _containerTela.find(".feed" + _current).css('display', 'flex');
+
+                });
+
+
+                _containerTela.find(".fecharFeed").on('click', function() {
+                    _containerTela.find(".feed").css('display', 'none');
+
+                    var _next = parseInt(_current) + 1;
+
+                    _containerTela.find(".item" + _next).removeClass('itemInativo');
+
+                    if (_current == _all) {
+                        course.liberarNavegacao();
+                    }
+                });
+
+            }
+        }
+    })
+</script>
+
+
+<div class="containerAA13 containerAABase">
+
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="118" py="230">
+            <div class="animated fadeInUp delay0_8 light size47 branco">
+                E quem são as pessoas que atuam no tratamento dos dados? Há três possibilidades: um controlador, um operador e um encarregado. Veja:
+            </div>
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="424">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="listBase posicionar animated fadeIn azul1 size41 bold2" px="155" py="637">
+
+            <div class="item item1 animated zoomIn delay1_4" item="1">
+                Controlador
+            </div>
+
+            <div class="item item2 animated zoomIn delay1_6" item="2">
+                Operador
+            </div>
+
+            <div class="item item3 animated zoomIn delay1_8" item="3">
+                Encarregado
+            </div>
+
+
+
+        </div>
+
+        <div class="feed feed1 posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size65 bold2">
+                        Controlador
+                    </div>
+                    <div class="size30 mt20">
+                        <div class='bold2'>Quem é?</div>
+                        <div>É a pessoa natural ou pessoa jurídica que controla e é responsável pela manutenção e uso de informações pessoais no computador (online) ou em arquivos manuais estruturados (offline).</div>
+                    </div>
+                    <div class="size30 mt20">
+                        <div class='bold2'>Responsabilidades:</div>
+                        <div class="ml40">
+                            <ul>
+                                <li>
+                                    Justificar a coleta os dados do titular e informar a base legal para fazê-lo.
+                                </li>
+                                <li>
+                                    Definirs obre quais indivíduos irá coletar dados e quais dados pessoais irá coletar.
+                                </li>
+                                <li>
+                                    Explicar a para que os dados serão utilizados.
+                                </li>
+                                <li>
+                                    É quem divulga, compartilha ou transfere os dados.
+                                </li>
+                                <li>
+                                    Define por quanto tempo reter os dados e indica o encarregado.
+                                </li>
+                                <li>
+                                    Comunica à Autoridade Nacional e ao titular a ocorrência de incidente de segurança.
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feed feed2 posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size65 bold2">
+                        Operador
+                    </div>
+                    <div class="size30 mt20">
+                        <div class='bold2'>Quem é?</div>
+                        <div>
+                            É quem deve realizar o tratamento de dados de acordo com as instruções fornecidas pelo controlador. Pode ser pessoa natural, pessoa jurídica ou prestadores de serviços.
+                        </div>
+                    </div>
+                    <div class="size30 mt20">
+                        <div class='bold2'>Responsabilidades:</div>
+                        <div>
+                            Caso o princípio da segurança mão seja respeitado, em caso de dano ao titular dos dados, pode haver <span class="bold2">responsabilidade civil e criminal solidária</span> entre <span class="bold2">controlador</span> e
+                            <span
+                                class="bold2">operador</span> e o dever de reparar os danos, sem prejuízo das sanções administrativas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feed feed3 posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size65 bold2">
+                        Encarregado
+                    </div>
+                    <div class="size30 mt20">
+                        <div class='bold2'>Quem é?</div>
+                        <div>
+                            É a pessoa que atua como canal de comunicação entre o controlador, a ANPD e os titulares. A identidade e as informações de contato do encarregado devem ser públicas, claras e objetivas, de preferência no site do controlador.
+                        </div>
+                    </div>
+                    <div class="size30 mt20">
+                        <div class='bold2'>Responsabilidades:</div>
+                        <div class="ml40">
+                            <ul>
+                                <li>
+                                    Receber reclamações e prestar esclarecimentos aos titulares.
+                                </li>
+                                <li>
+                                    Receber e adotar providências.
+                                </li>
+                                <li>
+                                    Orientar os funcionários e contratados.
+                                </li>
+                                <li>
+                                    Executar as demais atribuições determinadas pelo Controlador.
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
+
+</div>

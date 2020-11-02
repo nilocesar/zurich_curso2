@@ -1,66 +1,124 @@
 <script>
-        window["aa14"] = {
-            indice: "aa14",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa14").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-    
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
-    
-                  
-                } else {
-    
-                }
-    
-               
+    window["aa14"] = {
+        indice: "aa14",
+        status: false
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa14").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                controle();
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA14 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 azul1 size22" px="310" py="150">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Fraudes<br> internas
-                    </div>
-                </div>
-                <div class="sub animated zoomIn delay0_8">
-                    <div class="">
-                        São aquelas cometidas por colaboradores da companhia de seguro. 
-                        Dentre as fraudes desse tipo, estão:<br><br>
-                        • falsificação de relatórios; <br>
-                        • apropriação indevida de ativos; <br>
-                        • roubo de dados; <br>
-                        • divulgação indevida de informações para terceiros; <br>
-                        • alterar/fraudar arquivos e informações.
-                    </div>
-                       
-                </div>
-            </div> 
-            
+
+            function controle() {
+
+
+                _containerTela.find(".cardX").addClass('cardXInativo');
+                _containerTela.find(".cardX1").removeClass('cardXInativo');
+
+                _containerTela.find(".cardX").on('click', function() {
+
+                    var _item = parseInt($(this).attr("item"));
+                    var _next = _item + 1;
+                    var _all = _containerTela.find(".cardX").length;
+
+                    if (!$(this).hasClass('cardXAtivo')) {
+                        $(this).addClass('cardXAtivo');
+                    } else {
+                        $(this).removeClass('cardXAtivo');
+                    }
+
+                    _containerTela.find(".cardX" + _next).removeClass('cardXInativo');
+
+                    if (_item == _all) {
+                        course.liberarNavegacao();
+                    }
+
+
+                });
+
+
+
+            }
+        }
+    })
+</script>
+
+
+<div class="containerAA14 containerAABase">
+
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="animated fadeInUp delay0_8 light size45 azul3">
+                Não haveria sentido em ter o rigor da lei se não houvesse previsão de penalidades, certo? Clique nos cartões para conhecer todas elas:
+            </div>
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="380">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="baseTip posicionar animated fadeIn book2 size32" px="237" py="450">
+
+            <div class="cardX cardX1 animated zoomIn delay1_4" item=1>
+                <div class="content">
+                    <div class="front">
+                        Advertência
+                    </div>
+                    <div class="back">
+                        Multa simples de até 2% do faturamento líquido, limitada, no total, a R$50 milhões por infração.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="cardX cardX2 animated zoomIn delay1_6" item=2>
+                <div class="content">
+                    <div class="front">
+                        Bloqueio temporário de qualquer tratamento de dados pessoais a que se refere a infração.
+                    </div>
+                    <div class="back">
+                        Multa diária.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="cardX cardX3 animated zoomIn delay1_8" item=3>
+                <div class="content">
+                    <div class="front">
+                        Eliminação dos dados pessoais a que se refere a infração.
+                    </div>
+                    <div class="back">
+                        Publicização da infração após devidamente apurada e confirmada a sua ocorrência.
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
     </div>
+
+</div>

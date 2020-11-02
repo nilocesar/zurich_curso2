@@ -1,15 +1,19 @@
-
 /*==============================================================================
   Família Frutiger
 ==============================================================================*/
 
 @font-face {
     font-family: 'book';
+    src: url('../fonts/garamond/EBGaramond-Regular.eot');
+    src: url('../fonts/garamond/EBGaramond-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/garamond/EBGaramond-Regular.woff') format('woff'), url('../fonts/garamond/EBGaramond-Regular.ttf') format('truetype'), url('../fonts/garamond/EBGaramond-Regular.svg#webfontiD0t8Rg6') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'book2';
     src: url('../fonts/frutiger/frutiger-roman-webfont.eot');
-    src: url('../fonts/frutiger/frutiger-roman-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/frutiger/frutiger-roman-webfont.woff') format('woff'),
-         url('../fonts/frutiger/frutiger-roman-webfont.ttf') format('truetype'),
-         url('../fonts/frutiger/frutiger-roman-webfont.svg#webfontiD0t8Rg6') format('svg');
+    src: url('../fonts/frutiger/frutiger-roman-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/frutiger/frutiger-roman-webfont.woff') format('woff'), url('../fonts/frutiger/frutiger-roman-webfont.ttf') format('truetype'), url('../fonts/frutiger/frutiger-roman-webfont.svg#webfontiD0t8Rg6') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -17,61 +21,62 @@
 @font-face {
     font-family: 'light';
     src: url('../fonts/frutiger/frutiger-light-webfont.eot');
-    src: url('../fonts/frutiger/frutiger-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/frutiger/frutiger-light-webfont.woff') format('woff'),
-         url('../fonts/frutiger/frutiger-light-webfont.ttf') format('truetype'),
-         url('../fonts/frutiger/frutiger-light-webfont.svg#webfontZyy4cpE6') format('svg');
+    src: url('../fonts/frutiger/frutiger-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/frutiger/frutiger-light-webfont.woff') format('woff'), url('../fonts/frutiger/frutiger-light-webfont.ttf') format('truetype'), url('../fonts/frutiger/frutiger-light-webfont.svg#webfontZyy4cpE6') format('svg');
     font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'bold';
+    src: url('../fonts/garamond/EBGaramond-Bold.eot');
+    src: url('../fonts/garamond/EBGaramond-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/garamond/EBGaramond-Bold.woff') format('woff'), url('../fonts/garamond/EBGaramond-Bold.ttf') format('truetype'), url('../fonts/garamond/EBGaramond-Bold.svg#webfontZyy4cpE6') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bold2';
     src: url('../fonts/frutiger/frutiger-bold-webfont.eot');
-    src: url('../fonts/frutiger/frutiger-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/frutiger/frutiger-bold-webfont.woff') format('woff'),
-         url('../fonts/frutiger/frutiger-bold-webfont.ttf') format('truetype'),
-         url('../fonts/frutiger/frutiger-bold-webfont.svg#webfontZyy4cpE6') format('svg');
-    font-weight: normal;
+    src: url('../fonts/frutiger/frutiger-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/frutiger/frutiger-bold-webfont.woff') format('woff'), url('../fonts/frutiger/frutiger-bold-webfont.ttf') format('truetype'), url('../fonts/frutiger/frutiger-bold-webfont.svg#webfontZyy4cpE6') format('svg');
+    font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'xbold';
     src: url('../fonts/frutiger/frutiger-black-webfont.eot');
-    src: url('../fonts/frutiger/frutiger-black-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/frutiger/frutiger-black-webfont.woff') format('woff'),
-         url('../fonts/frutiger/frutiger-black-webfont.ttf') format('truetype'),
-         url('../fonts/frutiger/frutiger-black-webfont.svg#webfontZyy4cpE6') format('svg');
+    src: url('../fonts/frutiger/frutiger-black-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/frutiger/frutiger-black-webfont.woff') format('woff'), url('../fonts/frutiger/frutiger-black-webfont.ttf') format('truetype'), url('../fonts/frutiger/frutiger-black-webfont.svg#webfontZyy4cpE6') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
+
 /* Icons */
-@font-face
-{
+
+@font-face {
     font-family: 'slick';
     font-weight: normal;
     font-style: normal;
-
     src: url('../fonts/slick.eot');
-    src: url('../fonts/slick.eot?#iefix') format('embedded-opentype'), 
-         url('../fonts/slick.woff') format('woff'), 
-         url('../fonts/slick.ttf') format('truetype'), 
-         url('../fonts/slick.svg#slick') format('svg');
+    src: url('../fonts/slick.eot?#iefix') format('embedded-opentype'), url('../fonts/slick.woff') format('woff'), url('../fonts/slick.ttf') format('truetype'), url('../fonts/slick.svg#slick') format('svg');
 }
-
 
 
 /*==============================================================================
   CUSTOM
 ==============================================================================*/
 
+
 /*===========================
   ESTILO
 ============================*/
+
 .book {
     font-family: "book" !important;
+}
+
+.book2 {
+    font-family: "book2" !important;
 }
 
 .light {
@@ -80,6 +85,12 @@
 
 .bold {
     font-family: "bold" !important;
+    /* font-weight:bold !important; */
+    /* font-family: "bold" !important; */
+}
+
+.bold2 {
+    font-family: "bold2" !important;
     /* font-weight:bold !important; */
     /* font-family: "bold" !important; */
 }
@@ -95,7 +106,17 @@
     font-style: italic!important;
 }
 
+.book2_italic {
+    font-family: "book2" !important;
+    font-style: italic!important;
+}
+
 .bold_italic {
     font-family: "bold" !important;
+    font-style: italic!important;
+}
+
+.bold2_italic {
+    font-family: "bold2" !important;
     font-style: italic!important;
 }

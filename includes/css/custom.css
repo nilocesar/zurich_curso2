@@ -106,8 +106,8 @@
 .btnPrev {
     position: absolute;
     cursor: pointer;
-    width: 27px;
-    height: 109.5px;
+    width: 20px;
+    height: 110px;
     z-index: 9999;
     top: 0;
     left: 0;
@@ -116,7 +116,7 @@
 
 .btnPrev .icoSet {
     position: relative;
-    background: url('../img/btnPrev.svg') no-repeat center;
+    background: url('../img/btnPrev.png') no-repeat center;
     background-size: 100%;
     width: 100%;
     height: 100%;
@@ -130,8 +130,8 @@
 .btnNext {
     position: absolute;
     cursor: pointer;
-    width: 27px;
-    height: 109.5px;
+    width: 20px;
+    height: 110px;
     z-index: 9999;
     top: 0;
     left: 0;
@@ -140,7 +140,7 @@
 
 .btnNext .icoSet {
     position: relative;
-    background: url('../img/btnNext.svg') no-repeat center;
+    background: url('../img/btnNext.png') no-repeat center;
     background-size: 100%;
     width: 100%;
     height: 100%;

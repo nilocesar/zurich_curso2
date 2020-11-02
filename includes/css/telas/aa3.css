@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA3 {
     position: fixed;
@@ -8,34 +8,195 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    background: url(../../img/cenario3.jpg) no-repeat center;
-    background-size: cover;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+        background-size: cover; */
 }
+
+.containerAA3 .baseFundoX {
+    background: url(../../img/aa3.png) no-repeat center;
+    background-size: content;
+}
+
 
 /* -------------------------------- 
-
-Main Components 
-
--------------------------------- */
-
-
-.containerAA3 .content{
-    position: absolute;
-    width: 330px;
-    line-height: normal;
-}
-
-.containerAA3 .content .sub{
-    position: relative;
-    width:100%;
-    height:100%;
-    display:flex;
-    border-left: 1px solid #0D2554;
-    align-items: center;
-    padding: 20px;
-    overflow: hidden;
-}
-
-
-
     
+    Main Components 
+    
+    -------------------------------- */
+
+.containerAA3 .titulo {
+    position: absolute;
+    width: 660px;
+}
+
+.containerAA3 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA3 .lineBase div {
+    position: relative;
+    width: 100%;
+    border: 3px solid #063796;
+}
+
+.containerAA3 .textBase {
+    position: absolute;
+    width: 660px;
+}
+
+.containerAA3 .itemX {
+    position: absolute;
+    width: 398px;
+}
+
+.containerAA3 .itemX .itBasx {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA3 .menuInativo {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.containerAA3 .itemX .carregamento {
+    position: relative;
+    width: 282px;
+}
+
+.containerAA3 .itemX .imgCarregamento {
+    position: relative;
+    width: 282px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA3 .itemX .titCarregamento {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA3 .itemX .titCarregamento div {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.containerAA3 .itemX .titCarregamento2 {
+    position: relative;
+    height: 50px;
+    /* background-color: #DA3A43; */
+}
+
+.containerAA3 .itemX .titCarregamento2 div {
+    position: absolute;
+    bottom: 0;
+}
+
+.containerAA3 .imgCarr1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoRed.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA3 .imgCarr2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoAmarelo.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA3 .imgCarr3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/carregamentoVerde.svg) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA3 .escudo {
+    position: relative;
+    width: 72px;
+    height: 101px;
+}
+
+.containerAA3 .escudoX1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo1AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA3 .escudoX2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo2AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA3 .escudoX3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../../img/escudo3AA2.png) no-repeat center;
+    background-size: contain;
+    display: none;
+}
+
+.containerAA3 .txtCarr {
+    position: relative;
+    z-index: 9999999;
+}
+
+.containerAA3 .status1 .imgCarr1 {
+    display: block;
+}
+
+.containerAA3 .status1 .escudoX1 {
+    display: block;
+}
+
+.containerAA3 .status1 .imgCarregamento {
+    color: #DA3A43;
+}
+
+.containerAA3 .status2 .imgCarr2 {
+    display: block;
+}
+
+.containerAA3 .status2 .escudoX2 {
+    display: block;
+}
+
+.containerAA3 .status2 .imgCarregamento {
+    color: #4A4A4A;
+}
+
+.containerAA3 .status3 .imgCarr3 {
+    display: block;
+}
+
+.containerAA3 .status3 .escudoX3 {
+    display: block;
+}
+
+.containerAA3 .status3 .imgCarregamento {
+    color: #fff;
+}

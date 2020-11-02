@@ -1,70 +1,233 @@
 <script>
-        window["aa7"] = {
-            indice: "aa7",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa7").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-    
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
-    
-                  
-                } else {
-    
-                }
-    
-               
-            }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA7 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="200">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Impactos<br> da fraude
-                    </div>
-                </div>
-                <div class="sub animated zoomIn delay0_8">
-                    <div class="azul2 size26 bold">
-                        O que é fraude?
-                    </div>
-                    <div class="cinza1">
-                        No contexto do mercado de seguros, a fraude é um <span class="bold">ato</span> 
-                        ou uma <span class="bold">omissão intencional visando enganar os demais</span> 
-                        para obter um <span class="bold">benefício pessoal</span> resultando em perdas 
-                        para a <span class="bold">companhia e sociedade</span>.
-                    </div>
-                       
-                </div>
-            </div> 
+    window["aa7"] = {
+        indice: "aa7",
+        status: false,
+        tema: 1,
+        exerc: 2
+    }
 
-            <div class="lupa posicionar" px="630" py="221">
-                <div class="img animated zoomIn delay1_2"></div>
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa7").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            block();
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                _containerTela.find(".posicionar").positionCSS({
+                    box: _containerTela.find('.containerGeral'),
+                    img_H: course.height,
+                    img_W: course.width
+                });
+
+                exercicio();
+
+
+            } else {
+
+            }
+
+            function block() {
+
+                var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+
+                if (course.scorm_get_suspendData(_exercCurrent)) {
+
+                    course.notaCurrent();
+
+                    var _res = course.scorm_get_suspendData(_exercCurrent);
+
+                    if (_res == 1) {
+                        _containerTela.find(".feedPositivo").css('display', 'flex');
+                    } else {
+                        _containerTela.find(".feedNegativo").css('display', 'flex');
+                    }
+
+                }
+
+            }
+
+            function exercicio() {
+
+                var _item = 0;
+                var _res = 0;
+
+                _containerTela.find('.item').on('click', function() {
+
+                    _item = $(this).attr('item');
+                    _res = $(this).attr('res');
+
+                    _containerTela.find('.item').removeClass('itemAtivo');
+                    $(this).addClass('itemAtivo');
+
+                    _containerTela.find('.btnConfirmar').css('display', 'flex');
+
+                });
+
+
+                _containerTela.find('.btnConfirmar').on('click', function() {
+
+                    _containerTela.find('.btnConfirmar').css('display', 'none');
+
+                    var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+                    course.scorm_set_suspendData(_exercCurrent, _res);
+                    course.notaCurrent();
+
+                    var _exercEd = "ed" + _tela.tema + "_" + _tela.exerc;
+                    course.scorm_set_suspendData(_exercEd, _item);
+
+                    if (_res == "1") {
+                        _containerTela.find(".feedPositivo").css('display', 'flex');
+                    } else {
+                        _containerTela.find(".feedNegativo").css('display', 'flex');
+                    }
+
+
+                });
+
+
+                _containerTela.find(".fecharFeed").on("click", function() {
+
+                    _containerTela.find('.item').addClass('inativoX');
+                    _containerTela.find(".feed").css('display', 'none');
+
+                    var _exercEd = "ed" + _tela.tema + "_" + _tela.exerc;
+                    var _item = course.scorm_get_suspendData(_exercEd);
+
+                    _containerTela.find('.item').each(function(indice, item) {
+                        if ($(item).attr('item') == _item) {
+                            $(item).addClass('itemAtivo');
+                        }
+                    });
+
+                    course.liberarNavegacao();
+                });
+
+            }
+
+
+        }
+
+
+    })
+</script>
+
+
+<div class="containerAA7 containerAABase">
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="icox animated zoomIn delay0_8">
+
             </div>
-            
+            <div class="txtx animated fadeInUp delay0_8 light size35 azul3">
+                Em um contato, um cliente da Zurich questiona como ele pode fazer uso dos direitos dele enquanto titular de dados segundo a LGPD. Além disso, ele quer saber se pode revogar o consentimento dado à seguradora. Como responder à essa dúvida?
+
+            </div>
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="410">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="quiz posicionar animated fadeIn light size28 azul1" px="127" py="480">
+            <div class="item item1 animated fadeInUp delay1_2" item="1" res="0">
+                <div class="check"></div>
+                <div class="txtD">
+                    No site da Zurich há uma lista de 10 direitos que o titular pode consultar, e um formulário para exercer cada um deles, inclusive revogar o consentimento.
+                </div>
+            </div>
+            <div class="item item2 animated fadeInUp delay1_4" item="2" res="1">
+                <div class="check"></div>
+                <div class="txtD">
+                    No site da Zurich há uma lista de 10 direitos que o titular pode consultar, e um formulário para exercer cada um deles. Quanto ao consentimento, no mercado de seguros não é possível revoga-lo.
+                </div>
+            </div>
+            <div class="item item3 animated fadeInUp delay1_6" item="3" res="0">
+                <div class="check"></div>
+                <div class="txtD">
+                    Todos os direitos já estão sendo exercidos automaticamente, sem que o cliente precise tomar nenhuma atitude, a não ser para revogar o consentimento.
+                </div>
+            </div>
+            <div class="item item4 animated fadeInUp delay1_8" item="4" res="0">
+                <div class="check"></div>
+                <div class="txtD">
+                    Não há possibilidade de o titular, por conta própria, exercer qualquer um de seus direitos, nem mesmo a revogação de consentimento.
+                </div>
+            </div>
+        </div>
+
+        <div class="btnConfirmar posicionar size35" px="1288" py="965">
+            <div class="btnX light animated zoomIn delay0_2">
+                RESPODER
+            </div>
+            <div class="btnY bold2 animated zoomIn delay0_4">
+                01 PONTO
+            </div>
+        </div>
+
+        <div class="feed feedPositivo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 branco">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Parabéns!
+                    </div>
+                    <div class="size23 mt20 bold2">
+                        ISSO MESMO!
+                    </div>
+                    <div class="size35 mt20">
+                        Você relacionou corretamente os conceitos e suas definições.
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="feed feedNegativo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 azul1">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Não foi desta vez!
+                    </div>
+                    <div class="size23 mt20 bold2 up">
+                        VAMOS REVER…
+                    </div>
+                    <div class="size35 mt20">
+                        Você errou duas ou mais definições. Fique atento pois os conceitos básicos serão utilizados ao longo de todo o curso.
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+
+</div>

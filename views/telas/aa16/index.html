@@ -1,7 +1,10 @@
 <script>
     window["aa16"] = {
         indice: "aa16",
-        status: false
+        status: false,
+        correto: 0,
+        tema: 2,
+        exerc: 2
     }
 
     $("body").on('navegacaoComplete', function() {
@@ -15,74 +18,167 @@
             _containerTela.find(".posicionar").positionCSS({
                 box: _containerTela.find('.containerGeral'),
                 img_H: course.height,
-                img_W: course.width
+                img_W: course.width,
             });
 
-           
 
-            reset();
+            block();
             if (_tela.status == false) {
                 _tela.status = true;
 
-                nav();
-                
+
+                exercicio();
 
             } else {
 
             }
 
-            function nav() {
+            function block() {
 
-                 _containerTela.find(".btnMenuReturn").on('click', function(){
-                    course.returnMenu(3);
-                });
 
-                _containerTela.find(".nleft").on('click', function() {
 
-                    var _step = parseInt($(this).parent().attr('stepAtivo')) - 1;
-                    $(this).parent().attr('stepAtivo', _step);
+                var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
 
-                    _containerTela.find(".nright").css('display', 'flex');
 
-                    if (_step == 1)
-                        _containerTela.find(".nleft").css('display', 'none');
+                if (course.scorm_get_suspendData(_exercCurrent)) {
 
-                    _containerTela.find(".step").css('display', 'none');
-                    _containerTela.find(".step" + _step).css('display', 'block');
+                    course.notaCurrent();
 
-                });
+                    var _res = course.scorm_get_suspendData(_exercCurrent);
 
-                _containerTela.find(".nright").on('click', function() {
-
-                    var _step = parseInt($(this).parent().attr('stepAtivo')) + 1;
-                    var _stepAll = _containerTela.find(".step").length;
-
-                    _containerTela.find(".nleft").css('display', 'flex');
-
-                    if (_step == _stepAll){
-                        _containerTela.find(".nright").css('display', 'none');
-                        _containerTela.find(".btnMenuReturn").css('display', 'block');
+                    if (_res == 1) {
+                        _containerTela.find(".feedPositivo").css('display', 'flex');
+                    } else {
+                        _containerTela.find(".feedNegativo").css('display', 'flex');
                     }
-                       
+                    course.liberarNavegacao();
+                }
 
 
-                    $(this).parent().attr('stepAtivo', _step);
 
-                    _containerTela.find(".step").css('display', 'none');
-                    _containerTela.find(".step" + _step).css('display', 'block');
-
-                });
 
             }
 
-            function reset() {
-                _containerTela.find(".nav").attr('stepAtivo', 1);
-                _containerTela.find(".step").css('display', 'none');
-                _containerTela.find(".nX").css('display', 'none');
+            function exercicio() {
 
-                _containerTela.find(".nright").css('display', 'flex');
-                _containerTela.find(".step1").css('display', 'block');
-                _containerTela.find(".btnMenuReturn").css('display', 'none');
+                var _item;
+                var _oldItem = _containerTela.find('.numR');
+                var _travar = false;
+
+                _containerTela.find('.itemL').on('click', function() {
+
+                    _containerTela.find('.numL').addClass('animated');
+                    _containerTela.find('.numL').removeClass('numLAtivo');
+
+                    $(this).find('.numL').removeClass('animated');
+                    $(this).find('.numL').addClass('numLAtivo');
+
+                    _item = $(this).find('.numL');
+
+                });
+
+                _containerTela.find('.numR').on('click', function() {
+
+                    var _txt = _item.text();
+                    var _itemCurrent = _item.attr('item');
+                    var _color = _item.css('background-color');
+
+                    _containerTela.find('.numR').each(function() {
+                        if ($(this).text() == _item.text()) {
+                            $(this).text('');
+                            $(this).css('background-color', '#fff');
+                        }
+                    });
+
+                    $(this).text(_txt);
+                    $(this).attr('item', _itemCurrent);
+                    $(this).css('background-color', _color);
+
+                    var _comp = true;
+                    var _res = true;
+                    _containerTela.find('.numR').each(function() {
+
+                        if ($(this).text() == '') {
+                            _comp = false;
+                            _containerTela.find(".btnConfirmar").css('display', 'none');
+                        }
+
+                        if ($(this).attr('item') != $(this).attr('res')) {
+                            _res = false;
+                        }
+                    });
+
+                    //verifica se todos estao preenchios
+                    if (_comp)
+                        _containerTela.find(".btnConfirmar").css('display', 'flex');
+
+
+
+                    //verifica se a resposta esta correta
+                    if (_res) {
+                        _tela.correto = 1;
+                    } else {
+                        _tela.correto = 0;
+                    }
+
+                });
+
+                _containerTela.find(".btnConfirmar").on('click', function() {
+
+                    _containerTela.find(".btnConfirmar").css('display', 'none');
+                    var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+
+                    //
+                    if (_tela.correto == 1) {
+                        course.scorm_set_suspendData(_exercCurrent, 1);
+                        course.notaCurrent();
+                        _containerTela.find(".feedPositivo").css('display', 'flex');
+
+
+                    } else {
+                        course.scorm_set_suspendData(_exercCurrent, 0);
+                        course.notaCurrent();
+                        _containerTela.find(".feedNegativo").css('display', 'flex');
+
+                    }
+
+                    var _feito = [];
+
+                    _containerTela.find(".numR").each(function(indice, item) {
+                        _feito.push({
+                            text: $(item).text(),
+                            color: $(item).css('background-color')
+                        });
+                    });
+
+                    var _exercCurrent = "ed" + _tela.tema + "_" + _tela.exerc;
+                    course.scorm_set_suspendData(_exercCurrent, JSON.stringify(_feito));
+
+                });
+
+
+                _containerTela.find(".fecharFeed").on("click", function() {
+                    // $("body").attr("nav", "next");
+                    // $("body").trigger("navegacao");
+
+                    var _exercCurrent = "ed" + _tela.tema + "_" + _tela.exerc;
+                    if (course.scorm_get_suspendData(_exercCurrent)) {
+                        var _feito = JSON.parse(course.scorm_get_suspendData(_exercCurrent));
+
+                        $.each(_feito, function(indice, item) {
+                            _containerTela.find('.numR').eq(indice).css('background-color', item.color);
+                            _containerTela.find('.numR').eq(indice).text(item.text);
+                        });
+                    }
+
+
+                    _containerTela.find('.itemL').addClass("inativoX");
+                    _containerTela.find('.numR').addClass("inativoX");
+                    _containerTela.find('.numL').removeClass('numLAtivo');
+                    _containerTela.find(".feed").css('display', 'none');
+
+                    course.liberarNavegacao();
+                });
             }
         }
     })
@@ -93,99 +189,147 @@
 
     <div class="containerGeral">
 
-
-        <div class="content posicionar animated fadeIn delay0_4 cinza1 size22" px="210" py="300">
-            <div class="item animated fadeInRight delay0_6">
-                <div class="ico"></div>
-                <div class="text">
-                    Fraudes<br> internas
-                </div>
-            </div>
-            <div class="sub animated zoomIn delay0_8">
-                <div class="">
-                    <span class="bold_italic">Red flags</span> de fraudes internas:
-                </div>
-                    
-            </div>
-        </div> 
-
-
-        <div class="bloco posicionar animated fadeIn delay0_8" px="643" py="262">
-
-                <div class="nav size30" stepAtivo=1>
-                    <div class="nX nleft">
-                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                    </div>
-                    <div class="nX nright">
-                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                    </div>
-                </div>
-
-                <div class="step step1 animated fadeIn delay0_2" step=1>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico1"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            O colaborador resguarda exageradamente seu trabalho, 
-                            dificultando o envolvimento dos demais profissionais.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step2  animated fadeIn delay0_2" step=2>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico2"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            Documentos armazenados em locais não usuais. Por exemplo, 
-                            na mesa de alguém cujo trabalho não os utiliza.
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="step step3 animated fadeIn delay0_2" step=3>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico3"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            O colaborador é visto usando o computador de outro 
-                            funcionário (especialmente fora do horário de trabalho).
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step4 animated fadeIn delay0_2" step=4>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico4"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            Uma documentação<br> se encontra alterada<br> ou ausente.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step step5 animated fadeIn delay0_2" step=5>
-                    <div class="blocS cinza1 size22">
-                        <div class="ico size50 animated zoomIn delay0_2">
-                            <div class="ico5"></div>
-                        </div> 
-                        <div class="center mt10 animated fadeInUp delay0_4">
-                            O colaborador altera histórias ou confirma circunstâncias que não fazem sentido.
-                        </div>
-                    </div>
-                </div>
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="icox animated zoomIn delay0_8">
 
             </div>
+            <div class="txtx animated fadeInUp delay0_8 light size35 azul3">
+                Apesar de todos sermos responsáveis pela segurança dos dados de nossos segurados, nem todo mundo terá as mesmas funções e responsabilidades. Relacione os papéis, na coluna da esquerda, com as definições, na coluna da direita.
+            </div>
+        </div>
 
-            <div class="btnMenuReturn posicionar size26" px="780" py="600">
-                <div class="btnIt animated zoomIn">
-                    Menu
+        <div class="lineBase posicionar animated fadeIn" px="127" py="400">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="content posicionar animated fadeIn delay1_6" px="250" py="430">
+            <div class="exercicio size25 book2">
+                <div class="item">
+                    <div class="itemL">
+                        <div class="textL size35 azul1">
+                            Controlador
+                        </div>
+                        <div class="numL bold2 branco" item=1>
+                            01
+                        </div>
+                    </div>
+                    <div class="itemR">
+                        <div class="numR bold2 branco" res=3></div>
+                        <div class="textR size28">
+                            É a pessoa que atua como canal de comunicação entre o controlador, a ANPD e os titulares.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemL">
+                        <div class="textL size35 azul1">
+                            Operador
+                        </div>
+                        <div class="numL bold2 branco" item=2>
+                            02
+                        </div>
+                    </div>
+                    <div class="itemR">
+                        <div class="numR bold2 branco" res=2></div>
+                        <div class="textR size28">
+                            É quem deve realizar o tratamento de dados de acordo com as instruções fornecidas pelo controlador.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemL">
+                        <div class="textL size35 azul1">
+                            Encarregado
+                        </div>
+                        <div class="numL bold2 branco" item=3>
+                            03
+                        </div>
+                    </div>
+                    <div class="itemR">
+                        <div class="numR bold2 branco" res=1></div>
+                        <div class="textR size28">
+                            É a pessoa natural ou pessoa jurídica que controla e é responsável pela manutenção e uso de informações pessoais no computador ou em arquivos.
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="btnConfirmar posicionar size35" px="1288" py="965">
+            <div class="btnX light animated zoomIn delay0_2">
+                RESPODER
+            </div>
+            <div class="btnY bold2 animated zoomIn delay0_4">
+                01 PONTO
+            </div>
+        </div>
+
+        <div class="feed feedPositivo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 branco">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Parabéns!
+                    </div>
+                    <div class="size23 mt20 bold2">
+                        ISSO MESMO!
+                    </div>
+                    <div class="size35 mt20">
+                        Você relacionou corretamente os conceitos e suas definições.
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+
+
+        <div class="feed feedNegativo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 azul1">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Não foi desta vez!
+                    </div>
+                    <div class="size23 mt20 bold2 up">
+                        VAMOS REVER…
+                    </div>
+                    <div class="size35 mt20">
+                        Você errou duas ou mais definições. Fique atento pois os conceitos básicos serão utilizados ao longo de todo o curso.
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
     </div>
 
 </div>

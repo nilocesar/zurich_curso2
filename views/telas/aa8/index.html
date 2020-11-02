@@ -1,129 +1,167 @@
 <script>
-        window["aa8"] = {
-            indice: "aa8",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa8").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
+    window["aa8"] = {
+        indice: "aa8",
+        status: false,
+        modulo: 2
+    }
 
-                    controle();
-    
-                  
-                } else {
-    
-                }
+    $("body").on('navegacaoComplete', function() {
 
-                function controle(){
+        if ((course.config[course.indice].id).toUpperCase() == ("aa8").toUpperCase()) {
 
-                    _containerTela.find(".item2").addClass('sInativo');
-                    _containerTela.find(".bl2").addClass('sInativo');
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
 
-                    _containerTela.find(".seta").on('click', function(){
-                        $(this).parent().find('.item2').removeClass('sInativo');
-                        _containerTela.find(".bl2").removeClass('sInativo');
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
 
-                        $(this).attr('ativo', 1);
+            course.controleCarregamento();
 
-                        var _comp = true;
-                        _containerTela.find(".seta").each(function(indice, item){
-                            if( !$(item).attr('ativo') )
-                                _comp = false;
-                        })
 
-                        if(_comp){
-                            course.liberarNavegacao();
-                        }
-                    });
-                   
-                }
-    
-               
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                course.controleMenu(_tela.modulo);
+
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA8 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="200">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Impactos<br> da fraude
-                    </div>
-                </div>
-                <div class="sub animated fadeInRight delay0_8">
-                    <div class="cinza1">
-                            Os principais impactos da fraude para a companhia e 
-                            para a sociedade se relacionam. São eles:
-                    </div>       
-                </div>
-            </div> 
-
-            <div class="blocos posicionar animated fadeIn delay1_2 branco size22" px="210" py="400">
-                <div class="titulo bold size26 azul2">
-                    <div class="subT">
-                        Companhia
-                    </div>
-                     <div class="subT">
-                        Sociedade
-                    </div>
-                </div>
-
-                <div class="block bl1">
-                    <div class="it item1 azul1">
-                        Aumento dos custos operacionais
-                    </div>
-                    <div class="seta azul2 size50 animated infinite pulse">
-                        <i class="fas fa-caret-right"></i>
-                    </div>
-                     <div class="it item2 azul2 bg_branco animated zoomIn">
-                        Aumento dos custos operacionais
-                    </div>
-                </div>
-
-                <div class="block bl2 animated fadeInUp delay0_4">
-                    <div class="it item1 azul1">
-                        Aumento dos custos de seguro
-                    </div>
-                    <div class="seta azul2 size50 animated infinite pulse">
-                        <i class="fas fa-caret-right"></i>
-                    </div>
-                     <div class="it item2 azul2 bg_branco animated zoomIn">
-                        Inacessibilidade a novas camadas sociais.
-                    </div>
-                </div>
+        }
+    })
+</script>
 
 
-                <div class="info size22 azul2 mt30">
-                    Clique nas setas.
-                </div>
+<div class="containerAA8 containerAABase">
 
-        
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="118" py="230">
+            <div class="animated fadeInUp delay0_8 light size65 azul3">
+                Na Zurich, todos nós nos preocupamos com os dados pessoais de <br>nossos clientes.
+            </div>
+        </div>
+
+        <div class="lineBase posicionar animated fadeIn" px="118" py="570">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="textBase posicionar animated fadeIn azul3" px="118" py="605">
+            <div class="animated fadeInUp delay1_4 size32">
+                Para que você continue colaborando nessa missão, você passará por quatro desafios. Acesse cada uma das portas de proteção, acompanhe as informações, e tente responder corretamente às perguntas. Quanto mais você acertar, mais nosso cliente estará protegido.
+            </div>
+            <div class="mt30 bold animated fadeInUp delay1_8 size45">
+                Vamos começar?
+            </div>
+        </div>
+
+        <div class="globoX posicionar animated fadeIn delay1_4" px="873" py="218">
+            <div class="animated fadeIn"></div>
+        </div>
+
+        <div class="itemX item1 posicionar status1" px="880" py="280" item="AA3">
+            <div class="itBasx animated fadeIn delay2_0">
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 right mb5">
+                        <div>Conceitos</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+                <div class="escudo ml20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="itemX item2 posicionar status1" px="795" py="450" item="AA9">
+            <div class="itBasx animated fadeIn delay2_2">
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 right mb5">
+                        <div>Aplicação da lei</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+                <div class="escudo ml20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="itemX item3 posicionar status1" px="1380" py="280" item="AA18">
+            <div class="itBasx animated fadeIn delay2_4">
+                <div class="escudo mr20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+                <div class="carregamento book2">
+                    <div class="titCarregamento azul1 size23 mb5">
+                        <div>Política de proteção de dados da Zurich</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
             </div>
 
-           
-            
         </div>
-    
-    
+
+        <div class="itemX item4 posicionar status1" px="1470" py="450" item="AA3">
+            <div class="itBasx animated fadeIn delay2_6">
+                <div class="escudo mr20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+                <div class="carregamento book2">
+                    <div class="titCarregamento2 azul1 size23 mb5">
+                        <div>Desdobramentos</div>
+                    </div>
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
+
+</div>

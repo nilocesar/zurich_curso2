@@ -1,64 +1,84 @@
 <script>
-        window["aa9"] = {
-            indice: "aa9",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa9").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-            
-    
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
-    
-                  
-                } else {
-    
-                }
-    
-               
+    window["aa9"] = {
+        indice: "aa9",
+        status: false
+    }
+
+    $("body").on('navegacaoComplete', function() {
+
+        if ((course.config[course.indice].id).toUpperCase() == ("aa9").toUpperCase()) {
+
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
+
+            //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+            _containerTela.find(".posicionar").positionCSS({
+                box: _containerTela.find('.containerGeral'),
+                img_H: course.height,
+                img_W: course.width,
+            });
+
+            var _modulo = 2;
+            _containerTela.find(".itemX").addClass('item' + _modulo);
+            course.controleCarregamento();
+
+            if (_tela.status == false) {
+                _tela.status = true;
+
+
+
+            } else {
+
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA9 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="110" py="200">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Impactos<br> da fraude
-                    </div>
-                </div>
-                <div class="sub animated zoomIn delay0_8">
-                    <div class="">
-                        Sem dúvidas, a prática fraudulenta é nociva 
-                        para as companhias e para a sociedade como um todo! 
-                        Certamente, devem existir instrumentos de punição para 
-                        esse tipo de ilicitude. Mas, afinal, qual a pena para 
-                        quem comete uma fraude?
-                    </div>
-                       
-                </div>
-            </div> 
-            
+        }
+    })
+</script>
+
+
+<div class="containerAA9 containerAABase">
+
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="animated fadeInUp delay0_8 light size65 azul3">
+                Capítulo 2 - Aplicação
+            </div>
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="320">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+        <div class="textBase posicionar animated fadeIn" px="127" py="352">
+            <div class="animated fadeInUp delay1_4 size32 azul3">
+                Como foi seu desempenho ao ampliar a segurança da primeira porta?
+                <br><br> Seja como tenha sido, agora é hora de continuar com proteção total. Iremos conhecer com mais detalhes alguns pontos mais práticos da LGPD. E isso te ajudará a tornar segura essa segunda porta.
+            </div>
+        </div>
+
+
+        <div class="itemX posicionar status1" px="127" py="910">
+            <div class="itBasx animated fadeIn delay2_6">
+                <div class="escudo mr20">
+                    <div class="escudoX1"></div>
+                    <div class="escudoX2"></div>
+                    <div class="escudoX3"></div>
+                </div>
+                <div class="carregamento book2">
+                    <div class="imgCarregamento">
+                        <div class="imgCarr1"></div>
+                        <div class="imgCarr2"></div>
+                        <div class="imgCarr3"></div>
+
+                        <div class="size13 center txtCarr">
+                            Nível de segurança
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
+
+</div>

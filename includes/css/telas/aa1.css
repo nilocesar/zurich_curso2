@@ -24,22 +24,23 @@ Main Components
 
 -------------------------------- */
 
-.containerAA1 .content {
+.containerAA1 .titulo {
     position: absolute;
-    width: 450px;
-    letter-spacing: 17px;
-    font-size: 60px;
-    line-height: normal;
-    height: 200px;
+    width: 885px;
 }
 
-.containerAA1 .content .sub {
+.containerAA1 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA1 .lineBase div {
     position: relative;
     width: 100%;
-    height: 100%;
-    display: flex;
-    border-left: 3px solid #fff;
-    align-items: center;
-    padding: 20px;
-    overflow: hidden;
+    border: 3px solid #063796;
+}
+
+.containerAA1 .textBase {
+    position: absolute;
+    width: 828px;
 }

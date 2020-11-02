@@ -1,173 +1,344 @@
 <script>
-        window["aa12"] = {
-            indice: "aa12",
-            status: false,
-        }
-    
-        $("body").on('navegacaoComplete', function() {
-    
-            if ((course.config[course.indice].id).toUpperCase() == ("aa12").toUpperCase()) {
-    
-                var _tela = window[course.config[course.indice].id];
-                var _containerTela = $(".container" + (_tela.indice).toUpperCase());
-    
-                reset();
+    window["aa12"] = {
+        indice: "aa12",
+        status: false,
+        tema: 2,
+        exerc: 1
+    }
 
-                if (_tela.status == false) {
-                    _tela.status = true;
-    
-                    //posiciona o elemento com base no tamanho real da imagem de fundo COVER
-                    _containerTela.find(".posicionar").positionCSS({
-                        box: _containerTela.find('.containerGeral'),
-                        img_H: course.height,
-                        img_W: course.width
-                    });
+    $("body").on('navegacaoComplete', function() {
 
-                    controle();
-    
-                  
-                } else {
-    
-                }
+        if ((course.config[course.indice].id).toUpperCase() == ("aa12").toUpperCase()) {
 
-                function reset(){
-                    _containerTela.find(".triagBlock").css('display', 'none');
-                    _containerTela.find(".step").css('display', 'none');
-                    _containerTela.find(".icoD").removeClass('icoXAtivo');
-                    _containerTela.find(".btnMenuReturn").css('display', 'none');
-                }
+            var _tela = window[course.config[course.indice].id];
+            var _containerTela = $(".container" + (_tela.indice).toUpperCase());
 
-                function controle(){
-                   
-                    _containerTela.find(".btnMenuReturn").on('click', function(){
-                        course.returnMenu(2);
-                    });
+            block();
 
-                    _containerTela.find(".icoD").on('click', function(){
+            if (_tela.status == false) {
+                _tela.status = true;
+
+                //posiciona o elemento com base no tamanho real da imagem de fundo COVER
+                _containerTela.find(".posicionar").positionCSS({
+                    box: _containerTela.find('.containerGeral'),
+                    img_H: course.height,
+                    img_W: course.width
+                });
+
+                controle();
 
 
-                        _containerTela.find(".icoD").removeClass('icoXAtivo');
-                        $(this).addClass('icoXAtivo');
+            } else {
 
-                        var _step = $(this).attr('ico');
-
-                       _containerTela.find(".triagBlock").css('display', 'block');
-
-                       _containerTela.find(".step").css('display', 'none');
-                       _containerTela.find(".step"+_step).css('display', 'block');
-
-                        $(this).attr('ativo', 1);
-
-                        var _comp = true;
-                        _containerTela.find(".icoD").each(function(indice, item){
-                            if( !$(item).attr('ativo') )
-                                _comp = false;
-                        })
-
-                        if(_comp){
-                            _containerTela.find(".btnMenuReturn").css('display', 'block');
-                        }
-                    });
-                   
-                }
-    
-               
             }
-            
-    
-        })
-    </script>
-    
-    
-    <div class="containerAA12 containerAABase">
-        <div class="containerGeral">
-            
-            <div class="content posicionar animated fadeIn delay0_4 branco size22" px="210" py="150">
-                <div class="item animated fadeInRight delay0_6">
-                    <div class="ico"></div>
-                    <div class="text">
-                        Triângulo<br> da fraude
-                        
-                    </div>
-                </div>
-                <div class="sub animated fadeInRight delay0_8">
-                    <div class="cinza1">
-                        Os três pilares que compõem a motivação para realizar 
-                        uma fraude são denominados <span class="bold">Triângulo da Fraude</span>. Clique 
-                        em cada um deles ao lado para saber mais.
-                    </div>       
-                </div>
-            </div> 
 
-            <div class="triagBlock posicionar animated fadeIn branco size22" px="512" py="326">
-                <div class="step step1">
-                    <div class="titulo mb20 bold animated fadeInDown">  
-                        <!-- <i class="fas fa-bolt mr20 size40"></i> -->
-                        <div class="raio2 mr20"></div>
-                        <span class="size30">Pressão</span>
-                    </div>
-                    <div class="animated fadeInUp">  
-                        A pressão se dá por forças financeiras ou emocionais que encorajam a fraude. 
-                        Exemplos: um familiar que precisa de dinheiro; um vício, como jogos ou 
-                        drogas; manutenção de estilo de vida caro e acúmulo de dívidas.
-                    </div>
-                </div> 
-                
-                <div class="step step2">
-                    <div class="titulo mb20 bold animated fadeInDown">  
-                        <!-- <i class="fas fa-brain mr20 size40"></i> -->
-                        <div class="celebro mr20"></div>
-                        <span class="size30">Racionalização</span>
-                    </div>
-                    <div class="animated fadeInUp">  
-                       É a justificação pessoal para ações desonestas. Veja os exemplos: “ninguém sai machucado”; “estou apenas pegando dinheiro emprestado”; “eles cobram caro”; “todos são um pouco desonestos” e “nunca sofri um sinistro”.
-                    </div>
-                </div>
+            function block() {
 
-                <div class="step step3">
-                    <div class="titulo mb20 bold animated fadeInDown">
-                       
-                        <!-- <i class="fas fa-lightbulb mr20 size40"></i> -->
-                        <div class="luz mr20"></div>
-                        <span class="size30">Oportunidade</span>
-                    </div>
-                    <div class="animated fadeInUp">  
-                        É a habilidade para executar a fraude sem consequências. 
-                        Exemplos: alguém da empresa quer se vingar dela; falta de controles 
-                        internos eficazes; insuficiência de segregação nas funções dos 
-                        colaboradores; e deslealdade por parte de alguém da empresa.
-                    </div>
-                </div>
+
+
+                var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+
+
+                if (course.scorm_get_suspendData(_exercCurrent)) {
+
+                    course.notaCurrent();
+
+                    var _res = course.scorm_get_suspendData(_exercCurrent);
+
+                    if (_res == 1) {
+                        _containerTela.find(".feedPositivo").css('display', 'flex');
+                    } else {
+                        _containerTela.find(".feedNegativo").css('display', 'flex');
+                    }
+                    course.liberarNavegacao();
+                }
+
+
+
+
+            }
+
+            function controle() {
+
+                _containerTela.find(".selec").on("click", function() {
+
+                    $(this).parent().find(".selec").removeClass("selecAtivo");
+                    $(this).addClass("selecAtivo");
+
+                    var _sel = $(this).attr("selec");
+
+                    $(this).parent().parent().attr("selec", _sel);
+
+                    var comp = true;
+                    _containerTela.find(".vfItem").each(function(indice, item) {
+
+                        if (!$(item).attr("selec"))
+                            comp = false;
+
+                    });
+
+                    if (comp)
+                        _containerTela.find(".btnConfirmar").css("display", "flex");
+
+                });
+
+                _containerTela.find(".btnConfirmar").on("click", function() {
+
+                    _containerTela.find(".btnConfirmar").css("display", "none");
+                    _containerTela.find(".blockExerc").css("display", "block");
+
+                    _containerTela.find('.selec').addClass("icoInativo");
+                    _containerTela.find('.vfContainer').addClass("vfContainerFeed");
+
+                    var feed = true;
+                    var _feito = [];
+                    _containerTela.find(".vfItem").each(function(indice, item) {
+
+                        //Acertou
+                        if ($(item).attr("res") == $(item).attr("selec")) {
+                            $(item).find('.selecAtivo').removeClass("icoInativo");
+                            $(item).find('.selecAtivo').addClass("positivoVF");
+                        } else {
+                            $(item).find('.selecAtivo').removeClass("icoInativo");
+                            $(item).find('.selecAtivo').addClass("negativoVF");
+                            feed = false;
+                        }
+
+                        _feito.push(
+                            $(item).attr("selec")
+                        );
+
+                    });
+
+                    var _exercCurrent = "ed" + _tela.tema + "_" + _tela.exerc;
+                    course.scorm_set_suspendData(_exercCurrent, JSON.stringify(_feito));
+
+                    var _exercCurrent = "e" + _tela.tema + "_" + _tela.exerc;
+                    if (feed) {
+                        course.scorm_set_suspendData(_exercCurrent, 1);
+                        course.notaCurrent();
+                        _containerTela.find(".feedPositivo").css("display", "flex");
+                    } else {
+                        course.scorm_set_suspendData(_exercCurrent, 0);
+                        course.notaCurrent();
+                        _containerTela.find(".feedNegativo").css("display", "flex");
+                    }
+                });
+
+                _containerTela.find(".fecharFeed").on("click", function() {
+                    _containerTela.find(".feed").css("display", "none");
+                    _containerTela.find(".btnConfirmar").css("display", "none");
+
+                    var _exercCurrent = "ed" + _tela.tema + "_" + _tela.exerc;
+                    if (course.scorm_get_suspendData(_exercCurrent)) {
+                        var _feito = JSON.parse(course.scorm_get_suspendData(_exercCurrent));
+
+                        $.each(_feito, function(indice, item) {
+                            var _itenX = _containerTela.find(".vfItem").eq(indice);
+
+                            if (_itenX.attr('res') == item) {
+
+                                _itenX.find('.selec').each(function(indice, itemDD) {
+
+                                    if ($(itemDD).attr('selec') == item) {
+                                        $(itemDD).addClass("positivoVF");
+                                    } else {
+                                        $(itemDD).addClass("icoInativo");
+                                    }
+
+                                });
+
+                            } else {
+
+                                _itenX.find('.selec').each(function(indice, itemDD) {
+
+                                    if ($(itemDD).attr('selec') == item) {
+                                        $(itemDD).addClass("negativoVF");
+                                    } else {
+                                        $(itemDD).addClass("icoInativo");
+                                    }
+
+                                });
+                            }
+
+                        });
+                    }
+
+
+                    course.liberarNavegacao();
+                });
+            }
+
+
+
+
+        }
+
+
+    })
+</script>
+
+
+<div class="containerAA12 containerAABase">
+    <div class="containerGeral">
+
+        <div class="titulo posicionar animated fadeIn" px="127" py="230">
+            <div class="icox animated zoomIn delay0_8">
+
             </div>
-
-            <div class="triagGrande posicionar animated fadeIn delay1_4" px="312" py="326">
-
+            <div class="txtx animated fadeInUp delay0_8 light size35 azul3">
+                Como você pode imaginar, a aplicação da LGPD trará impactos para seu trabalho no dia a dia. Acima de tudo, é necessário ter muito mais cuidado e responsabilidade com documentos e dados. Leia as afirmações abaixo, e clique em <span class="bold2">V</span>                (verdadeiro) e <span class="bold2">F</span> (falso):
             </div>
-
-            <div class="icoD ico1 posicionar animated fadeIn delay1_6" px="449" py="355" ico=1>
-                <div class="icoX animated infinite pulse"></div>
-            </div>
-
-            <div class="icoD ico2 posicionar animated fadeIn delay1_8" px="340" py="540" ico=3>
-                <div class="icoX animated infinite pulse"></div>
-            </div>
-
-            <div class="icoD ico3 posicionar animated fadeIn delay2_0" px="555" py="540" ico=2>
-                <div class="icoX animated infinite pulse"></div>
-            </div>
-
-             <div class="btnMenuReturn posicionar size26" px="820" py="680">
-                <div class="btnIt animated zoomIn">
-                    Menu
-                </div>
-            </div>
-
-            
-
-            
-           
-            
         </div>
-    
-    
+
+        <div class="lineBase posicionar animated fadeIn" px="270" py="450">
+            <div class="animated fadeInRight delay1_2"></div>
+        </div>
+
+
+        <div class="vfBase posicionar animated fadeIn delay1_8" px="250" py="400">
+
+
+            <div class="vfContainer size28 light azul1">
+                <div class="vfItem vf1" res="v">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            A prestação de serviços que beneficie o titular é um dos casos que permite o tratamento de dados pessoais, e é esse o caso da Zurich.
+                        </div>
+                        <!-- <div class="subFeed subFeedF">
+                            <span class="xbold">Afirmativa falsa:</span> A ANA tem como objetivo avaliar o nível de alfabetização dos estudantes no segundo ano do ensino fundamental.
+                        </div> -->
+                    </div>
+                </div>
+                <div class="vfItem vf2" res="v">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            Os dados devem ser protegidos e bem cuidados não apenas no ambiente virtual, mas também dentro do escritório com documentos físicos.
+                        </div>
+                        <!-- <div class="subFeed">
+                            <span class="xbold">Afirmativa verdadeira:</span> Além de avaliar a apropriação e domínio do sistema da escrita.
+                        </div> -->
+                    </div>
+                </div>
+                <div class="vfItem vf3" res="f">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            Deixar a tela do computador destravada, documentos em cima da mesa, etc., não são um problema porque, na prática, os dados ainda estão dentro da Zurich.
+                        </div>
+                        <!-- <div class="subFeed subFeedF">
+                            <span class="xbold">Afirmativa falsa:</span> Os testes de desempenho são voltados às crianças do segundo ano e visam aferir o desempenho dos mesmos em língua portuguesa e matemática.
+                        </div> -->
+                    </div>
+                </div>
+                <div class="vfItem vf4" res="v">
+
+                    <div class="iVF">
+                        <div class="selec v" selec="v">V</div>
+                        <div class="selec f" selec="f">F</div>
+                    </div>
+                    <div class="question">
+                        <div>
+                            O descarte de dados é previsto, mas é um incidente caso aconteça fora de hora, porque significa perder dados dos segurados.
+                        </div>
+                        <!-- <div class="subFeed">
+                            <span class="xbold">Afirmativa verdadeira:</span> Os questionários visam coletar informações sobre as condições de infraestrutura da escola, formação docente da escola, gestão da unidade escolar e organização do trabalho pedagógico.
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="btnConfirmar animated zoomIn">
+                <div class="btnX light animated zoomIn delay0_2">
+                    RESPODER
+                </div>
+                <div class="btnY bold2 animated zoomIn delay0_4">
+                    01 PONTO
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="feed feedPositivo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 branco">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Parabéns!
+                    </div>
+                    <div class="size23 mt20 bold2">
+                        ISSO MESMO!
+                    </div>
+                    <div class="size35 mt20">
+                        Não podemos deixar a tela do computador destravada, documentos em cima da mesa, nem tomar nenhuma atitude que, dentro ou fora da Zurich, deixem vulneráveis dados pessoais dos segurados.
+
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="feed feedNegativo posicionar animated fadeIn azul1" px="0" py="0">
+
+            <div class="feedBase animated fadeInUp delay0_6 azul1">
+                <div class="fecharFeed"></div>
+
+                <div class="feedInt book2">
+                    <div class="tiX size70 light">
+                        Não foi desta vez!
+                    </div>
+                    <div class="size23 mt20 bold2 up">
+                        VAMOS REVER…
+                    </div>
+                    <div class="size35 mt20">
+                        Não podemos deixar a tela do computador destravada, documentos em cima da mesa, nem tomar nenhuma atitude que, dentro ou fora da Zurich, deixem vulneráveis dados pessoais dos segurados.
+
+                    </div>
+
+                    <div class="subInfo">
+                        <div class="bold2 size40 up">
+                            Sua pontuação é:
+                        </div>
+                        <div class="bold2 size65">
+                            <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
     </div>
+
+
+</div>

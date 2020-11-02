@@ -1,6 +1,3 @@
-/*= AA1
-----------------------------*/
-
 .containerAA12 {
     position: fixed;
     padding: 0;
@@ -8,231 +5,269 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    /* background: url(../../img/cenario6.jpg) no-repeat center;
-    background-size: contain; */
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                background-size: cover; */
 }
+
+.containerAA12 .baseFundoX {
+    /* background: url(../../img/aa3.png) no-repeat center;
+        background-size: content; */
+    background-color: #fff;
+}
+
 
 /* -------------------------------- 
+            
+            Main Components 
+            
+            -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-
-.containerAA12 .content{
+.containerAA12 .titulo {
     position: absolute;
-    width: 930px;
-    line-height: normal;
-    display:flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    /* align-items: center; */
-}
-
-.containerAA12 .content .sub{
-    position: relative;
-    width:100%;
-    height:100%;
-    margin-left: 100px;
-    margin-top: 15px;
-}
-
-
-.containerAA12 .item{
-    position: relative;
-    width: 400px;
-    cursor: pointer;
+    width: 1500px;
     display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-    
-}
-
-.containerAA12 .item .ico{
-    position: relative;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius:20px;
-    background: url(../../img/ico2.svg) no-repeat center;
-    background-size: 80%;   
-}
-
-
-.containerAA12 .item .text{
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-
-.containerAA12 .blocos{
-    position: absolute;
-    width: 930px;
-}
-
-.containerAA12 .titulo{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-/* 
-.containerAA12 .titulo div{
-    width: 50%;
-} */
-
-.containerAA12 .block{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    /* justify-content: center; */
-    align-items: center;
-    margin-top: 0px;
-}
-
-
-.containerAA12 .block .it{
-    width: 45%;
-    padding: 10px;
-}
-.containerAA12 .block .seta{
-    width: 10%;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
     justify-content: center;
-}
-
-.containerAA12 .block .item1{
-    border: 1px solid #0D2554;
-}
-
-.containerAA12 .info{
-    width: 100%;
-    text-align: center;
-}
-
-.containerAA12 .sInativo{
-    /* opacity: 0;
-    pointer-events: none; */
-    display: none;
-}
-
-
-.containerAA12 .triagGrande{
-    position: absolute;
-    background: url(../../img/triangulo.png) no-repeat center;
-    background-size: 100%;
-    width: 394px;
-    height: 332px;   
-}
-
-.containerAA12 .triagBlock{
-    position: absolute;
-    background: url(../../img/blocoTriangulo.png) no-repeat center;
-    background-size: 100%;
-    width: 594px;
-    height: 332px;
-    display: none;
-    overflow: hidden;   
-}
-
-.containerAA12 .ico1{
-    position: absolute;
-     width: 120px;
-    height: 101px;
-    cursor: pointer; 
-}
-
-.containerAA12 .ico1 .icoX{
-    width: 100%;
-    height: 100%;
-    background: url(../../img/triangulo1b.svg) no-repeat;
-    background-position-x:0;
-}
-
-.containerAA12 .ico1 .icoX:hover{
-    background-position-x:-129px;
-}
-
-.containerAA12 .ico2{
-    position: absolute;
-    width: 120px;
-    height: 101px;
-    cursor: pointer; 
-}
-
-.containerAA12 .ico2 .icoX{
-    width: 100%;
-    height: 100%;
-    background: url(../../img/triangulo2b.svg) no-repeat;
-    background-position-x:0;
-}
-
-.containerAA12 .ico2 .icoX:hover{
-    background-position-x:-129px;
-}
-
-.containerAA12 .ico3{
-    position: absolute;
-    width: 120px;
-    height: 101px;
-    cursor: pointer; 
-}
-
-.containerAA12 .ico3 .icoX{
-    width: 100%;
-    height: 100%;
-    background: url(../../img/triangulo3b.svg) no-repeat;
-    background-position-x:0;
-}
-
-.containerAA12 .ico3 .icoX:hover{
-    background-position-x:-129px;
-}
-
-.containerAA12 .icoXAtivo .icoX{
-    background-position-x:-129px;
-}
-
-
-.containerAA12 .step{
-    position: absolute;
-    width: 350px;
-    top: 30px;
-    left:220px;
-    display: none;
-}
-
-.containerAA12 .step .titulo{
-    display:flex;
-    justify-items: center;
     align-items: center;
 }
 
-.containerAA12 .raio2{
+.containerAA12 .icox {
     position: relative;
-    width: 35px;
-    height: 68px;
-    background: url(../../img/raio2.svg) no-repeat;
-    /* background-size: contain; */
+    width: 120px;
+    height: 120px;
+    background: url(../../img/icoExcercicio.svg) no-repeat center;
+    background-size: contain;
 }
 
-.containerAA12 .celebro{
+.containerAA12 .txtx {
     position: relative;
-    width: 53px;
-    height: 53px;
-    background: url(../../img/celebro2.svg) no-repeat;
+    width: 1450px;
+    padding: 30px;
 }
 
-.containerAA12 .luz{
+.containerAA12 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA12 .lineBase div {
     position: relative;
+    width: 100%;
+    border: 3px solid #005aab;
+}
+
+.containerAA12 .vfBase {
+    position: absolute;
+    width: 1300px;
+}
+
+.containerAA12 .vfBase .ico {
+    position: relative;
+    background: url(../../img/icoAA16.png) no-repeat center center;
+    background-size: 100%;
+    width: 83px;
+    height: 83px;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    float: left;
+}
+
+.containerAA12 .vfBase .tilulo div {
+    padding: 10px;
+}
+
+.containerAA12 .vfContainer {
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.containerAA12 .vfItem {
+    width: 100%;
+    /* height: 90px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.containerAA12 .iVF {
+    position: relative;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA12 .question {
+    position: relative;
+    width: 85%;
+}
+
+.containerAA12 .vfContainer .selec {
+    position: relative;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.containerAA12 .vfContainer .selec:hover {
+    background-color: #010766;
+    color: #fff;
+    /* border: 3px solid #936682; */
+}
+
+.containerAA12 .selecAtivo {
+    background-color: #010766 !important;
+    color: #fff !important;
+    /* border: 3px solid #936682; */
+}
+
+.containerAA12 .positivoVF {
+    background-color: #003399 !important;
+    color: #fff !important;
+    pointer-events: none;
+    /* border: 3px solid #936682; */
+}
+
+.containerAA12 .negativoVF {
+    background-color: #B5442D !important;
+    color: #fff !important;
+    pointer-events: none;
+    /* border: 3px solid #936682; */
+}
+
+.containerAA12 .icoInativo {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    /* IE */
+    opacity: 0.2;
+    cursor: none;
+    pointer-events: none;
+}
+
+.containerAA12 .vfContainer .v {
+    /* background-color: #e88846;
+    color: #fff; */
+    border: 1px solid #010766;
+    color: #010766;
+    margin-right: 10px;
+}
+
+.containerAA12 .vfContainer .f {
+    border: 1px solid #010766;
+    color: #010766;
+}
+
+.containerAA12 .btnConfirmar {
+    position: relative;
+    width: 412px;
+    height: 60px;
+    display: none;
+    margin-left: 75%;
+    margin-top: 50px;
+}
+
+.containerAA12 .btnX {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.containerAA12 .btnX:hover {
+    background-color: #003399;
+}
+
+.containerAA12 .btnY {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    border: 1px solid #010766;
+    color: #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA12 .feed {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.776);
+    z-index: 99999999999999999999999999999999999999999;
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.containerAA12 .feedPositivo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #003399;
+}
+
+.containerAA12 .feedNegativo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #D9CEB4;
+}
+
+.containerAA12 .feedInt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* margin: 200px; */
+    padding: 0 210px;
+}
+
+.containerAA12 .subInfo {
+    position: relative;
+    margin-top: 200px;
+}
+
+.containerAA12 .feedPositivo .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar3.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
     width: 51px;
-    height: 53px;
-    background: url(../../img/luz2.svg) no-repeat;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA12 .feedNegativo .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar4.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA12 .fecharFeed:hover {
+    background-position: bottom;
 }

@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA10 {
     position: fixed;
@@ -8,81 +8,140 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    /* background: url(../../img/cenario6.jpg) no-repeat center;
-    background-size: contain; */
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                background-size: cover; */
 }
+
+.containerAA10 .baseFundoX {
+    background: url(../../img/aa10.png) no-repeat center;
+    background-size: content;
+}
+
 
 /* -------------------------------- 
+            
+            Main Components 
+            
+            -------------------------------- */
 
-Main Components 
-
--------------------------------- */
-
-
-.containerAA10 .content{
+.containerAA10 .titulo {
     position: absolute;
-    width: 530px;
-    line-height: normal;
+    width: 1065px;
 }
 
-.containerAA10 .content .sub{
-    position: relative;
-    width:100%;
-    height:100%;
-    /* display:flex; */
-    /* border-left: 1px solid #0D2554; */
-    align-items: center;
-    /* padding: 20px; */
-    /* overflow: hidden;
-    background-color: rgba(0, 158, 221, 0.85);
-    border-radius: 10px; */
-    /* margin-left: 110px; */
-}
-
-
-.containerAA10 .item{
-    position: relative;
-    width: 600px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
-    
-}
-
-.containerAA10 .item .ico{
-    position: relative;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius:20px;
-    background: url(../../img/ico1.svg) no-repeat center;
-    background-size: 80%;   
-}
-
-
-.containerAA10 .item .text{
-    padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-.containerAA10 .element{
+.containerAA10 .lineBase {
     position: absolute;
-    width: 427px;
-    height: 477px;   
+    width: 88px;
 }
 
-.containerAA10 .element .img{
+.containerAA10 .lineBase div {
     position: relative;
-    background: url(../../img/balanca.png) no-repeat center;
-    background-size: 100%;
     width: 100%;
-    height:100%;
+    border: 3px solid #fff;
 }
 
-    
+.containerAA10 .listBase {
+    position: absolute;
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerAA10 .item {
+    position: relative;
+    width: 523px;
+    height: 108px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-top: 3px solid #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.containerAA10 .feed {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.776);
+    z-index: 99999999999999999999999999999999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.containerAA10 .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #fff;
+}
+
+.containerAA10 .feedInt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* margin: 200px; */
+    padding: 0 210px;
+}
+
+.containerAA10 .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar2.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
+}
+
+.containerAA10 .fecharFeed:hover {
+    background-position: bottom;
+}
+
+.containerAA10 .feedBase ul li {
+    list-style-type: square;
+    margin-left: 30px;
+}
+
+.containerAA10 .feedV ul {
+    list-style: none;
+    padding-left: 0;
+    list-style: none !important;
+    list-style-type: none !important;
+}
+
+.containerAA10 .feedV li {
+    position: relative;
+    padding-left: 1.5em;
+    margin-left: 0px !important;
+    margin-bottom: 10px;
+    list-style: none !important;
+    list-style-type: none !important;
+    /* space to preserve indentation on wrap */
+}
+
+.containerAA10 .feedV li:before {
+    content: '\2713\0020';
+    /* placeholder for the SVG */
+    position: absolute;
+    left: 0;
+    /* place the SVG at the start of the padding */
+    width: 1em;
+    height: 1em;
+    /* background: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg width='18' height='18' viewBox='0 0 1792 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1671 566q0 40-28 68l-724 724-136 136q-28 28-68 28t-68-28l-136-136-362-362q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 295 656-657q28-28 68-28t68 28l136 136q28 28 28 68z'/></svg>") no-repeat; */
+}
+
+.containerAA10 .itemInativo {
+    opacity: 0.4;
+    pointer-events: none;
+}

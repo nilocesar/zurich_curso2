@@ -1,5 +1,5 @@
 /*= AA1
-----------------------------*/
+	----------------------------*/
 
 .containerAA16 {
     position: fixed;
@@ -8,178 +8,287 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
+    /* background: url(../../img/cenario1.jpg) no-repeat center;
+                background-size: cover; */
 }
 
+.containerAA16 .baseFundoX {
+    /* background: url(../../img/aa3.png) no-repeat center;
+        background-size: content; */
+    background-color: #fff;
+}
+
+
 /* -------------------------------- 
+            
+            Main Components 
+            
+            -------------------------------- */
 
-Main Components 
+.containerAA16 .titulo {
+    position: absolute;
+    width: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
--------------------------------- */
+.containerAA16 .icox {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: url(../../img/icoExcercicio.svg) no-repeat center;
+    background-size: contain;
+}
+
+.containerAA16 .txtx {
+    position: relative;
+    width: 1450px;
+    padding: 30px;
+}
+
+.containerAA16 .lineBase {
+    position: absolute;
+    width: 88px;
+}
+
+.containerAA16 .lineBase div {
+    position: relative;
+    width: 100%;
+    border: 3px solid #005aab;
+}
+
+.containerAA16 .textBase {
+    position: absolute;
+    width: 660px;
+}
+
+.containerAA16 .baseInContainer {
+    /* background: url(../../img/fundoAA1.png) no-repeat;
+            background-size: 100%; */
+    background-color: rgb(48, 19, 4);
+}
+
+.containerAA16 .texto {
+    height: 300px;
+    position: fixed;
+    width: 600px;
+}
 
 .containerAA16 .content {
     position: absolute;
-    width: 330px;
-    line-height: normal;
+    width: 1450px;
 }
 
-.containerAA16 .content .sub {
+.containerAA16 .exercicio {
     position: relative;
     width: 100%;
-    height: 100%;
-    display: flex;
-    /* border-left: 1px solid #0D2554; */
-    /* align-items: center; */
-    /* padding: 20px; */
-    overflow: hidden;
-    /* background-color: rgba(0, 158, 221, 0.85);
-    border-radius: 10px; */
 }
 
 .containerAA16 .item {
     position: relative;
-    width: 400px;
-    cursor: pointer;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
     align-items: center;
-    margin-bottom: 30px;
-    pointer-events: none;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
-.containerAA16 .item .ico {
+.containerAA16 .textL {
+    text-align: right;
+    padding: 0 10px;
+}
+
+.containerAA16 .textR {
+    padding: 0 10px;
+}
+
+.containerAA16 .item .itemL,
+.containerAA16 .item .itemR {
     position: relative;
-    background-size: 10%;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    border: 2px solid #0D2554;
-    border-radius: 20px;
-    background: url(../../img/ico3.svg) no-repeat center;
-    background-size: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 120px;
 }
 
-.containerAA16 .item .text {
+.containerAA16 .item .itemL {
+    position: relative;
+    background: #fff;
+    border-top: 2px solid #03296A;
+    -webkit-box-shadow: -1px -1px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: -1px -1px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: -1px -1px 5px 0px rgba(50, 50, 50, 0.75);
+    width: 30%;
+    cursor: pointer;
+}
+
+.containerAA16 .item .textL {
+    position: relative;
+    width: 300px;
+    text-align: right;
+}
+
+.containerAA16 .item .itemR {
+    position: relative;
+    width: 75%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.containerAA16 .item .textR {
+    position: relative;
+    width: 850px;
+    height: 100%;
+    background-color: #005aab;
+    color: #fff;
     padding: 10px;
-    color: #0D2554;
-    font-size: 30px;
-}
-
-.containerAA16 .bloco {
-    position: absolute;
-    width: 450px;
-    height: 300px;
-    /* background-color: #041d37 !important; */
-    z-index: 999999999;
+    margin-left: 20px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* padding: 15px; */
-    border-left: 1px solid #0D2554;
-    border-right: 1px solid #0D2554;
-    /* border-radius: 20px; */
+    padding: 20px;
 }
 
-.containerAA16 .nav {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    margin-top: -30px;
-    left: -30px;
-    z-index: 999999;
-}
-
-.containerAA16 .nleft {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #D3C3A5 !important;
-    color: #0D2554;
+.containerAA16 .item .numL {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 4px solid #005aab;
+    background-color: #005aab;
+    border-radius: 5px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.containerAA16 .nright {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #D3C3A5 !important;
-    color: #0D2554;
+.containerAA16 .item .itemL:hover .numL {
+    border-color: black;
+    color: black;
+}
+
+.containerAA16 .numLAtivo {
+    border-color: black !important;
+    color: black !important;
+}
+
+.containerAA16 .item .numR {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 2px solid #577aac;
+    border-radius: 5px;
     cursor: pointer;
-    right: -60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.containerAA16 .nleft:hover,
-.containerAA16 .nright:hover {
-    color: #004C9A;
-}
-
-.containerAA16 .step {
+.containerAA16 .btnConfirmar {
+    position: absolute;
+    width: 412px;
+    height: 60px;
     display: none;
-    overflow: hidden;
 }
 
-.containerAA16 .blocS {
+.containerAA16 .btnX {
     position: relative;
-    padding: 50px;
+    width: 50%;
+    height: 100%;
+    background-color: #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.containerAA16 .btnY {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    border: 1px solid #010766;
+    color: #010766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerAA16 .btnX:hover {
+    background-color: #003399;
+}
+
+.containerAA16 .feed {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.776);
+    z-index: 99999999999999999999999999999999999999999;
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.containerAA16 .feedPositivo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #003399;
+}
+
+.containerAA16 .feedNegativo .feedBase {
+    position: relative;
+    width: 1770px;
+    height: 870px;
+    background-color: #D9CEB4;
+}
+
+.containerAA16 .feedInt {
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
+    justify-content: center;
+    /* align-items: center; */
+    /* margin: 200px; */
+    padding: 0 210px;
 }
 
-.containerAA16 .blocS i {
-    font-size: 70px;
-}
-
-.containerAA16 .blocS div {
-    width: 100%;
-    height: 100px;
-}
-
-.containerAA16 .ico1 {
+.containerAA16 .subInfo {
     position: relative;
-    width: 80px;
-    height: 80px;
-    background: url(../../img/ico1a16.svg) no-repeat center;
-    background-size: contain;
+    margin-top: 200px;
 }
 
-.containerAA16 .ico2 {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    background: url(../../img/livroA16b.svg) no-repeat center;
-    background-size: contain;
+.containerAA16 .feedPositivo .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar3.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
 }
 
-.containerAA16 .ico3 {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    background: url(../../img/notA16b.svg) no-repeat center;
-    background-size: contain;
+.containerAA16 .feedNegativo .fecharFeed {
+    position: absolute;
+    background: url('../../img/btnFechar4.svg') no-repeat center;
+    background-size: 100%;
+    background-position: top;
+    cursor: pointer;
+    width: 51px;
+    height: 51px;
+    top: 20px;
+    right: 20px;
+    z-index: 9999999999999999999999999;
 }
 
-.containerAA16 .ico4 {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    background: url(../../img/clipA16b.svg) no-repeat center;
-    background-size: contain;
+.containerAA16 .fecharFeed:hover {
+    background-position: bottom;
 }
 
-.containerAA16 .ico5 {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    background: url(../../img/balaoa16b.svg) no-repeat center;
-    background-size: contain;
+.containerAA16 .inativoX {
+    pointer-events: none;
 }
