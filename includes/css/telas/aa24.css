@@ -53,14 +53,15 @@
 
 .containerAA24 .bloco {
     position: absolute;
-    width: 1300px;
-    height: 600px;
-    background-color: #041d37 !important;
+    width: 1271px;
+    height: 716px;
+    background-color: #fff !important;
     z-index: 999999999;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 0px;
+    border-top: 5px solid #000066;
 }
 
 .containerAA24 .nav {
@@ -68,41 +69,50 @@
     height: 100%;
     top: 0;
     left: 50%;
+    z-index: 9999999;
 }
 
 .containerAA24 .nleft {
     position: absolute;
-    width: 200px;
-    height: 60px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-color: #000066 !important;
+    width: 110px;
+    height: 20px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    right: -100px;
-    top: -60px;
+    right: -55px;
+    top: 20px;
+    background: url('../../img/btnUp.png') no-repeat;
+    /* background-size: 100%; */
+    background-position: left;
+}
+
+.containerAA24 .nleft span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 30px;
 }
 
 .containerAA24 .nright {
     position: absolute;
-    width: 200px;
-    height: 60px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: #000066 !important;
+    width: 110px;
+    height: 20px;
     cursor: pointer;
-    right: -100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    bottom: -60px;
+    right: -55px;
+    bottom: 20px;
+    background: url('../../img/btnDown.png') no-repeat;
+    /* background-size: 100%; */
+    background-position: left;
+}
+
+.containerAA24 .nright span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 30px;
 }
 
 .containerAA24 .nleft:hover,
 .containerAA24 .nright:hover {
-    background-color: #003399 !important;
+    background-position: right;
 }
 
 .containerAA24 .step {
@@ -114,7 +124,6 @@
     width: 100%;
     height: 100%;
     background-color: #fff;
-    border-radius: 20px;
     justify-content: center;
     align-items: center;
     padding: 100px;
@@ -122,7 +131,7 @@
 }
 
 .containerAA24 .step1 {
-    background-color: #4A8ECC;
+    /* background-color: #4A8ECC; */
 }
 
 .containerAA24 ul li {

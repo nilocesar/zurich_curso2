@@ -18,6 +18,7 @@
                 img_W: course.width,
             });
 
+            reset();
 
             if (_tela.status == false) {
                 _tela.status = true;
@@ -30,11 +31,15 @@
 
             }
 
-            function controleFeed() {
-
+            function reset() {
                 _containerTela.find(".feed").css('display', 'none');
                 _containerTela.find(".item").addClass('itemInativo');
                 _containerTela.find(".item1").removeClass('itemInativo');
+            }
+
+            function controleFeed() {
+
+                reset();
 
                 var _all = _containerTela.find(".item").length;
                 var _current = 0;
@@ -82,7 +87,7 @@
             <div class="animated fadeInRight delay1_2"></div>
         </div>
 
-        <div class="listBase posicionar animated fadeIn azul1 size41 bold2" px="155" py="637">
+        <div class="listBase posicionar animated fadeIn azul1 size41 bold" px="155" py="637">
 
             <div class="item item1 animated zoomIn delay1_4" item="1">
                 Regulatório
@@ -108,17 +113,23 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
-                    <div class="tiX size65 bold2">
+                <div class="feedInt ">
+                    <div class="tiX size65 bold">
                         Regulatório
                     </div>
                     <div class="size30 mt20">
                         <ul>
                             <li>
-                                Criação de nova Autoridade reguladora – ANPD.
+                                Criação de nova autoridade reguladora – ANPD.
                             </li>
                             <li>
-                                Penalidades altas, como multa de até 2% do faturamento da companhia e suspensão.
+                                Penalidades altas, como multa de até 2% do faturamento da companhia.
+                            </li>
+                            <li>
+                                Suspensão parcial do funcionamento do banco de dados envolvido.
+                            </li>
+                            <li>
+                                Suspensão do exercício da atividade de tratamento dos dados pessoais envolvidos.
                             </li>
 
                         </ul>
@@ -132,8 +143,8 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
-                    <div class="tiX size65 bold2">
+                <div class="feedInt ">
+                    <div class="tiX size65 bold">
                         Reputação e marca
                     </div>
                     <div class="size30 mt20">
@@ -156,8 +167,8 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
-                    <div class="tiX size65 bold2">
+                <div class="feedInt ">
+                    <div class="tiX size65 bold">
                         Negócios
                     </div>
                     <div class="size30 mt20">
@@ -182,8 +193,8 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
-                    <div class="tiX size65 bold2">
+                <div class="feedInt ">
+                    <div class="tiX size65 bold">
                         Novas Diretrizes
                     </div>
                     <div class="size30 mt20">

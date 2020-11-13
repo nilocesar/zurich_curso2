@@ -8,7 +8,7 @@ body,
 html {
     width: 100%;
     font-family: "book", Verdana, Geneva, sans-serif;
-    background-color: rgba(150, 40, 115, .0);
+    background-color: #F5F5F5;
     -webkit-font-smoothing: subpixel-antialiased;
     color: #464749 !important;
 }
@@ -416,6 +416,7 @@ i {
     height: 200px;
     margin-left: -200px;
     margin-top: -100px;
+    background-color: #000066;
 }
 
 .tituloSair {
@@ -426,7 +427,7 @@ i {
     color: #fff;
     font-size: 25px;
     padding-top: 18px;
-    background-color: #292828;
+    background-color: #fff;
 }
 
 .subtituloSair {
@@ -445,49 +446,49 @@ i {
     position: relative;
     text-align: center;
     width: 100%;
-    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .simSair {
     position: relative;
-    float: left;
     width: 40%;
     text-align: center;
     color: #fff;
-    font-size: 15px;
     padding: 10px;
     border-style: solid;
     border-width: 1px;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 .simSair:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: #009ee0;
+    color: #fff;
 }
 
 .naoSair {
     position: relative;
-    float: left;
     width: 40%;
     text-align: center;
     color: #fff;
-    font-size: 15px;
     padding: 10px;
     border-style: solid;
     border-width: 1px;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 .naoSair:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: #009ee0;
+    color: #fff;
 }
 
 .textoSair {
     position: relative;
     color: #fff;
-    font-family: "soletoregular" !important;
+    font-family: "book" !important;
     font-size: 18px !important;
     line-height: 1.5;
     margin: 40px !important;

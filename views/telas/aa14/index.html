@@ -18,7 +18,7 @@
                 img_W: course.width,
             });
 
-
+            reset();
             if (_tela.status == false) {
                 _tela.status = true;
 
@@ -28,11 +28,15 @@
 
             }
 
-            function controle() {
-
-
+            function reset() {
                 _containerTela.find(".cardX").addClass('cardXInativo');
                 _containerTela.find(".cardX1").removeClass('cardXInativo');
+            }
+
+            function controle() {
+
+                reset();
+
 
                 _containerTela.find(".cardX").on('click', function() {
 
@@ -67,17 +71,24 @@
 
     <div class="containerGeral">
 
-        <div class="titulo posicionar animated fadeIn" px="127" py="230">
-            <div class="animated fadeInUp delay0_8 light size45 azul3">
-                Não haveria sentido em ter o rigor da lei se não houvesse previsão de penalidades, certo? Clique nos cartões para conhecer todas elas:
+        <div class="titulo posicionar animated fadeIn" px="127" py="280">
+            <div class="animated fadeInUp delay0_8 light size42 azul3">
+                Não haveria sentido em ter o rigor da lei se não houvesse previsão de penalidades, certo?
             </div>
         </div>
 
-        <div class="lineBase posicionar animated fadeIn" px="127" py="380">
+
+        <div class="titulo posicionar animated fadeIn bold" px="127" py="340">
+            <div class="animated fadeInUp delay1_0 size30 azul3">
+                Clique nos cartões para conhecer todas elas:
+            </div>
+        </div>
+
+        <div class="lineBase posicionar animated fadeIn" px="127" py="400">
             <div class="animated fadeInRight delay1_2"></div>
         </div>
 
-        <div class="baseTip posicionar animated fadeIn book2 size32" px="237" py="450">
+        <div class="baseTip posicionar animated fadeIn  size32" px="237" py="450">
 
             <div class="cardX cardX1 animated zoomIn delay1_4" item=1>
                 <div class="content">

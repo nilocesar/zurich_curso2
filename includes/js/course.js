@@ -172,6 +172,27 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
             $public.getComponente("scorm").resetSuspendata();
         }
 
+        $public.resetLessonLocation = function resetLessonLocation() {
+
+            $.each($public.config, function(indice, item) {
+                item.visivel = false;
+                if (item.avancar == 0.1) {
+                    item.avancar = -1;
+                }
+                var page = item;
+                var id = String(page.id).toUpperCase();
+                var _container = $(".container" + id);
+                _container.find(".setaDirBase").css("display", "none");
+                _container.find(".setaDirBase").removeClass("Ativada");
+                var element = _container.find(".setaDirBase .icoSet");
+                element.addClass("fadeIn");
+            });
+
+
+            $public.getComponente("scorm").resetLessonLocation();
+        }
+
+
         $public.resetAll = function resetAll() {
             $public.getComponente("scorm").resetAll();
         }

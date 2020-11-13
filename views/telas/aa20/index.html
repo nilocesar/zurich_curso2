@@ -51,6 +51,13 @@
                         _containerTela.find(".feedNegativo").css('display', 'flex');
                     }
                     course.liberarNavegacao();
+                } else {
+
+                    _containerTela.find(".btnConfirmar").css("display", "none");
+                    _containerTela.find('.vfItem').removeClass("selecAtivo negativoVF icoInativo positivoVF");
+                    _containerTela.find('.selec').removeClass("selecAtivo negativoVF icoInativo positivoVF");
+                    _containerTela.find('.vfItem').attr("selec", -1);
+
                 }
 
 
@@ -72,7 +79,7 @@
                     var comp = true;
                     _containerTela.find(".vfItem").each(function(indice, item) {
 
-                        if (!$(item).attr("selec"))
+                        if ($(item).attr("selec") == -1)
                             comp = false;
 
                     });
@@ -187,7 +194,7 @@
 
             </div>
             <div class="txtx animated fadeInUp delay0_8 light size35 azul3">
-                Há orientações importantíssimas que devem ser seguidas a partir da implementação da LGPD. Avalie as ações abaixo, e clique em <span class="bold2">V</span> (verdadeiro) ou <span class="bold2">F</span> (falso).
+                Há orientações importantíssimas que devem ser seguidas para proteção de dados. Avalie as ações abaixo, e clique em <span class="bold">V</span> (verdadeiro) ou <span class="bold">F</span> (falso).
             </div>
         </div>
 
@@ -237,7 +244,7 @@
                     </div>
                     <div class="question">
                         <div>
-                            É um erro grave enviar mensagens do e-mail corporativo para o e-mail pessoa.
+                            É um erro grave enviar mensagens do e-mail corporativo para o e-mail pessoal.
                         </div>
                         <!-- <div class="subFeed subFeedF">
                             <span class="xbold">Afirmativa falsa:</span> Os testes de desempenho são voltados às crianças do segundo ano e visam aferir o desempenho dos mesmos em língua portuguesa e matemática.
@@ -293,12 +300,12 @@
                 </div>
             </div>
 
-            <div class="btnConfirmar animated zoomIn">
+            <div class="btnConfirmar animated zoomIn size35">
                 <div class="btnX light animated zoomIn delay0_2">
-                    RESPODER
+                    Responder
                 </div>
-                <div class="btnY bold2 animated zoomIn delay0_4">
-                    01 PONTO
+                <div class="btnY bold animated zoomIn delay0_4">
+                    01 Ponto
                 </div>
             </div>
 
@@ -310,23 +317,21 @@
             <div class="feedBase animated fadeInUp delay0_6 branco">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
+                <div class="feedInt ">
                     <div class="tiX size70 light">
                         Parabéns!
                     </div>
-                    <div class="size23 mt20 bold2">
-                        ISSO MESMO!
-                    </div>
+
                     <div class="size35 mt20">
                         Você completou corretamente as afirmações. Realmente não podemos clicar em
-                        <span class="book2_italic">links</span> suspeitos nem devemos utilizar o e-mail corporativo em redes sociais.
+                        <span class="book_italic">links</span> suspeitos nem devemos utilizar o e-mail corporativo em redes sociais.
                     </div>
 
                     <div class="subInfo">
-                        <div class="bold2 size40 up">
+                        <div class="bold size40 up">
                             Sua pontuação é:
                         </div>
-                        <div class="bold2 size65">
+                        <div class="bold size65">
                             <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
                         </div>
                     </div>
@@ -340,22 +345,20 @@
             <div class="feedBase animated fadeInUp delay0_6 azul1">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
+                <div class="feedInt ">
                     <div class="tiX size70 light">
                         Não foi desta vez!
                     </div>
-                    <div class="size23 mt20 bold2 up">
-                        VAMOS REVER…
-                    </div>
+
                     <div class="size35 mt20">
-                        Não podemos clicar em <span class="book2_italic">links</span> suspeitos nem devemos utilizar o e-mail corporativo em redes sociais.
+                        Não podemos clicar em <span class="book_italic">links</span> suspeitos nem devemos utilizar o e-mail corporativo em redes sociais.
                     </div>
 
                     <div class="subInfo">
-                        <div class="bold2 size40 up">
+                        <div class="bold size40 up">
                             Sua pontuação é:
                         </div>
-                        <div class="bold2 size65">
+                        <div class="bold size65">
                             <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
                         </div>
                     </div>

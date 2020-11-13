@@ -52,6 +52,14 @@
                         _containerTela.find(".feedNegativo").css('display', 'flex');
                     }
                     course.liberarNavegacao();
+                } else {
+                    _containerTela.find('.itemL').removeClass("inativoX");
+                    _containerTela.find('.numR').removeClass("inativoX");
+                    _containerTela.find('.numL').removeClass('numLAtivo');
+                    _containerTela.find(".feed").css('display', 'none');
+
+                    _containerTela.find('.numR').text('');
+                    _containerTela.find('.numR').css('background-color', '#fff');
                 }
 
 
@@ -206,18 +214,18 @@
         </div>
 
         <div class="content posicionar animated fadeIn delay1_6" px="250" py="430">
-            <div class="exercicio size25 book2">
+            <div class="exercicio size25 ">
                 <div class="item">
                     <div class="itemL">
                         <div class="textL size35 azul1">
                             Dado pessoal
                         </div>
-                        <div class="numL bold2 branco" item=1>
+                        <div class="numL bold branco" item=1>
                             01
                         </div>
                     </div>
                     <div class="itemR">
-                        <div class="numR bold2 branco" res=4></div>
+                        <div class="numR bold branco" res=4></div>
                         <div class="textR size28">
                             Toda operação realizada com dados pessoais, como coleta, utilização, processamento, armazenamento e eliminação.
                         </div>
@@ -229,12 +237,12 @@
                         <div class="textL size35 azul1">
                             Aplicação
                         </div>
-                        <div class="numL bold2 branco" item=2>
+                        <div class="numL bold branco" item=2>
                             02
                         </div>
                     </div>
                     <div class="itemR">
-                        <div class="numR bold2 branco" res=3></div>
+                        <div class="numR bold branco" res=3></div>
                         <div class="textR size28">
                             Manifestação livre, informada e inequívoca pelo qual o titular concorda com o tratamento de seus dados pessoais para uma finalidade determinada.
                         </div>
@@ -246,14 +254,14 @@
                         <div class="textL size35 azul1">
                             Consentimento
                         </div>
-                        <div class="numL bold2 branco" item=3>
+                        <div class="numL bold branco" item=3>
                             03
                         </div>
                     </div>
                     <div class="itemR">
-                        <div class="numR bold2 branco" res=1></div>
+                        <div class="numR bold branco" res=1></div>
                         <div class="textR size28">
-                            Qualquer informação relacionada a uma pessoa natural que possa ser identiﬁcada ou identificável a partir dos dados
+                            Qualquer informação relacionada a uma pessoa natural que possa ser identificada ou identificável a partir dos dados
                         </div>
                     </div>
                 </div>
@@ -263,12 +271,12 @@
                         <div class="textL size35 azul1">
                             Tratamento
                         </div>
-                        <div class="numL bold2 branco" item=4>
+                        <div class="numL bold branco" item=4>
                             04
                         </div>
                     </div>
                     <div class="itemR">
-                        <div class="numR bold2 branco" res=2></div>
+                        <div class="numR bold branco" res=2></div>
                         <div class="textR size28">
                             Qualquer pessoa natural ou jurídica de direito público ou privado que realize qualquer tipo de tratamento de dados pessoais.
                         </div>
@@ -280,10 +288,10 @@
 
         <div class="btnConfirmar posicionar size35" px="1288" py="965">
             <div class="btnX light animated zoomIn delay0_2">
-                RESPODER
+                Responder
             </div>
-            <div class="btnY bold2 animated zoomIn delay0_4">
-                01 PONTO
+            <div class="btnY bold animated zoomIn delay0_4">
+                01 Ponto
             </div>
         </div>
 
@@ -292,22 +300,20 @@
             <div class="feedBase animated fadeInUp delay0_6 branco">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
+                <div class="feedInt ">
                     <div class="tiX size70 light">
                         Parabéns!
                     </div>
-                    <div class="size23 mt20 bold2">
-                        ISSO MESMO!
-                    </div>
+
                     <div class="size35 mt20">
                         Você relacionou corretamente os conceitos e suas definições.
                     </div>
 
                     <div class="subInfo">
-                        <div class="bold2 size40 up">
+                        <div class="bold size40 up">
                             Sua pontuação é:
                         </div>
-                        <div class="bold2 size65">
+                        <div class="bold size65">
                             <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
                         </div>
                     </div>
@@ -321,22 +327,20 @@
             <div class="feedBase animated fadeInUp delay0_6 azul1">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
+                <div class="feedInt ">
                     <div class="tiX size70 light">
                         Não foi desta vez!
                     </div>
-                    <div class="size23 mt20 bold2 up">
-                        VAMOS REVER…
-                    </div>
+
                     <div class="size35 mt20">
                         Você errou duas ou mais definições. Fique atento pois os conceitos básicos serão utilizados ao longo de todo o curso.
                     </div>
 
                     <div class="subInfo">
-                        <div class="bold2 size40 up">
+                        <div class="bold size40 up">
                             Sua pontuação é:
                         </div>
-                        <div class="bold2 size65">
+                        <div class="bold size65">
                             <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
                         </div>
                     </div>

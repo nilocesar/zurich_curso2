@@ -42,7 +42,7 @@
 
 .containerAA9 .textBase {
     position: absolute;
-    width: 660px;
+    width: 670px;
 }
 
 .containerAA9 .itemX {
@@ -80,7 +80,7 @@
 .containerAA9 .itemX .titCarregamento {
     position: relative;
     height: 50px;
-    /* background-color: #DA3A43; */
+    /* background-color: #ea635c; */
 }
 
 .containerAA9 .itemX .titCarregamento div {
@@ -92,7 +92,7 @@
 .containerAA9 .itemX .titCarregamento2 {
     position: relative;
     height: 50px;
-    /* background-color: #DA3A43; */
+    /* background-color: #ea635c; */
 }
 
 .containerAA9 .itemX .titCarregamento2 div {
@@ -174,7 +174,7 @@
 }
 
 .containerAA9 .status1 .imgCarregamento {
-    color: #DA3A43;
+    color: #ea635c;
 }
 
 .containerAA9 .status2 .imgCarr2 {

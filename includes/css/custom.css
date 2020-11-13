@@ -568,3 +568,18 @@
         background-size: contain !important;
     }
 }
+
+.fecharFeed::after {
+    content: "Clique no X para voltar";
+    position: absolute;
+    width: 240px;
+    text-align: right;
+    left: -250px;
+    height: 51px;
+    line-height: 51px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-size: 20px;
+    font-family: 'light';
+}

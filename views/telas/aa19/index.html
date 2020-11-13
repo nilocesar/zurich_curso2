@@ -31,11 +31,12 @@
 
             }
 
+
+
             function controleFeed() {
 
-                _containerTela.find(".feed").css('display', 'none');
-                _containerTela.find(".item").addClass('itemInativo');
-                _containerTela.find(".item1").removeClass('itemInativo');
+                reset();
+
 
                 var _all = _containerTela.find(".item").length;
                 var _current = 0;
@@ -70,7 +71,7 @@
                 var _stepAll = _containerTela.find(".step").length;
                 var _i = 0;
 
-                _containerTela.find(".feed3 .fecharFeed").css('display', 'none');
+
 
                 _containerTela.find(".nleft").on('click', function() {
 
@@ -132,6 +133,12 @@
                 _containerTela.find(".nright").addClass('animated infinite pulse');
 
                 _containerTela.find(".step1").css('display', 'block');
+
+                _containerTela.find(".feed").css('display', 'none');
+                _containerTela.find(".item").addClass('itemInativo');
+                _containerTela.find(".item1").removeClass('itemInativo');
+
+                _containerTela.find(".feed3 .fecharFeed").css('display', 'none');
             }
         }
     })
@@ -152,7 +159,7 @@
             <div class="animated fadeInRight delay1_2"></div>
         </div> -->
 
-        <div class="listBase posicionar animated fadeIn azul1 size41 bold2 center" px="155" py="537">
+        <div class="listBase posicionar animated fadeIn azul1 size41 bold center" px="155" py="537">
 
             <div class="item item1 animated zoomIn delay1_4" item="1">
                 Objetivos
@@ -183,14 +190,14 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
-                    <div class="tiX size65 bold2">
+                <div class="feedInt ">
+                    <div class="tiX size65 bold">
                         Objetivos
                     </div>
                     <div class="size30 mt20">
-                        Acima de tudo, nos preocupamos com a <span class="bold2">segurança de nossos clientes</span>, com ou sem lei que regule o tratamento de dados. <br><br> Queremos demonstrar nosso compromisso com a Privacidade e Proteção de Dados
-                        Pessoais e apoiar o cumprimento de nossas obrigações legais, garantir <span class="book2_italic">accountability</span> e atribuir responsabilidade em nossas operações de Tratamento de Dados Pessoais.<br><br> Com isso, buscamos
-                        demonstrar que tratamos os Dados Pessoais de nossos clientes, colaboradores e terceiros, de maneira <span class="bold2">justa, transparente, ética e responsável</span>.
+                        Acima de tudo, nos preocupamos com a <span class="bold">segurança dos titulares</span>. <br><br> Queremos demonstrar nosso compromisso com a Privacidade e Proteção de Dados Pessoais e apoiar o cumprimento de nossas obrigações legais,
+                        garantir <span class="book_italic">accountability</span> e atribuir responsabilidade em nossas operações de Tratamento de Dados Pessoais.<br><br> Com isso, buscamos demonstrar que tratamos os Dados Pessoais de nossos clientes,
+                        colaboradores e terceiros, de maneira <span class="bold">justa, transparente, ética e responsável</span>.
 
                     </div>
                 </div>
@@ -202,14 +209,14 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
-                    <div class="tiX size65 bold2">
+                <div class="feedInt ">
+                    <div class="tiX size65 bold">
                         A Política de Proteção de Dados
                     </div>
                     <div class="size30 mt20">
-                        A Política de Proteção de Dados se aplica a todos os funcionários das empresas do Grupo Zurich no Brasil e seus agentes, joint ventures e prestadores de serviços.<br><br> É de responsabilidade da área de Compliance manter atualizada
-                        esta Política, e o cumprimento destes requisitos é da primeira linha de defesa, áreas que manuseiam os dados de clientes, funcionários e terceiros.<br><br> No link <span class="bold2">Responsabilidades</span> você poderá ver o
-                        papel de cada um nesse processo.
+                        A Política de Proteção de Dados se aplica a todos os funcionários das empresas do Grupo Zurich no Brasil e seus agentes, <span class="">joint ventures</span> e prestadores de serviços.<br><br> É de responsabilidade da área de Compliance
+                        manter atualizada esta Política, e o cumprimento destes requisitos é da primeira linha de defesa, áreas que manuseiam os dados de clientes, funcionários e terceiros.<br><br> No link <span class="bold">Responsabilidades</span> você
+                        poderá ver o papel de cada um nesse processo.
 
                     </div>
                 </div>
@@ -221,7 +228,7 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed animated zoomIn delay0_8"></div>
 
-                <div class="feedInt book2">
+                <div class="feedInt ">
 
                     <div class="nav branco size30" stepAtivo=1>
                         <div class="nX nleft">
@@ -232,25 +239,24 @@
                         </div>
                     </div>
 
-                    <div class="tiX size65 bold2">
+                    <div class="tiX size65 bold">
                         Responsabilidades
                     </div>
                     <div class="size30 mt20">
                         <div class="step step1 animated fadeInUp" step="1">
-                            <span class="bold2">O DPPC na área de  <span class="bold2_italic">Compliance</span> é responsável por:</span><br> Apoiar as áreas de negócios, identificar leis e regulamentos que possam gerar conflito e validar o estabelecimento
-                            dos controles adequados. Além disso, deve fornecer consultoria, orientação, treinamento e suporte, bem como monitorar a aplicação dos regulamentos e acompanhar a correção de problemas identificados. <br><br> Muito importante
-                            também é o papel de relatar incidentes, potenciais incidentes e fornecer os dados necessários ao Central Team de Compliance do grupo.
+                            <span class="bold">O DPPC na área de  <span class="bold_italic">Compliance</span> é responsável por:</span><br> Apoiar as áreas de negócios, identificar leis e regulamentos que possam gerar conflito e validar o estabelecimento
+                            dos controles adequados. Além disso, deve fornecer consultoria, orientação, treinamento e suporte, bem como monitorar a aplicação dos regulamentos e acompanhar a correção de problemas identificados.
                         </div>
 
                         <div class="step step2 animated fadeInUp" step="2">
-                            <span class="bold2">O DPO/Encarregado é responsável por:</span><br> Informar e aconselhar o controlador ou processador, bem como seus funcionários, de suas obrigações. Monitorar a aplicação da legislação de proteção de dados,
+                            <span class="bold">O DPO/Encarregado é responsável por:</span><br> Informar e aconselhar o controlador ou processador, bem como seus funcionários, de suas obrigações. Monitorar a aplicação da legislação de proteção de dados,
                             inclusive em auditorias, atividades de conscientização e treinamento da equipe envolvida no processamento das operações.
                             <br><br> Além disso, devem aconselhar as Avaliações de Impacto na Proteção de Dados e monitorar seu desempenho, ser o ponto de contato da Zurich para atendimento das solicitações dos Titulares de Dados Pessoais e da Autoridade
                             Nacional de Proteção de Dados.
                         </div>
 
                         <div class="step step3 animated fadeInUp" step="3">
-                            <span class="bold2">O departamento Jurídico é responsável por:
+                            <span class="bold">O departamento Jurídico é responsável por:
                             </span><br>
                             <div>
                                 Fornecer suporte e assistência ao departamento de Compliance, ao DPO/Encarregado e demais áreas de negócios em relação a:
@@ -261,8 +267,9 @@
                                     <li>Interpretação do alcance extraterritorial de leis e regulamentos.</li>
                                     <li>Opiniões sobre leis e regulamentos conflitantes. </li>
                                     <li>Opiniões sobre casos complexos do ponto de vista jurídico.</li>
-                                    <li>Tratamento de denúncias recebidas por meio do canal de denúncias da Zurich (<span class="book2_italic">Zurich Ethics Line</span>) relacionadas a descumprimentos das políticas do Programa de Privacidade e Proteção de
-                                        Dados Pessoais.</li>
+                                    <li>Tratamento de denúncias recebidas por meio do canal de denúncias da Zurich (<span class="book_italic">Zurich Ethics Line</span>) relacionadas a descumprimentos das políticas do Programa de Privacidade e Proteção de
+                                        Dados Pessoais.
+                                    </li>
                                     <li>Atuação estratégica em casos processuais.</li>
 
                                 </ul>
@@ -270,14 +277,14 @@
                         </div>
 
                         <div class="step step4 animated fadeInUp" step="4">
-                            <span class="bold2">Os demais funcionários são responsáveis por:
+                            <span class="bold">Os demais funcionários são responsáveis por:
                             </span><br> Conhecer, entender e cumprir os requisitos da Política de Proteção de Dados Pessoais, participar e concluir os treinamentos relativos ao tema. O objetivo é que os funcionários compreendam
                             as consequências de não cumprir a política e possam relatar, quando necessário e de boa fé, qualquer possível problema com relação à proteção de dados.
 
                         </div>
 
                         <div class="step step5 animated fadeInUp" step="5">
-                            <span class="bold2">Os Agentes de Proteção de Dados são responsáveis por:
+                            <span class="bold">Os Agentes de Proteção de Dados são responsáveis por:
                             </span><br> Atuar como pontos focais do DPO/Encarregado, nas respectivas áreas em que atuam, facilitar a comunicação entre os colaboradores da Zurich e o DPO/Encarregado, auxiliar os demais colaboradores
                             nas questões relativas à privacidade e proteção de Dados Pessoais. Além disso, levantar informações de projetos da área em que é responsável, para auxílio no preparo de Avaliações de Impacto à Proteção de Dados.
                         </div>
@@ -294,13 +301,13 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
-                    <div class="tiX size65 bold2">
+                <div class="feedInt ">
+                    <div class="tiX size65 bold">
                         Orientações
                     </div>
                     <div class="size30 mt20">
-                        Temos como orientação geral se comprometer a manter a confidencialidade dos <span class="bold2">Dados Pessoais</span> e o respeito ao direito das pessoas à privacidade. Os Dados Pessoais são processados somente para atender às
-                        necessidades do negócio, sendo o acesso a esses dados concedido somente às pessoas que deles precisem tomar conhecimento.<br><br> Para conhecer as orientações práticas, consulte a Política de Proteção de Dados do Grupo Zurich.
+                        Temos como orientação geral se comprometer a manter a confidencialidade dos <span class="bold">Dados Pessoais</span> e o respeito ao direito das pessoas à privacidade. Os Dados Pessoais são processados somente para atender às necessidades
+                        do negócio, sendo o acesso a esses dados concedido somente às pessoas que deles precisem tomar conhecimento.<br><br> Para conhecer as orientações práticas, consulte a Política de Proteção de Dados do Grupo Zurich.
 
 
                     </div>
@@ -313,13 +320,13 @@
             <div class="feedBase animated fadeInUp delay0_6">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
-                    <div class="tiX size65 bold2">
+                <div class="feedInt ">
+                    <div class="tiX size65 bold">
                         Estrutura
                     </div>
                     <div class="size30 mt20 baseXEstrutura cinza1">
                         <div class="itd it1">
-                            <div class="size26 bold2 azul1 mb20">
+                            <div class="size26 bold azul1 mb20">
                                 Comitê Executivo
                             </div>
                             <div class="size26">
@@ -328,7 +335,7 @@
                         </div>
                         <div class="itd it2"></div>
                         <div class="itd it3">
-                            <div class="size26 bold2 azul1 mb20">
+                            <div class="size26 bold azul1 mb20">
                                 Comitê de Proteção de Dados
                             </div>
                             <div class="size26">

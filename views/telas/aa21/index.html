@@ -52,6 +52,14 @@
                         _containerTela.find(".feedNegativo").css('display', 'flex');
                     }
                     course.liberarNavegacao();
+                } else {
+                    _containerTela.find('.itemL').removeClass("inativoX");
+                    _containerTela.find('.numR').removeClass("inativoX");
+                    _containerTela.find('.numL').removeClass('numLAtivo');
+                    _containerTela.find(".feed").css('display', 'none');
+
+                    _containerTela.find('.numR').text('');
+                    _containerTela.find('.numR').css('background-color', '#fff');
                 }
 
 
@@ -203,18 +211,18 @@
         </div>
 
         <div class="content posicionar animated fadeIn delay1_6" px="130" py="430">
-            <div class="exercicio size25 book2">
+            <div class="exercicio size25 ">
                 <div class="item">
                     <div class="itemL">
                         <div class="textL size28 azul1">
                             O Comitê de Proteção de Dados composto por diretores, superintendentes ou gerentes da companhia, e é responsável...
                         </div>
-                        <div class="numL bold2 branco" item=1>
+                        <div class="numL bold branco" item=1>
                             01
                         </div>
                     </div>
                     <div class="itemR">
-                        <div class="numR bold2 branco" res=3></div>
+                        <div class="numR bold branco" res=3></div>
                         <div class="textR size28">
                             ... por observar e atender as diretrizes da Política da Zurich, bem como auxiliar os outros colaboradores com relação à privacidade e proteção de dados.
                         </div>
@@ -226,14 +234,14 @@
                         <div class="textL size28 azul1">
                             O encarregado/DPO é responsável,<br> entre outras coisas,...
                         </div>
-                        <div class="numL bold2 branco" item=2>
+                        <div class="numL bold branco" item=2>
                             02
                         </div>
                     </div>
                     <div class="itemR">
-                        <div class="numR bold2 branco" res=4></div>
+                        <div class="numR bold branco" res=4></div>
                         <div class="textR size28">
-                            ... conhecer a política da Zurich, participar dos treinamentos, compreender a importância da lei e as consequências de sua não aplicação.
+                            ... por conhecer a política da Zurich, participar dos treinamentos, compreender a importância da lei e as consequências de sua não aplicação.
                         </div>
                     </div>
                 </div>
@@ -243,12 +251,12 @@
                         <div class="textL size28 azul1">
                             Os agentes de proteção de <br>dados são responsáveis...
                         </div>
-                        <div class="numL bold2 branco" item=3>
+                        <div class="numL bold branco" item=3>
                             03
                         </div>
                     </div>
                     <div class="itemR">
-                        <div class="numR bold2 branco" res=1></div>
+                        <div class="numR bold branco" res=1></div>
                         <div class="textR size28">
                             ... pela aplicação e deliberação a respeito da proteção de dados.
                         </div>
@@ -260,12 +268,12 @@
                         <div class="textL size28 azul1">
                             Os demais colaboradores são responsáveis...
                         </div>
-                        <div class="numL bold2 branco" item=4>
+                        <div class="numL bold branco" item=4>
                             04
                         </div>
                     </div>
                     <div class="itemR">
-                        <div class="numR bold2 branco" res=2></div>
+                        <div class="numR bold branco" res=2></div>
                         <div class="textR size28">
                             ... pelo aconselhamento do controlador e pelo monitoramento da organização com relação a aplicação da legislação.
                         </div>
@@ -279,10 +287,10 @@
 
         <div class="btnConfirmar posicionar size35" px="1378" py="975">
             <div class="btnX light animated zoomIn delay0_2">
-                RESPODER
+                Responder
             </div>
-            <div class="btnY bold2 animated zoomIn delay0_4">
-                01 PONTO
+            <div class="btnY bold animated zoomIn delay0_4">
+                01 Ponto
             </div>
         </div>
 
@@ -291,22 +299,20 @@
             <div class="feedBase animated fadeInUp delay0_6 branco">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
+                <div class="feedInt ">
                     <div class="tiX size70 light">
                         Parabéns!
                     </div>
-                    <div class="size23 mt20 bold2">
-                        ISSO MESMO!
-                    </div>
+
                     <div class="size35 mt20">
                         Você relacionou corretamente os níveis e suas definições. É importante conhecer o papel de cada um para que a gente consiga garantir a segurança dos dados de nossos clientes.
                     </div>
 
                     <div class="subInfo">
-                        <div class="bold2 size40 up">
+                        <div class="bold size40 up">
                             Sua pontuação é:
                         </div>
-                        <div class="bold2 size65">
+                        <div class="bold size65">
                             <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
                         </div>
                     </div>
@@ -320,22 +326,20 @@
             <div class="feedBase animated fadeInUp delay0_6 azul1">
                 <div class="fecharFeed"></div>
 
-                <div class="feedInt book2">
+                <div class="feedInt ">
                     <div class="tiX size70 light">
                         Não foi desta vez!
                     </div>
-                    <div class="size23 mt20 bold2 up">
-                        VAMOS REVER…
-                    </div>
+
                     <div class="size35 mt20">
                         Você errou duas ou mais definições. É importante conhecer o papel de cada um para que a gente consiga garantir a segurança dos dados de nossos clientes.
                     </div>
 
                     <div class="subInfo">
-                        <div class="bold2 size40 up">
+                        <div class="bold size40 up">
                             Sua pontuação é:
                         </div>
-                        <div class="bold2 size65">
+                        <div class="bold size65">
                             <span class="numberCurrent">01</span> de <span class="numberAll">08</span>
                         </div>
                     </div>

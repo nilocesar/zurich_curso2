@@ -2,16 +2,17 @@
   Família Frutiger
 ==============================================================================*/
 
-@font-face {
+
+/* @font-face {
     font-family: 'book';
     src: url('../fonts/garamond/EBGaramond-Regular.eot');
     src: url('../fonts/garamond/EBGaramond-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/garamond/EBGaramond-Regular.woff') format('woff'), url('../fonts/garamond/EBGaramond-Regular.ttf') format('truetype'), url('../fonts/garamond/EBGaramond-Regular.svg#webfontiD0t8Rg6') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+} */
 
 @font-face {
-    font-family: 'book2';
+    font-family: 'book';
     src: url('../fonts/frutiger/frutiger-roman-webfont.eot');
     src: url('../fonts/frutiger/frutiger-roman-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/frutiger/frutiger-roman-webfont.woff') format('woff'), url('../fonts/frutiger/frutiger-roman-webfont.ttf') format('truetype'), url('../fonts/frutiger/frutiger-roman-webfont.svg#webfontiD0t8Rg6') format('svg');
     font-weight: normal;
@@ -26,16 +27,17 @@
     font-style: normal;
 }
 
-@font-face {
+
+/* @font-face {
     font-family: 'bold';
     src: url('../fonts/garamond/EBGaramond-Bold.eot');
     src: url('../fonts/garamond/EBGaramond-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/garamond/EBGaramond-Bold.woff') format('woff'), url('../fonts/garamond/EBGaramond-Bold.ttf') format('truetype'), url('../fonts/garamond/EBGaramond-Bold.svg#webfontZyy4cpE6') format('svg');
     font-weight: bold;
     font-style: normal;
-}
+} */
 
 @font-face {
-    font-family: 'bold2';
+    font-family: 'bold';
     src: url('../fonts/frutiger/frutiger-bold-webfont.eot');
     src: url('../fonts/frutiger/frutiger-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/frutiger/frutiger-bold-webfont.woff') format('woff'), url('../fonts/frutiger/frutiger-bold-webfont.ttf') format('truetype'), url('../fonts/frutiger/frutiger-bold-webfont.svg#webfontZyy4cpE6') format('svg');
     font-weight: bold;
@@ -75,25 +77,18 @@
     font-family: "book" !important;
 }
 
-.book2 {
-    font-family: "book2" !important;
-}
-
 .light {
     font-family: "light" !important;
 }
 
 .bold {
     font-family: "bold" !important;
-    /* font-weight:bold !important; */
-    /* font-family: "bold" !important; */
 }
 
-.bold2 {
-    font-family: "bold2" !important;
-    /* font-weight:bold !important; */
-    /* font-family: "bold" !important; */
-}
+
+/* .bold {
+    font-family: "bold" !important;
+} */
 
 .xbold {
     font-family: "bold" !important;
@@ -106,17 +101,13 @@
     font-style: italic!important;
 }
 
-.book2_italic {
-    font-family: "book2" !important;
-    font-style: italic!important;
-}
-
 .bold_italic {
     font-family: "bold" !important;
     font-style: italic!important;
 }
 
-.bold2_italic {
-    font-family: "bold2" !important;
+
+/* .bold_italic {
+    font-family: "bold" !important;
     font-style: italic!important;
-}
+} */

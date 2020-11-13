@@ -90,7 +90,7 @@
 .containerAA28 .itemX .titCarregamento {
     position: relative;
     height: 50px;
-    /* background-color: #DA3A43; */
+    /* background-color: #ea635c; */
 }
 
 .containerAA28 .itemX .titCarregamento div {
@@ -102,7 +102,7 @@
 .containerAA28 .itemX .titCarregamento2 {
     position: relative;
     height: 50px;
-    /* background-color: #DA3A43; */
+    /* background-color: #ea635c; */
 }
 
 .containerAA28 .itemX .titCarregamento2 div {
@@ -184,7 +184,7 @@
 }
 
 .containerAA28 .status1 .imgCarregamento {
-    color: #DA3A43;
+    color: #ea635c;
 }
 
 .containerAA28 .status2 .imgCarr2 {
@@ -329,4 +329,20 @@
 
 .containerAA28 .fecharFeed:hover {
     background-position: bottom;
+}
+
+.containerAA28 .btnReset {
+    position: relative;
+    width: 400px;
+    text-align: center;
+    border: 1px solid #000066;
+    color: #000066;
+    /* background: #000066; */
+    cursor: pointer;
+    padding: 15px;
+}
+
+.containerAA28 .btnReset:hover {
+    background: #000066;
+    color: #fff;
 }

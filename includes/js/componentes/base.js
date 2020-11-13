@@ -85,7 +85,7 @@ define(['jquery', 'nicescroll'], function($) {
                     if ($parent.indice == value.indice) {
 
                         $private.contadorTitulosStatus(index, value, _indice, _config);
-                        $private.destravarStatus(index, value, _indice, _config);
+                        //$private.destravarStatus(index, value, _indice, _config);
                         $private.createCustom();
                         //$private.resetAnimate();
                     }

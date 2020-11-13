@@ -26,8 +26,6 @@
 
             function nav() {
 
-                controleFundo(1);
-
                 _containerTela.find(".nleft").on('click', function() {
 
                     var _step = parseInt($(this).parent().attr('stepAtivo')) - 1;
@@ -69,17 +67,19 @@
 
                 });
 
-                function controleFundo(_step) {
 
-                    _containerTela.find(".baX").css('display', 'none');
-                    if (_step == 1) {
-                        _containerTela.find(".baX1").css('display', 'block');
-                    } else if (_step > 1 && _step < 5) {
-                        _containerTela.find(".baX2").css('display', 'block');
-                    } else {
-                        _containerTela.find(".baX3").css('display', 'block');
-                    }
 
+            }
+
+            function controleFundo(_step) {
+
+                _containerTela.find(".baX").css('display', 'none');
+                if (_step == 1) {
+                    _containerTela.find(".baX1").css('display', 'block');
+                } else if (_step > 1 && _step < 5) {
+                    _containerTela.find(".baX2").css('display', 'block');
+                } else {
+                    _containerTela.find(".baX3").css('display', 'block');
                 }
 
             }
@@ -91,7 +91,8 @@
 
                 _containerTela.find(".nright").css('display', 'flex');
                 _containerTela.find(".step1").css('display', 'flex');
-                _containerTela.find(".menu").css('display', 'none');
+
+                controleFundo(1);
             }
 
 
@@ -122,48 +123,48 @@
         </div>
 
 
-        <div class="bloco posicionar animated fadeIn delay0_8" px="300" py="350">
+        <div class="bloco posicionar animated fadeIn delay0_8" px="325" py="280">
 
 
-            <div class="nav branco size60" stepAtivo=1>
+            <div class="nav branco light size22 azul3" stepAtivo=1>
                 <div class="nX nleft">
-                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                    <span>Voltar</span>
                 </div>
                 <div class="nX nright">
-                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    <span>Veja mais</span>
                 </div>
             </div>
 
             <div class="step step1 animated fadeIn delay0_2" step=1>
-                <div class="branco size45 light">
+                <div class="azul1 size45 light">
                     Como você pode imaginar, a LGPD também tem efeito nas relações de trabalho, no Estado (exigindo que haja autoridades de fiscalização), nas relações internacionais, além de diversos outros desafios para sua aplicação.<br><br> Vamos
                     analisar agora esses efeitos:
                 </div>
             </div>
 
             <div class="step step2 animated fadeIn delay0_2" step=2>
-                <div class="azul1 size30 book2">
-                    <div class="bold2 size60">
+                <div class="azul1 size30 ">
+                    <div class="bold size60">
                         Direitos dos colaboradores
                     </div>
                     <div class="mt10">
-                        <span class="bold2">Fase Pré-Contratual</span><br> Empresas devem informar o candidato de maneira clara que seus dados serão utilizados para recrutamento, avaliação e seleção e informar o prazo de manutenção.
-                        <br><br> As empresas deverão ter cautela no uso de informações pretéritas do candidato (ex.: existência de ações trabalhistas) como elemento capaz de deﬁnir sua contratação ou não, já que, nos termos da LGPD, dados pessoais referentes
+                        <span class="bold">Fase Pré-Contratual</span><br> Empresas devem informar o candidato de maneira clara que seus dados serão utilizados para recrutamento, avaliação e seleção e informar o prazo de manutenção.
+                        <br><br> As empresas deverão ter cautela no uso de informações pretéritas do candidato (ex.: existência de ações trabalhistas) como elemento capaz de definir sua contratação ou não, já que, nos termos da LGPD, dados pessoais referentes
                         ao exercício regular de direitos pelo titular não podem ser utilizados em seu prejuízo (art. 21).
                     </div>
                 </div>
             </div>
 
             <div class="step step3 animated fadeIn delay0_2" step=3>
-                <div class="azul1 size30 book2">
-                    <div class="bold2 size60">
+                <div class="azul1 size30 ">
+                    <div class="bold size60">
                         Direitos dos colaboradores
                     </div>
                     <div class="mt10">
-                        <span class="bold2">Fase Contratual</span><br> O consentimento para tratamento dos dados pessoais do empregado agora está previsto no contrato de trabalho:<br><br>
+                        <span class="bold">Fase Contratual</span><br> O consentimento para tratamento dos dados pessoais do empregado agora está previsto no contrato de trabalho:<br><br>
                         <ul>
                             <li>
-                                Consentimento expresso e as ﬁnalidades determinadas;
+                                Consentimento expresso e as finalidades determinadas;
                             </li>
                             <li>
                                 Alterações relacionadas ao tratamento das informações devem <br>ser comunicadas.
@@ -175,24 +176,24 @@
 
 
             <div class="step step4 animated fadeIn delay0_2" step=4>
-                <div class="azul1 size30 book2">
-                    <div class="bold2 size60">
+                <div class="azul1 size30 ">
+                    <div class="bold size60">
                         Direitos dos colaboradores
                     </div>
                     <div class="mt10">
-                        <span class="bold2">Fase Pós-Contratual</span><br> Encerrada a relação de trabalho, os dados pessoais do empregado devem ser eliminados, salvo nas hipóteses de obrigação legal de conservar tais documentos, para atendimento, por
-                        exemplo, de ﬁscalizações e ações trabalhistas.
+                        <span class="bold">Fase Pós-Contratual</span><br> Encerrada a relação de trabalho, os dados pessoais do empregado podem ser eliminados, salvo nas hipóteses de obrigação legal de conservar tais documentos, para atendimento, por
+                        exemplo, de fiscalizações e ações trabalhistas.
                     </div>
                 </div>
             </div>
 
             <div class="step step5 animated fadeIn delay0_2" step=5>
-                <div class="azul1 size30 book2">
-                    <div class="bold2 size60">
+                <div class="azul1 size30 ">
+                    <div class="bold size60">
                         Autoridade e Conselho Nacional de Proteção De Dados
                     </div>
                     <div class="mt10">
-                        <span class="bold2">Principais competências:</span><br>
+                        <span class="bold">Principais competências:</span><br>
                         <ul>
                             <li>
                                 Zelar pela proteção de dados nos termos da Lei.
@@ -218,12 +219,12 @@
             </div>
 
             <div class="step step6 animated fadeIn delay0_2" step=6>
-                <div class="azul1 size30 book2">
-                    <div class="bold2 size60">
+                <div class="azul1 size30 ">
+                    <div class="bold size60">
                         Conselho Nacional de Proteção <br>de Dados
                     </div>
                     <div class="mt10">
-                        <span class="bold2">Principais competências:</span><br>
+                        <span class="bold">Principais competências:</span><br>
                         <ul>
                             <li>
                                 Propor diretrizes estratégicas.
@@ -248,7 +249,7 @@
 
 
 
-        </div>å
+        </div>
 
 
 
