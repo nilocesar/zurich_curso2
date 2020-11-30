@@ -31,10 +31,10 @@
 
 .logoBase {
     position: absolute;
-    background: url(../img/logoZurich.svg) no-repeat center;
+    background: url(../img/logo3x.svg) no-repeat center;
     background-size: 100%;
-    width: 152px;
-    height: 93px;
+    width: 203px;
+    height: 50px;
     z-index: 999999999999999999999999999999999999999999999;
 }
 
