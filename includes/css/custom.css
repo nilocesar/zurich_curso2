@@ -583,3 +583,7 @@
     font-size: 20px;
     font-family: 'light';
 }
+
+.ativarClique {
+    cursor: pointer !important;
+}

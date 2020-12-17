@@ -353,8 +353,8 @@ define(['jquery', 'jquery_scorm', 'modernizr', 'imagesloaded',
 
 
 
-
-            _container.find('.itemX').on('click', function() {
+            _container.find('.item' + _menu).addClass('ativarClique'); /// ta no css custom.css
+            _container.find('.item' + _menu).on('click', function() {
 
 
                 var _tela = $(this).attr('item');
